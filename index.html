@@ -113,10 +113,11 @@ svg{flex:none}
    ============================================================ */
 .app{display:flex;min-height:100vh}
 
-/* ---------- SIDEBAR ---------- */
+/* ---------- SIDEBAR (blanco) ---------- */
 .sidebar{
   width:var(--sidebar-w);flex:none;
-  background:var(--navy-900);
+  background:#fff;
+  border-right:1px solid var(--gray-200);
   display:flex;flex-direction:column;
   position:sticky;top:0;align-self:flex-start;
   height:100vh;
@@ -130,51 +131,49 @@ svg{flex:none}
 }
 .logo-slot img{display:block;width:auto;max-width:100%}
 
-/* Botón blanco con el logotipo de Shutpoint a color */
+/* El logo ya no lleva botón: va directo sobre el sidebar blanco */
 .brand-btn{
   display:inline-flex;align-items:center;justify-content:center;
-  background:#fff;border-radius:12px;
-  padding:10px 15px;
-  box-shadow:0 2px 10px rgba(9,17,34,.28), 0 0 0 1px rgba(255,255,255,.06);
-  transition:.18s var(--ease);
+  border-radius:8px;padding:2px;margin:-2px;
+  transition:.16s var(--ease);
 }
-.brand-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(9,17,34,.34), 0 0 0 1px rgba(255,255,255,.1)}
-.brand-btn:active{transform:translateY(0)}
-.brand-btn .brand-full{height:22px}
-.brand-btn .brand-icon{display:none;height:24px}
+.brand-btn:hover{background:var(--brand-050)}
+.brand-btn .brand-full{height:24px}
+.brand-btn .brand-icon{display:none;height:26px}
 
 .nav{flex:1;overflow-y:auto;padding:6px 12px 12px}
 .nav-label{
   padding:12px 10px 6px;
   font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-  color:rgba(255,255,255,.36);
+  color:var(--gray-400);
 }
 .nav-item{
   display:flex;align-items:center;gap:11px;width:100%;
   padding:9px 10px;margin-bottom:2px;
   border-radius:8px;
-  color:rgba(255,255,255,.72);
+  color:var(--gray-600);
   font-size:13.5px;font-weight:500;
   text-align:left;
   transition:background .16s var(--ease),color .16s var(--ease);
   position:relative;
 }
-.nav-item svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;opacity:.85}
-.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;opacity:.9}
+.nav-item:hover{background:var(--brand-050);color:var(--brand-700)}
 .nav-item.active{background:var(--brand-500);color:#fff;box-shadow:0 2px 10px rgba(43,133,209,.35)}
 .nav-item.active svg{opacity:1}
 .nav-item .chip{
   margin-left:auto;font-size:11px;font-weight:600;
-  background:rgba(255,255,255,.16);color:#fff;
+  background:var(--gray-100);color:var(--gray-600);
   padding:1px 7px;border-radius:99px;
 }
-.nav-item.active .chip{background:rgba(255,255,255,.24)}
+.nav-item:hover .chip{background:var(--brand-100);color:var(--brand-700)}
+.nav-item.active .chip{background:rgba(255,255,255,.24);color:#fff}
 
-.sidebar-foot{padding:12px 16px 16px;border-top:1px solid rgba(255,255,255,.09)}
+.sidebar-foot{padding:12px 16px 16px;border-top:1px solid var(--gray-100)}
 .logo-slot--foot{margin:0 0 14px}
-.logo-slot--foot .brand-full{height:13px;opacity:.8}
-.logo-slot--foot .brand-icon{display:none;height:18px;opacity:.8}
-.user-mini{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.8)}
+.logo-slot--foot .brand-full{height:15px;opacity:.9}
+.logo-slot--foot .brand-icon{display:none;height:18px;opacity:.9}
+.user-mini{display:flex;align-items:center;gap:10px;color:var(--gray-600)}
 .avatar{
   width:30px;height:30px;border-radius:99px;flex:none;
   background:linear-gradient(140deg,var(--brand-500),var(--brand-700));
@@ -182,8 +181,8 @@ svg{flex:none}
   display:flex;align-items:center;justify-content:center;
 }
 .user-mini .meta{min-width:0}
-.user-mini .name{font-size:12.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.user-mini .role{font-size:11px;color:rgba(255,255,255,.5)}
+.user-mini .name{font-size:12.5px;font-weight:600;color:var(--gray-900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-mini .role{font-size:11px;color:var(--gray-500)}
 
 /* ---------- MAIN ---------- */
 .main{flex:1;min-width:0;display:flex;flex-direction:column}
@@ -629,7 +628,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 .crumb-link:hover{color:var(--brand-600);background:var(--brand-050)}
 
 .logo-slot--foot{border-radius:8px;padding:4px 5px;margin-left:-5px;transition:.16s var(--ease)}
-.logo-slot--foot:hover{background:rgba(255,255,255,.07)}
+.logo-slot--foot:hover{background:var(--brand-050)}
 .logo-slot--foot:hover img{opacity:1}
 
 /* ============================================================
@@ -961,7 +960,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 
   <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar" id="sidebar">
-    <!-- Logo de Shutpoint sobre botón blanco -->
+    <!-- Logo de Shutpoint a color, directo sobre el sidebar blanco -->
     <div class="logo-slot">
       <button class="brand-btn" data-goto="dashboard" title="Ir al dashboard">
         <img class="brand-full" src="assets/shutpoint-logo-color.png" alt="Shutpoint" />
@@ -1029,8 +1028,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
     <div class="sidebar-foot">
       <!-- Powered by Axsis · lleva al Dashboard -->
       <button class="logo-slot logo-slot--foot" data-goto="dashboard" title="Ir al dashboard">
-        <img class="brand-full" src="assets/powered-by-axsis-blanco.png" alt="powered by axsis" />
-        <img class="brand-icon" src="assets/axsis-icon-blanco.png" alt="Axsis" />
+        <img class="brand-full" src="assets/powered-by-axsis-color.png" alt="powered by axsis" />
+        <img class="brand-icon" src="assets/axsis-icon-color.png" alt="Axsis" />
       </button>
       <div class="user-mini">
         <div class="avatar">RF</div>
