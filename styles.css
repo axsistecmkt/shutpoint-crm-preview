@@ -275,7 +275,7 @@ a{text-decoration:none;color:inherit}
 
 /* ===================== CONTACT ===================== */
 .contact{background:#fff;padding:80px 0 36px}
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:stretch}
 .contact-brand.mobile-only-brand{display:none}
 .contact-info h2{font-size:30px;font-weight:400;color:var(--navy);line-height:1.25}
 .contact-info h2 strong{font-weight:800}
@@ -287,17 +287,17 @@ a{text-decoration:none;color:inherit}
 .socials a{width:44px;height:44px;display:block;transition:transform .2s}
 .socials a:hover{transform:translateY(-3px)}
 .socials img{width:44px;height:44px}
-.contact-brand{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:8px}
+.contact-brand{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:40px}
 .cb-logo{height:42px;width:auto;max-width:none}
 .cb-powered{height:23px;width:auto;max-width:none}
 
-.contact-form{display:flex;flex-direction:column;gap:20px}
+.contact-form{display:flex;flex-direction:column;gap:20px;height:100%}
 .contact-form input,.contact-form textarea{
   font-family:inherit;font-size:18px;color:var(--navy);
   border:1.5px solid #d7d9df;border-radius:999px;padding:18px 26px;background:#fff;outline:none;
   transition:border-color .2s;
 }
-.contact-form textarea{border-radius:22px;resize:vertical}
+.contact-form textarea{border-radius:22px;resize:none;flex:1;min-height:90px}
 .contact-form input::placeholder,.contact-form textarea::placeholder{color:#8b8f98}
 .contact-form input:focus,.contact-form textarea:focus{border-color:var(--blue)}
 .recaptcha{display:flex;justify-content:space-between;align-items:center;border:1px solid #d7d9df;border-radius:12px;padding:14px 16px;background:#fafafa;max-width:340px}
@@ -439,8 +439,9 @@ a{text-decoration:none;color:inherit}
   .contact-brand{margin-top:26px;margin-bottom:8px}
   .cb-logo{height:34px}
   .cb-powered{height:19px}
-  .contact-form{gap:14px}
+  .contact-form{gap:14px;height:auto}
   .contact-form input,.contact-form textarea{font-size:15px;padding:14px 20px}
+  .contact-form textarea{flex:none;min-height:110px;resize:vertical}
   .form-submit{width:100%}
   .desktop-only-brand{display:none}
 
@@ -539,7 +540,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
   display:flex;height:100vh;height:100dvh;background:var(--navy-deep);overflow:hidden;
 }
 .login-left{
-  flex:1 1 46%;color:#fff;display:flex;flex-direction:column;
+  flex:1 1 60%;color:#fff;display:flex;flex-direction:column;
   padding:clamp(20px,4vh,44px) clamp(24px,5vw,80px) clamp(20px,4vh,40px);position:relative;
   min-height:0;
 }
@@ -548,7 +549,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
 .login-top-links a:hover{color:#fff}
 .login-left-mid{margin:auto 0}
 .login-left-mid h1{
-  font-size:clamp(20px,2.7vh,30px);font-weight:400;line-height:1.4;max-width:560px;color:#fff;
+  font-size:clamp(20px,2.7vh,30px);font-weight:400;line-height:1.4;max-width:400px;color:#fff;
 }
 .login-left-mid h1 strong{font-weight:800}
 .login-noaccount{color:var(--blue);font-size:clamp(16px,2vh,20px);margin:clamp(18px,3.2vh,32px) 0 clamp(10px,1.6vh,14px)}
@@ -562,38 +563,38 @@ html:has(body.login-page){height:100%;overflow:hidden}
 .login-powered{height:clamp(22px,3vh,29px);width:auto;margin-top:clamp(16px,3.2vh,32px);align-self:flex-start}
 
 .login-right{
-  flex:1 1 54%;background:#fff;border-radius:120px 0 0 120px;min-height:0;
-  display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vh,40px) clamp(24px,5vw,90px);
-  margin-left:-60px;overflow:hidden;
+  flex:1 1 40%;background:#fff;border-radius:56px 0 0 56px;min-height:0;
+  display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vh,40px) clamp(24px,5vw,70px);
+  margin-left:-40px;overflow:hidden;
 }
-.login-card{width:100%;max-width:440px}
-.login-logo{height:clamp(36px,5vh,52px);width:auto;margin-bottom:clamp(16px,3.4vh,34px)}
-.login-title{font-size:clamp(28px,4.4vh,44px);font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:clamp(16px,2.8vh,26px)}
+.login-card{width:100%;max-width:380px}
+.login-logo{height:clamp(32px,4.4vh,46px);width:auto;margin-bottom:clamp(14px,3vh,30px)}
+.login-title{font-size:clamp(24px,3.8vh,38px);font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:clamp(14px,2.4vh,22px)}
 #loginForm{display:flex;flex-direction:column}
-#loginForm label{font-size:clamp(15px,1.9vh,18px);color:#4a5064;margin-bottom:clamp(6px,1vh,10px)}
+#loginForm label{font-size:clamp(13px,1.6vh,16px);color:#4a5064;margin-bottom:clamp(5px,.9vh,8px)}
 #loginForm input{
-  font-family:inherit;font-size:clamp(15px,1.9vh,18px);color:var(--navy);
-  border:1.5px solid #d7d9df;border-radius:999px;padding:clamp(12px,1.8vh,16px) 22px;outline:none;
-  transition:border-color .2s;margin-bottom:clamp(12px,2vh,20px);width:100%;
+  font-family:inherit;font-size:clamp(13px,1.6vh,16px);color:var(--navy);
+  border:1.5px solid #d7d9df;border-radius:999px;padding:clamp(10px,1.6vh,14px) 20px;outline:none;
+  transition:border-color .2s;margin-bottom:clamp(10px,1.8vh,17px);width:100%;
 }
 #loginForm input:focus{border-color:var(--blue)}
 .pass-wrap{position:relative;display:flex}
-.pass-wrap input{margin-bottom:clamp(12px,2vh,20px);padding-right:56px}
+.pass-wrap input{margin-bottom:clamp(10px,1.8vh,17px);padding-right:52px}
 .pass-eye{
-  position:absolute;right:8px;top:calc(50% - 11px);transform:translateY(-50%);
+  position:absolute;right:6px;top:calc(50% - 10px);transform:translateY(-50%);
   background:none;border:none;cursor:pointer;color:#b0b4bd;padding:8px;display:flex;
 }
-.pass-eye svg{width:22px;height:22px}
+.pass-eye svg{width:19px;height:19px}
 .pass-eye.on{color:var(--blue)}
 .login-submit{
   background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:inherit;
-  font-weight:700;font-size:clamp(16px,2vh,19px);padding:clamp(13px,1.9vh,16px);border-radius:999px;
+  font-weight:700;font-size:clamp(14px,1.8vh,17px);padding:clamp(11px,1.7vh,14px);border-radius:999px;
   transition:background .2s,transform .15s;
 }
 .login-submit:hover{background:var(--blue-dark)}
 .login-submit:active{transform:translateY(1px)}
-.login-remember{display:flex;flex-direction:column;gap:6px;margin:clamp(12px,2vh,20px) 0 0}
-.login-remember span{color:#4a5064;font-size:clamp(15px,1.9vh,18px)}
+.login-remember{display:flex;flex-direction:column;gap:6px;margin:clamp(10px,1.8vh,17px) 0 0}
+.login-remember span{color:#4a5064;font-size:clamp(13px,1.6vh,16px)}
 .switch{
   width:48px;height:26px;border-radius:999px;background:#cfd2da;border:none;cursor:pointer;
   padding:3px;display:flex;align-items:center;transition:background .2s;flex:none;
@@ -601,7 +602,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
 .switch .knob{width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .switch.on{background:#2fb457}
 .switch.on .knob{transform:translateX(22px)}
-.login-recover{color:#8b8f98;font-size:clamp(14px,1.7vh,17px);margin-top:clamp(12px,2vh,22px)}
+.login-recover{color:#8b8f98;font-size:clamp(12px,1.5vh,15px);margin-top:clamp(10px,1.8vh,19px)}
 .login-recover:hover{color:var(--blue)}
 .login-msg{margin-top:12px;font-size:14px;font-weight:600}
 .login-msg.err{color:#e23b34}
@@ -617,7 +618,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
   .login-register{padding:9px 26px;font-size:14px}
   .login-powered{margin-top:14px;height:18px}
   .login-right{
-    flex:1 1 auto;border-radius:32px 32px 0 0;margin-left:0;margin-top:-16px;padding:22px 24px;min-height:0;
+    flex:1 1 auto;border-radius:26px 26px 0 0;margin-left:0;margin-top:-16px;padding:22px 24px;min-height:0;
   }
   .login-card{max-width:420px;margin:0 auto}
   .login-logo{height:28px;margin-bottom:12px}
