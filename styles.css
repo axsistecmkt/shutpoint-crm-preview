@@ -75,7 +75,7 @@ a{text-decoration:none;color:inherit}
 .hero-copy{position:relative}
 .hero-flecha{
   position:absolute;z-index:0;pointer-events:none;
-  width:min(560px,108%);left:-24px;top:-46px;opacity:.85;
+  width:min(520px,100%);left:50%;top:-120px;transform:translateX(-50%);opacity:.85;
 }
 .hero-copy > :not(.hero-flecha){position:relative;z-index:1}
 .hero-visual{position:relative;min-height:440px}
@@ -129,7 +129,7 @@ a{text-decoration:none;color:inherit}
 .devices-copy{position:relative}
 .devices-icon-bg{
   position:absolute;z-index:0;pointer-events:none;
-  width:min(500px,90%);right:-30px;top:50%;transform:translateY(-50%);opacity:.9;
+  width:760px;max-width:none;right:-230px;top:50%;transform:translateY(-50%);opacity:.9;
 }
 .devices-copy > :not(.devices-icon-bg){position:relative;z-index:1}
 .devices-img{position:relative;height:400px}
@@ -243,7 +243,7 @@ a{text-decoration:none;color:inherit}
 }
 .brands-track::-webkit-scrollbar{display:none}
 .brands-track .company{
-  height:44px;width:auto;flex:none;object-fit:contain;
+  height:34px;max-width:104px;width:auto;flex:none;object-fit:contain;
   filter:brightness(0) invert(1);opacity:.9;transition:opacity .2s,transform .2s;
 }
 .brands-track .company:hover{opacity:1;transform:scale(1.06)}
@@ -286,6 +286,9 @@ a{text-decoration:none;color:inherit}
 .socials a{width:44px;height:44px;display:block;transition:transform .2s}
 .socials a:hover{transform:translateY(-3px)}
 .socials img{width:44px;height:44px}
+.contact-brand{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:36px}
+.cb-logo{height:42px;width:auto;max-width:none}
+.cb-powered{height:23px;width:auto;max-width:none}
 
 .contact-form{display:flex;flex-direction:column;gap:20px}
 .contact-form input,.contact-form textarea{
@@ -310,12 +313,8 @@ a{text-decoration:none;color:inherit}
 .form-msg{font-size:16px;color:#2fb457;font-weight:600}
 
 /* ===================== FOOTER ===================== */
-.site-footer{background:#fff;padding:14px 0 104px}
-.footer-inner{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:20px}
-.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-.footer-logo{height:44px;width:auto;flex:none;max-width:none}
-.footer-powered{height:24px;width:auto;flex:none;max-width:none}
-.footer-legal{grid-column:2;text-align:center;color:#9a9ea8;font-size:16px}
+.site-footer{background:#fff;padding:20px 0 40px}
+.footer-legal{text-align:center;color:#9a9ea8;font-size:16px}
 .footer-legal a{color:#9a9ea8}
 .footer-legal a:hover{color:var(--blue)}
 .footer-legal p{margin-top:4px}
