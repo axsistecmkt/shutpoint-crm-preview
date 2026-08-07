@@ -277,6 +277,7 @@ a{text-decoration:none;color:inherit}
 .contact{background:#fff;padding:80px 0 36px}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:stretch}
 .contact-brand.mobile-only-brand{display:none}
+.contact-info{display:flex;flex-direction:column;height:100%}
 .contact-info h2{font-size:30px;font-weight:400;color:var(--navy);line-height:1.25}
 .contact-info h2 strong{font-weight:800}
 .contact-list{list-style:none;margin:44px 0 34px}
@@ -288,6 +289,7 @@ a{text-decoration:none;color:inherit}
 .socials a:hover{transform:translateY(-3px)}
 .socials img{width:44px;height:44px}
 .contact-brand{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:40px}
+.desktop-only-brand{margin-top:auto;padding-top:40px}
 .cb-logo{height:42px;width:auto;max-width:none}
 .cb-powered{height:23px;width:auto;max-width:none}
 
