@@ -8,18 +8,48 @@ if (navToggle) {
   );
 }
 
+/* ===================== ENTERPRISE DYNAMIC PRICE ===================== */
+const enterpriseUsers = document.getElementById('enterpriseUsers');
+const enterpriseAmount = document.getElementById('enterpriseAmount');
+let enterprisePeriod = 'mes';
+
+function money(n) { return '$' + n.toLocaleString('en-US'); }
+
+function updateEnterprise() {
+  if (!enterpriseUsers || !enterpriseAmount) return;
+  const users = Math.max(0, parseInt(enterpriseUsers.value || '0', 10) || 0);
+  const rate = enterprisePeriod === 'anual'
+    ? parseInt(enterpriseUsers.dataset.perAnual, 10)
+    : parseInt(enterpriseUsers.dataset.perMes, 10);
+  enterpriseAmount.textContent = money(users * rate);
+}
+if (enterpriseUsers) {
+  enterpriseUsers.addEventListener('input', updateEnterprise);
+  updateEnterprise();
+}
+
 /* ===================== PRICING TOGGLE ===================== */
 document.querySelectorAll('.toggle').forEach(toggle => {
   const buttons = toggle.querySelectorAll('button');
-  const amount = toggle.closest('.plan-price-block').querySelector('.amount');
+  const block = toggle.closest('.plan-price-block');
+  const amount = block.querySelector('.amount');
+  const per = block.querySelector('.per');
+  const isEnterprise = amount && amount.id === 'enterpriseAmount';
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const period = btn.dataset.period; // mes | anual
-      amount.textContent = period === 'anual'
-        ? amount.dataset.anual
-        : amount.dataset.mes;
+
+      if (per) per.textContent = period === 'anual' ? per.dataset.anual : per.dataset.mes;
+
+      if (isEnterprise) {
+        enterprisePeriod = period;
+        updateEnterprise();
+      } else if (amount) {
+        amount.textContent = period === 'anual' ? amount.dataset.anual : amount.dataset.mes;
+      }
     });
   });
 });
@@ -39,11 +69,13 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ===================== VER MÁS ===================== */
+/* ===================== VER MÁS (expand tools) ===================== */
 const verMas = document.getElementById('verMas');
-if (verMas) {
+const toolsGrid = document.getElementById('toolsGrid');
+if (verMas && toolsGrid) {
   verMas.addEventListener('click', () => {
-    document.getElementById('planes').scrollIntoView({ behavior: 'smooth' });
+    const expanded = toolsGrid.classList.toggle('expanded');
+    verMas.textContent = expanded ? 'ver menos' : 'ver más';
   });
 }
 
@@ -52,7 +84,7 @@ const brandsTrack = document.getElementById('brandsTrack');
 const brandsPrev = document.getElementById('brandsPrev');
 const brandsNext = document.getElementById('brandsNext');
 if (brandsTrack) {
-  const step = 320;
+  const step = 340;
   brandsPrev.addEventListener('click', () => brandsTrack.scrollBy({ left: -step, behavior: 'smooth' }));
   brandsNext.addEventListener('click', () => brandsTrack.scrollBy({ left: step, behavior: 'smooth' }));
 }
