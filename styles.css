@@ -75,7 +75,7 @@ a{text-decoration:none;color:inherit}
 .hero-copy{position:relative}
 .hero-flecha{
   position:absolute;z-index:0;pointer-events:none;
-  width:min(420px,90%);left:46%;top:-190px;transform:translateX(-50%);opacity:.85;
+  width:min(420px,90%);left:56%;top:-190px;transform:translateX(-50%);opacity:.85;
 }
 .hero-copy > :not(.hero-flecha){position:relative;z-index:1}
 .hero-visual{position:relative;min-height:440px}
