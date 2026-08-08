@@ -75,7 +75,7 @@ a{text-decoration:none;color:inherit}
 .hero-copy{position:relative}
 .hero-flecha{
   position:absolute;z-index:0;pointer-events:none;
-  width:min(420px,90%);left:56%;top:-190px;transform:translateX(-50%);opacity:.85;
+  width:min(420px,90%);left:56%;top:-235px;transform:translateX(-50%);opacity:.85;
 }
 .hero-copy > :not(.hero-flecha){position:relative;z-index:1}
 .hero-visual{position:relative;min-height:440px}
@@ -132,12 +132,12 @@ a{text-decoration:none;color:inherit}
   width:760px;max-width:none;right:-230px;top:50%;transform:translateY(-50%);opacity:.9;
 }
 .devices-copy > :not(.devices-icon-bg){position:relative;z-index:1}
-.devices-img{position:relative;height:400px}
-.devices-img .dev{position:absolute;filter:drop-shadow(0 18px 34px rgba(0,0,0,.22));cursor:pointer}
+.devices-img{position:relative;height:460px;display:flex;align-items:flex-end;justify-content:center}
+.devices-img .dev{position:relative;filter:drop-shadow(0 18px 34px rgba(0,0,0,.22));cursor:pointer}
 .devices-img .dev img{height:100%;width:auto;display:block;transition:transform .3s ease}
-.dev-mac{height:76%;left:0;bottom:2%;z-index:1;animation:floatDev 6s ease-in-out infinite}
-.dev-ipad{height:66%;left:54%;bottom:0;z-index:2;animation:floatDev 7s ease-in-out infinite .5s}
-.dev-iphone{height:54%;left:31%;bottom:0;z-index:3;animation:floatDev 5s ease-in-out infinite .25s}
+.dev-mac{height:78%;z-index:1;animation:floatDev 6s ease-in-out infinite}
+.dev-ipad{height:68%;z-index:2;margin-left:-150px;animation:floatDev 7s ease-in-out infinite .5s}
+.dev-iphone{height:56%;z-index:3;margin-left:-145px;animation:floatDev 5s ease-in-out infinite .25s}
 @keyframes floatDev{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 .devices-img .dev:hover{z-index:9}
 .devices-img .dev:hover img{transform:translateY(-14px) scale(1.06)}
@@ -370,9 +370,9 @@ a{text-decoration:none;color:inherit}
   /* --- devices --- */
   .devices{padding:44px 0}
   .devices-img{height:230px;min-height:0}
-  .dev-mac{height:64%;left:2%}
-  .dev-ipad{height:56%;left:52%}
-  .dev-iphone{height:46%;left:30%}
+  .dev-mac{height:64%}
+  .dev-ipad{height:56%;margin-left:-65px}
+  .dev-iphone{height:46%;margin-left:-60px}
   .devices-copy h2{font-size:23px}
   .devices-sub{font-size:17px;margin:16px 0 22px}
   .devices-icon-bg{width:380px;right:-140px}
@@ -405,6 +405,7 @@ a{text-decoration:none;color:inherit}
   .plan{padding:12px;border-radius:20px}
   .plan-top{padding:16px 16px 18px;min-height:0;border-radius:14px}
   .plan-badge{font-size:11px;padding:6px 16px}
+  .plan-price-block{margin-top:18px}
   .toggle{margin-bottom:10px}
   .toggle button{font-size:11px;padding:4px 12px}
   .plan-price .amount{font-size:32px}
