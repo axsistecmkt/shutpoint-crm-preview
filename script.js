@@ -8,19 +8,17 @@ if (navToggle) {
   );
 }
 
-/* ===================== PRICE AUTO-FIT (card never changes shape) ===================== */
+/* ===================== PRICE AUTO-FIT (card + numbers never change size; safety net only) ===================== */
 function fitPrice(block) {
   if (!block) return;
   const row = block.querySelector('.plan-price');
-  const amount = block.querySelector('.amount');
-  if (!row || !amount) return;
-  amount.style.fontSize = '';
-  const maxSize = parseFloat(getComputedStyle(amount).fontSize);
-  let size = maxSize;
-  while (row.scrollWidth > row.clientWidth + 1 && size > 16) {
-    size -= 1;
-    amount.style.fontSize = size + 'px';
-  }
+  if (!row) return;
+  row.style.transform = 'none';
+  const natural = row.scrollWidth;
+  const available = row.clientWidth;
+  row.style.transform = natural > available + 1
+    ? `scale(${Math.max(0.45, available / natural)})`
+    : '';
 }
 
 /* ===================== ENTERPRISE DYNAMIC PRICE ===================== */
