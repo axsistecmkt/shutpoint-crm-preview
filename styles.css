@@ -350,7 +350,7 @@ a{text-decoration:none;color:inherit}
   .nav-toggle{display:flex}
 
   /* --- hero --- */
-  .hero-user-row{margin-top:20px}
+  .hero-user-row{margin-top:20px;justify-content:flex-start}
   .btn-user{padding:8px 20px;font-size:12px}
   .hero-grid{margin-top:34px;gap:44px}
   .hero-title{font-size:23px;white-space:normal}
@@ -369,10 +369,10 @@ a{text-decoration:none;color:inherit}
 
   /* --- devices --- */
   .devices{padding:44px 0}
-  .devices-img{height:230px;min-height:0}
-  .dev-mac{height:64%}
-  .dev-ipad{height:56%;margin-left:-65px}
-  .dev-iphone{height:46%;margin-left:-60px}
+  .devices-img{height:260px;min-height:0}
+  .dev-mac{height:68%}
+  .dev-ipad{height:60%;margin-left:-45px}
+  .dev-iphone{height:50%;margin-left:-40px}
   .devices-copy h2{font-size:23px}
   .devices-sub{font-size:17px;margin:16px 0 22px}
   .devices-icon-bg{width:380px;right:-140px}
