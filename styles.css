@@ -550,9 +550,9 @@ html:has(body.login-page){height:100%;overflow:hidden}
 }
 .login-icon-bg{
   position:absolute;z-index:-1;pointer-events:none;
-  top:50%;left:52%;transform:translate(-50%,-50%);
-  width:min(120%,780px);height:auto;
-  filter:brightness(0) invert(1);opacity:.05;
+  top:50%;left:60%;transform:translate(-50%,-50%);
+  width:min(150%,980px);height:auto;
+  filter:brightness(0) invert(1);opacity:.03;
 }
 .login-top-links{display:flex;gap:clamp(24px,4vw,56px);margin-bottom:auto;flex-wrap:wrap}
 .login-top-links a{color:#aeb6c8;font-size:clamp(14px,1.6vh,18px);transition:color .2s}
