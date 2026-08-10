@@ -8,6 +8,21 @@ if (navToggle) {
   );
 }
 
+/* ===================== PRICE AUTO-FIT (card never changes shape) ===================== */
+function fitPrice(block) {
+  if (!block) return;
+  const row = block.querySelector('.plan-price');
+  const amount = block.querySelector('.amount');
+  if (!row || !amount) return;
+  amount.style.fontSize = '';
+  const maxSize = parseFloat(getComputedStyle(amount).fontSize);
+  let size = maxSize;
+  while (row.scrollWidth > row.clientWidth + 1 && size > 16) {
+    size -= 1;
+    amount.style.fontSize = size + 'px';
+  }
+}
+
 /* ===================== ENTERPRISE DYNAMIC PRICE ===================== */
 const enterpriseUsers = document.getElementById('enterpriseUsers');
 const enterpriseAmount = document.getElementById('enterpriseAmount');
@@ -22,6 +37,7 @@ function updateEnterprise() {
     ? parseInt(enterpriseUsers.dataset.perAnual, 10)
     : parseInt(enterpriseUsers.dataset.perMes, 10);
   enterpriseAmount.textContent = money(users * rate);
+  fitPrice(enterpriseAmount.closest('.plan-price-block'));
 }
 if (enterpriseUsers) {
   enterpriseUsers.addEventListener('input', updateEnterprise);
@@ -49,9 +65,16 @@ document.querySelectorAll('.toggle').forEach(toggle => {
         updateEnterprise();
       } else if (amount) {
         amount.textContent = period === 'anual' ? amount.dataset.anual : amount.dataset.mes;
+        fitPrice(block);
       }
     });
   });
+});
+
+/* Fit all price cards once on load (safety for narrow viewports) */
+document.querySelectorAll('.plan-price-block').forEach(fitPrice);
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.plan-price-block').forEach(fitPrice);
 });
 
 /* ===================== TOOL TOOLTIP (tap on touch) ===================== */

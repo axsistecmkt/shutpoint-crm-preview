@@ -5,6 +5,7 @@
   --navy-band:#1c2c4c;
   --blue:#2585c6;
   --blue-dark:#1f74ae;
+  --plan-blue:#1a56b8;
   --ink:#1b2b52;
   --gray-card:#f1f1f2;
   --gray-inner:#ffffff;
@@ -197,8 +198,8 @@ a{text-decoration:none;color:inherit}
 /* ===================== PRICING ===================== */
 .pricing{background:#fff;padding:20px 0 80px}
 .pricing .section-title{margin-bottom:56px}
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
-.plan{background:var(--blue);border-radius:26px;padding:16px;display:flex;flex-direction:column}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.plan{background:var(--plan-blue);border-radius:26px;padding:16px;display:flex;flex-direction:column;min-width:0}
 .plan-top{background:#fff;border-radius:18px;padding:22px 22px 26px;min-height:210px;display:flex;flex-direction:column}
 .plan-badge{
   align-self:flex-start;border:1px solid #e0e0e4;border-radius:999px;
@@ -214,8 +215,8 @@ a{text-decoration:none;color:inherit}
 .plan-price{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
 .plan-price .amount{font-size:46px;font-weight:600;color:var(--navy);letter-spacing:-1px}
 .plan-price .per{font-size:20px;font-weight:600;color:var(--navy)}
-.plan-btn{margin:18px 0;width:100%;padding:16px;background:#fff;color:var(--blue)}
-.plan-btn:hover{background:#eaf4fc}
+.plan-btn{margin:18px 0;width:100%;padding:16px;background:#fff;color:var(--plan-blue)}
+.plan-btn:hover{background:#eaf1fb}
 .plan-features{padding:0 8px 8px;border-top:1px solid rgba(255,255,255,.28);padding-top:20px;display:flex;flex-direction:column;flex:1}
 .feature{display:flex;gap:12px;align-items:flex-start}
 .feature .fx{width:22px;height:22px;flex:none;margin-top:2px}
@@ -329,7 +330,7 @@ a{text-decoration:none;color:inherit}
   .hero-grid,.devices-inner,.how-inner,.contact-inner{grid-template-columns:1fr}
   .hero-visual{min-height:400px;margin-top:20px}
   .tools-grid{grid-template-columns:repeat(4,1fr);gap:28px 16px}
-  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .how-copy h2{font-size:40px}
   .devices-img{min-height:320px}
   .section-title{font-size:25px}
@@ -402,7 +403,7 @@ a{text-decoration:none;color:inherit}
   /* --- pricing: compact cards --- */
   .pricing{padding:10px 0 56px}
   .pricing .section-title{margin-bottom:32px}
-  .pricing-grid{grid-template-columns:1fr;gap:16px}
+  .pricing-grid{grid-template-columns:minmax(0,1fr);gap:16px}
   .plan{padding:12px;border-radius:20px}
   .plan-top{padding:16px 16px 18px;min-height:0;border-radius:14px}
   .plan-badge{font-size:11px;padding:6px 16px}
