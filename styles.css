@@ -214,8 +214,14 @@ a{text-decoration:none;color:inherit}
 .plan-price{display:flex;align-items:baseline;gap:6px;white-space:nowrap;transform-origin:left center;transition:transform .15s ease}
 .plan-price .amount{font-size:34px;font-weight:600;color:var(--navy);letter-spacing:-1px}
 .plan-price .per{font-size:20px;font-weight:600;color:var(--navy)}
-.plan-btn{margin:18px 0;width:100%;padding:16px;background:#fff;color:var(--navy)}
+.plan-btn{margin:18px 0 0;width:100%;padding:16px;background:#fff;color:var(--navy)}
 .plan-btn:hover{background:#e8eaf0}
+.compare-link{
+  display:block;width:100%;text-align:center;background:none;border:none;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;color:#8fb6e6;padding:12px 0 6px;
+  transition:color .2s;
+}
+.compare-link:hover{color:#fff}
 .plan-features{padding:0 8px 8px;border-top:1px solid rgba(255,255,255,.28);padding-top:20px;display:flex;flex-direction:column;flex:1}
 .feature{display:flex;gap:12px;align-items:flex-start}
 .feature .fx{width:22px;height:22px;flex:none;margin-top:2px}
@@ -223,30 +229,23 @@ a{text-decoration:none;color:inherit}
 .plan-users{margin-top:auto;padding-top:26px;font-size:15px;color:rgba(255,255,255,.85)}
 .user-input{width:42px;border:1px solid #d3d3d8;border-radius:6px;padding:3px 6px;font-family:inherit;font-size:14px;color:var(--navy)}
 
-/* ===================== COMPARAR SERVICIOS ===================== */
-.compare-toggle-wrap{display:flex;justify-content:center;margin-top:44px}
-.compare-toggle{
-  display:inline-flex;align-items:center;gap:10px;
-  background:none;border:1.5px solid #cfd2da;border-radius:999px;
-  padding:13px 28px;font-family:inherit;font-size:15px;font-weight:600;color:var(--navy);
-  cursor:pointer;transition:border-color .2s,color .2s;
+/* ===================== COMPARAR SERVICIOS (4 columnas alineadas a los planes) ===================== */
+.compare-columns{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;
+  max-height:0;overflow:hidden;transition:max-height .45s ease;margin-top:0;
 }
-.compare-toggle:hover{border-color:var(--blue);color:var(--blue)}
-.compare-chevron{width:16px;height:16px;flex:none;transition:transform .3s ease}
-.compare-toggle.open .compare-chevron{transform:rotate(180deg)}
-
-.compare-panel{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.compare-panel-inner{background:var(--gray-card);border-radius:28px;padding:44px 40px;margin-top:32px}
-.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:38px 40px}
+.compare-col{padding:0 6px}
+.compare-cat{margin-top:28px}
+.compare-cat:first-child{margin-top:32px}
 .compare-cat h4{
-  font-size:17px;font-weight:600;color:var(--navy);margin-bottom:16px;
-  padding-bottom:10px;border-bottom:2px solid var(--blue);display:inline-block;
+  font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;
+  padding-bottom:8px;border-bottom:2px solid var(--blue);
 }
 .compare-cat ul{list-style:none}
-.compare-cat li{position:relative;padding-left:26px;margin-bottom:11px;font-size:14px;color:#5b6172;line-height:1.45}
-.compare-cat li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;background:var(--blue)}
+.compare-cat li{position:relative;padding-left:22px;margin-bottom:9px;font-size:12.5px;color:#6b7180;line-height:1.4}
+.compare-cat li::before{content:"";position:absolute;left:0;top:1px;width:14px;height:14px;border-radius:50%;background:var(--blue)}
 .compare-cat li::after{
-  content:"";position:absolute;left:4.5px;top:5.5px;width:7px;height:3.5px;
+  content:"";position:absolute;left:4px;top:4.5px;width:6px;height:3px;
   border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);
 }
 
@@ -357,7 +356,7 @@ a{text-decoration:none;color:inherit}
   .hero-visual{min-height:400px;margin-top:20px}
   .tools-grid{grid-template-columns:repeat(4,1fr);gap:28px 16px}
   .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .compare-grid{grid-template-columns:repeat(2,1fr)}
+  .compare-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
   .how-copy h2{font-size:40px}
   .devices-img{min-height:320px}
   .section-title{font-size:25px}
@@ -439,17 +438,19 @@ a{text-decoration:none;color:inherit}
   .toggle button{font-size:11px;padding:4px 12px}
   .plan-price .amount{font-size:26px}
   .plan-price .per{font-size:15px}
-  .plan-btn{margin:14px 0;padding:13px}
+  .plan-btn{margin:14px 0 0;padding:13px}
+  .compare-link{font-size:12px;padding:10px 0 4px}
   .plan-features{padding-top:14px}
   .feature p{font-size:13px}
   .plan-users{padding-top:16px;font-size:13px}
 
-  .compare-toggle-wrap{margin-top:30px}
-  .compare-toggle{padding:11px 22px;font-size:13.5px}
-  .compare-panel-inner{padding:26px 20px;border-radius:20px;margin-top:22px}
-  .compare-grid{grid-template-columns:1fr;gap:26px}
-  .compare-cat h4{font-size:16px;margin-bottom:12px}
-  .compare-cat li{font-size:13.5px;margin-bottom:9px}
+  .compare-columns{grid-template-columns:minmax(0,1fr);gap:16px}
+  .compare-col{padding:0}
+  .compare-col:not(:first-child){display:none}
+  .compare-cat{margin-top:20px}
+  .compare-cat:first-child{margin-top:20px}
+  .compare-cat h4{font-size:14px;margin-bottom:10px}
+  .compare-cat li{font-size:13px;margin-bottom:8px}
 
   .special{flex-direction:column;align-items:flex-start;text-align:left;margin-top:44px;gap:18px}
   .special-copy h3{font-size:19px}

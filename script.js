@@ -76,18 +76,18 @@ window.addEventListener('resize', () => {
 });
 
 /* ===================== COMPARAR SERVICIOS INCLUIDOS ===================== */
-const compareToggle = document.getElementById('compareToggle');
-const comparePanel = document.getElementById('comparePanel');
-if (compareToggle && comparePanel) {
-  compareToggle.addEventListener('click', () => {
-    const open = compareToggle.classList.toggle('open');
-    compareToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+const compareToggles = document.querySelectorAll('[data-compare-toggle]');
+const comparePanel = document.getElementById('compareColumns');
+if (compareToggles.length && comparePanel) {
+  let compareOpen = false;
+  const setCompare = open => {
+    compareOpen = open;
+    compareToggles.forEach(btn => btn.setAttribute('aria-expanded', open ? 'true' : 'false'));
     comparePanel.style.maxHeight = open ? comparePanel.scrollHeight + 'px' : '0px';
-  });
+  };
+  compareToggles.forEach(btn => btn.addEventListener('click', () => setCompare(!compareOpen)));
   window.addEventListener('resize', () => {
-    if (compareToggle.classList.contains('open')) {
-      comparePanel.style.maxHeight = comparePanel.scrollHeight + 'px';
-    }
+    if (compareOpen) comparePanel.style.maxHeight = comparePanel.scrollHeight + 'px';
   });
 }
 
