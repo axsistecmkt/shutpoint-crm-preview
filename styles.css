@@ -229,25 +229,21 @@ a{text-decoration:none;color:inherit}
 .plan-users{margin-top:auto;padding-top:26px;font-size:15px;color:rgba(255,255,255,.85)}
 .user-input{width:42px;border:1px solid #d3d3d8;border-radius:6px;padding:3px 6px;font-family:inherit;font-size:14px;color:var(--navy)}
 
-/* ===================== COMPARAR SERVICIOS (4 columnas alineadas a los planes) ===================== */
-.compare-columns{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;
-  max-height:0;overflow:hidden;transition:max-height .45s ease;margin-top:0;
+/* ===================== COMPARAR SERVICIOS (por plan, dentro de cada tarjeta) ===================== */
+.plan-compare{
+  max-height:0;overflow:hidden;transition:max-height .45s ease;
 }
-.compare-col{padding:0 6px}
-.compare-cat{margin-top:28px}
-.compare-cat:first-child{margin-top:32px}
-.compare-cat h4{
-  font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;
-  padding-bottom:8px;border-bottom:2px solid var(--blue);
+.plan-compare .compare-cat{margin-top:24px;padding:0 2px}
+.plan-compare .compare-cat:first-child{margin-top:18px}
+.plan-compare .compare-cat h4{
+  font-size:12.5px;font-weight:600;color:#fff;margin-bottom:12px;
+  padding-bottom:8px;border-bottom:2px solid rgba(255,255,255,.32);letter-spacing:.2px;
 }
-.compare-cat ul{list-style:none}
-.compare-cat li{position:relative;padding-left:22px;margin-bottom:9px;font-size:12.5px;color:#6b7180;line-height:1.4}
-.compare-cat li::before{content:"";position:absolute;left:0;top:1px;width:14px;height:14px;border-radius:50%;background:var(--blue)}
-.compare-cat li::after{
-  content:"";position:absolute;left:4px;top:4.5px;width:6px;height:3px;
-  border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);
-}
+.plan-compare .compare-cat ul{list-style:none}
+.plan-compare .compare-cat li{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:12.5px;line-height:1.4}
+.plan-compare .cmp-ico{width:16px;height:16px;flex:none;margin-top:1px}
+.plan-compare li.incl span{color:rgba(255,255,255,.92)}
+.plan-compare li.excl span{color:rgba(255,255,255,.4)}
 
 .special{display:flex;align-items:center;justify-content:flex-start;gap:36px;margin-top:70px;flex-wrap:wrap}
 .special-copy h3{font-size:26px;font-weight:600;color:var(--navy)}
@@ -356,7 +352,6 @@ a{text-decoration:none;color:inherit}
   .hero-visual{min-height:400px;margin-top:20px}
   .tools-grid{grid-template-columns:repeat(4,1fr);gap:28px 16px}
   .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .compare-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
   .how-copy h2{font-size:40px}
   .devices-img{min-height:320px}
   .section-title{font-size:25px}
@@ -444,13 +439,10 @@ a{text-decoration:none;color:inherit}
   .feature p{font-size:13px}
   .plan-users{padding-top:16px;font-size:13px}
 
-  .compare-columns{grid-template-columns:minmax(0,1fr);gap:16px}
-  .compare-col{padding:0}
-  .compare-col:not(:first-child){display:none}
-  .compare-cat{margin-top:20px}
-  .compare-cat:first-child{margin-top:20px}
-  .compare-cat h4{font-size:14px;margin-bottom:10px}
-  .compare-cat li{font-size:13px;margin-bottom:8px}
+  .plan-compare .compare-cat{margin-top:18px;padding:0}
+  .plan-compare .compare-cat:first-child{margin-top:14px}
+  .plan-compare .compare-cat h4{font-size:13px;margin-bottom:9px}
+  .plan-compare .compare-cat li{font-size:12.5px;margin-bottom:8px}
 
   .special{flex-direction:column;align-items:flex-start;text-align:left;margin-top:44px;gap:18px}
   .special-copy h3{font-size:19px}

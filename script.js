@@ -75,19 +75,22 @@ window.addEventListener('resize', () => {
   document.querySelectorAll('.plan-price-block').forEach(fitPrice);
 });
 
-/* ===================== COMPARAR SERVICIOS INCLUIDOS ===================== */
+/* ===================== COMPARAR SERVICIOS INCLUIDOS (por plan) ===================== */
 const compareToggles = document.querySelectorAll('[data-compare-toggle]');
-const comparePanel = document.getElementById('compareColumns');
-if (compareToggles.length && comparePanel) {
-  let compareOpen = false;
-  const setCompare = open => {
-    compareOpen = open;
-    compareToggles.forEach(btn => btn.setAttribute('aria-expanded', open ? 'true' : 'false'));
-    comparePanel.style.maxHeight = open ? comparePanel.scrollHeight + 'px' : '0px';
-  };
-  compareToggles.forEach(btn => btn.addEventListener('click', () => setCompare(!compareOpen)));
-  window.addEventListener('resize', () => {
-    if (compareOpen) comparePanel.style.maxHeight = comparePanel.scrollHeight + 'px';
+if (compareToggles.length) {
+  compareToggles.forEach(btn => {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+    });
+    window.addEventListener('resize', () => {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
   });
 }
 
