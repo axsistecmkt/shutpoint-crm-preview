@@ -75,6 +75,22 @@ window.addEventListener('resize', () => {
   document.querySelectorAll('.plan-price-block').forEach(fitPrice);
 });
 
+/* ===================== COMPARAR SERVICIOS INCLUIDOS ===================== */
+const compareToggle = document.getElementById('compareToggle');
+const comparePanel = document.getElementById('comparePanel');
+if (compareToggle && comparePanel) {
+  compareToggle.addEventListener('click', () => {
+    const open = compareToggle.classList.toggle('open');
+    compareToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    comparePanel.style.maxHeight = open ? comparePanel.scrollHeight + 'px' : '0px';
+  });
+  window.addEventListener('resize', () => {
+    if (compareToggle.classList.contains('open')) {
+      comparePanel.style.maxHeight = comparePanel.scrollHeight + 'px';
+    }
+  });
+}
+
 /* ===================== TOOL TOOLTIP (tap on touch) ===================== */
 document.querySelectorAll('.tool').forEach(tool => {
   tool.addEventListener('click', e => {
