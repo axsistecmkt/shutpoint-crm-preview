@@ -80,8 +80,44 @@ const compareToggles = document.querySelectorAll('[data-compare-toggle]');
 const comparePanels = [...compareToggles]
   .map(btn => document.getElementById(btn.getAttribute('aria-controls')))
   .filter(Boolean);
+
+/* Cada plan puede tener textos de distinta longitud para el mismo servicio
+   (p.ej. "Creación de campañas (1 / mes)"), lo que envuelve a 2 líneas en
+   un plan y no en otro y desalinea todo lo que sigue. Igualamos la altura
+   de cada fila (misma categoría, mismo índice) entre las 4 columnas. */
+function alignCompareRows() {
+  if (comparePanels.length < 2) return;
+  const catCount = comparePanels[0].querySelectorAll('.compare-cat').length;
+  const rows = [];
+  for (let c = 0; c < catCount; c++) {
+    const cats = comparePanels.map(p => p.querySelectorAll('.compare-cat')[c]);
+    const itemCount = cats[0] ? cats[0].querySelectorAll('li').length : 0;
+    for (let i = 0; i < itemCount; i++) {
+      const lis = cats.map(cat => cat.querySelectorAll('li')[i]).filter(Boolean);
+      lis.forEach(li => { li.style.minHeight = ''; });
+      rows.push(lis);
+    }
+  }
+  rows.forEach(lis => {
+    const maxH = Math.max(...lis.map(li => li.getBoundingClientRect().height));
+    lis.forEach(li => { li.style.minHeight = maxH + 'px'; });
+  });
+}
+let compareOpen = false;
+function realignCompareRows() {
+  alignCompareRows();
+  if (compareOpen) comparePanels.forEach(panel => { panel.style.maxHeight = panel.scrollHeight + 'px'; });
+}
+alignCompareRows();
+/* Re-medir cuando la fuente Poppins termine de cargar: si se mide antes,
+   el ancho del texto usa la fuente de reserva y los saltos de línea (y por
+   lo tanto las alturas) quedan mal calculados de forma permanente. */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(realignCompareRows);
+}
+window.addEventListener('load', realignCompareRows);
+
 if (compareToggles.length && comparePanels.length) {
-  let compareOpen = false;
   const setCompare = open => {
     compareOpen = open;
     compareToggles.forEach(btn => btn.setAttribute('aria-expanded', open ? 'true' : 'false'));
@@ -90,8 +126,10 @@ if (compareToggles.length && comparePanels.length) {
     });
   };
   compareToggles.forEach(btn => btn.addEventListener('click', () => setCompare(!compareOpen)));
+  let alignResizeTimer;
   window.addEventListener('resize', () => {
-    if (compareOpen) comparePanels.forEach(panel => { panel.style.maxHeight = panel.scrollHeight + 'px'; });
+    clearTimeout(alignResizeTimer);
+    alignResizeTimer = setTimeout(realignCompareRows, 150);
   });
 }
 
