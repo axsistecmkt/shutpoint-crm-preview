@@ -75,22 +75,23 @@ window.addEventListener('resize', () => {
   document.querySelectorAll('.plan-price-block').forEach(fitPrice);
 });
 
-/* ===================== COMPARAR SERVICIOS INCLUIDOS (por plan) ===================== */
+/* ===================== COMPARAR SERVICIOS INCLUIDOS (todos los planes a la vez) ===================== */
 const compareToggles = document.querySelectorAll('[data-compare-toggle]');
-if (compareToggles.length) {
-  compareToggles.forEach(btn => {
-    const panel = document.getElementById(btn.getAttribute('aria-controls'));
-    if (!panel) return;
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') !== 'true';
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+const comparePanels = [...compareToggles]
+  .map(btn => document.getElementById(btn.getAttribute('aria-controls')))
+  .filter(Boolean);
+if (compareToggles.length && comparePanels.length) {
+  let compareOpen = false;
+  const setCompare = open => {
+    compareOpen = open;
+    compareToggles.forEach(btn => btn.setAttribute('aria-expanded', open ? 'true' : 'false'));
+    comparePanels.forEach(panel => {
       panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
     });
-    window.addEventListener('resize', () => {
-      if (btn.getAttribute('aria-expanded') === 'true') {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      }
-    });
+  };
+  compareToggles.forEach(btn => btn.addEventListener('click', () => setCompare(!compareOpen)));
+  window.addEventListener('resize', () => {
+    if (compareOpen) comparePanels.forEach(panel => { panel.style.maxHeight = panel.scrollHeight + 'px'; });
   });
 }
 
@@ -108,16 +109,6 @@ document.addEventListener('click', e => {
     document.querySelectorAll('.tool.show').forEach(t => t.classList.remove('show'));
   }
 });
-
-/* ===================== VER MÁS (expand tools) ===================== */
-const verMas = document.getElementById('verMas');
-const toolsGrid = document.getElementById('toolsGrid');
-if (verMas && toolsGrid) {
-  verMas.addEventListener('click', () => {
-    const expanded = toolsGrid.classList.toggle('expanded');
-    verMas.textContent = expanded ? 'ver menos' : 'ver más';
-  });
-}
 
 /* ===================== BRANDS CAROUSEL ===================== */
 const brandsTrack = document.getElementById('brandsTrack');
@@ -157,12 +148,17 @@ if (testiTrack) {
   testiNext.addEventListener('click', () => goTo(index + 1));
 
   let auto = setInterval(() => goTo(index + 1), 6000);
-  [testiPrev, testiNext, testiDots].forEach(el =>
-    el.addEventListener('click', () => {
-      clearInterval(auto);
-      auto = setInterval(() => goTo(index + 1), 6000);
-    })
-  );
+  const restartAuto = () => {
+    clearInterval(auto);
+    auto = setInterval(() => goTo(index + 1), 6000);
+  };
+  [testiPrev, testiNext, testiDots].forEach(el => el.addEventListener('click', restartAuto));
+
+  const testiViewport = document.querySelector('.testi-viewport');
+  if (testiViewport) {
+    testiViewport.addEventListener('mouseenter', () => clearInterval(auto));
+    testiViewport.addEventListener('mouseleave', restartAuto);
+  }
 }
 
 /* ===================== reCAPTCHA MOCK ===================== */

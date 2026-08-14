@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body>
 
@@ -28,6 +28,7 @@
         <span class="nav-sep">|</span>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div id="google_translate_element" class="lang-switch" aria-label="Traducir página"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -118,13 +119,14 @@
       </div>
       <div class="how-video">
         <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/7OUaWjysYfA"
-            title="Así funciona Shutpoint"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+          <a class="video-thumb" href="https://youtu.be/7OUaWjysYfA?si=qNlvI55DEnHVvRwF" target="_blank" rel="noopener" aria-label="Ver Así funciona Shutpoint en YouTube">
+            <img src="https://img.youtube.com/vi/7OUaWjysYfA/maxresdefault.jpg" alt="Así funciona Shutpoint" loading="lazy" />
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </span>
+          </a>
         </div>
+        <a class="btn btn-blue video-yt-btn" href="https://youtu.be/7OUaWjysYfA?si=qNlvI55DEnHVvRwF" target="_blank" rel="noopener">Ver en YouTube</a>
       </div>
     </div>
   </section>
@@ -167,41 +169,38 @@
           <span class="tool-pop"><b>Facturación y cobranza</b>Genera CFDIs o cárgalos desde tu ERP al concretar tu venta y gestiona el proceso de cobranza.</span>
         </button>
 
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/embudos.png" alt="embudos de venta" /><span>Embudos de venta</span>
           <span class="tool-pop"><b>Embudos de venta</b>Gestiona eficientemente tus cotizaciones y oportunidades aumentando la tasa de conversión.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/alertas.png" alt="alertas" /><span>Alertas</span>
           <span class="tool-pop"><b>Alertas</b>Configura alertas por correo o en la App y mantente al día de todas las acciones de tu equipo comercial.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/encuestas.png" alt="encuestas" /><span>Encuestas</span>
           <span class="tool-pop"><b>Encuestas y Sondeos</b>Diseña encuestas de evaluación y sondeos digitales para conocer la opinión de tus clientes y prospectos.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/agenda.png" alt="agenda inteligente" /><span>Agenda</span>
           <span class="tool-pop"><b>Agenda inteligente</b>Tu equipo gestionará eficientemente su tiempo aumentando el enfoque a cierre de más ventas.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/whatsapp.png" alt="whatsapp" /><span>Whatsapp</span>
           <span class="tool-pop"><b>Whatsapp</b>Facilita a tu equipo la comunicación con tus clientes y prospectos a través de Whatsapp.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/email-mkt.png" alt="email marketing" /><span>Email marketing</span>
           <span class="tool-pop"><b>Email Marketing</b>Diseña y envía campañas automáticas de mailing sin afectar la reputación de tu dominio.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/sp-mail.png" alt="SP Mail" /><span>SP Mail</span>
           <span class="tool-pop"><b>SP Mail</b>Controla la comunicación de tus vendedores con clientes y mantenla ordenada en el expediente de cliente.</span>
         </button>
-        <button class="tool tool-extra">
+        <button class="tool">
           <img src="assets/tools/integracion.png" alt="integración total" /><span>Integración total</span>
           <span class="tool-pop"><b>Integración total</b>Logra un proceso más eficiente integrando Shutpoint a cualquier plataforma en tu empresa.</span>
         </button>
-      </div>
-      <div class="tools-more">
-        <button class="btn btn-outline" id="verMas">ver más</button>
       </div>
     </div>
   </section>
@@ -227,10 +226,6 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock1">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="feature">
-              <svg class="fx" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#c9c9c9"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-              <p>Envío y recepción de correos, gestiona oportunidades, app móvil, proyectos con clientes, geolocalización, capacitación, facturación, service desk.</p>
-            </div>
             <div class="plan-users">&nbsp;</div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock1">
@@ -238,10 +233,10 @@
             <h4>Servicios adicionales</h4>
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Material digital de autocapacitación</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
             </ul>
           </div>
           <div class="compare-cat">
@@ -250,8 +245,8 @@
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Newsletter</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Listas de distribución</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mailing (200 / mes)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Formulario de captación de leads</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Asignación de leads</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Formulario de captación de leads</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Asignación de leads</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Seguimiento de leads hasta su conversión</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Creación de campañas (1 / mes)</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Estadísticas de mercado</span></li>
@@ -263,12 +258,12 @@
             <h4>CRM</h4>
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Administra contactos y empresas (200)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Gestiona oportunidades</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Gestiona oportunidades</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Agenda y alerta de compromisos</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Historial de seguimientos</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Almacenamiento de documentos</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Envío y recepción de correos</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Utiliza la app móvil</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Envío y recepción de correos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Utiliza la app móvil</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Realiza cotizaciones (30 / mes)</span></li>
             </ul>
           </div>
@@ -279,33 +274,33 @@
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tablero de supervisión</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Almacenamiento y lectura de facturas (30)</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Captura de pagos (30)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Proyectos con clientes</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Proyectos con clientes</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Agenda de trabajo</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Metas de venta y reportes</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Desempeño de vendedores</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Desempeño de venta</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bitácora de actividades</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Geolocalización</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Geolocalización</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Supervisión</span></li>
             </ul>
           </div>
           <div class="compare-cat">
             <h4>Facturación</h4>
             <ul>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de facturas</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de pagos</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Cancelaciones</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de facturas</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de pagos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Cancelaciones</span></li>
             </ul>
           </div>
           <div class="compare-cat">
             <h4>Service Desk</h4>
             <ul>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Formulario para captación automática de tickets</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Captación automática de tickets por correo</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Workflow del proceso de tickets</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Tablero de servicio para asignación y administración</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Análisis del servicio (tipos, prioridades, tiempos)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Encuestas de satisfacción y evaluación</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Formulario para captación automática de tickets</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Captación automática de tickets por correo</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Workflow del proceso de tickets</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Tablero de servicio para asignación y administración</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Análisis del servicio (tipos, prioridades, tiempos)</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Encuestas de satisfacción y evaluación</span></li>
             </ul>
           </div>
         </div>
@@ -326,10 +321,6 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock2">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="feature">
-              <svg class="fx" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#c9c9c9"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-              <p>Capacitación Grupal, capacitación, apoyo en configuración, facturación, productos / compromisos.</p>
-            </div>
             <div class="plan-users">1 Usuario</div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock2">
@@ -337,10 +328,10 @@
             <h4>Servicios adicionales</h4>
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Material digital de autocapacitación</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
             </ul>
           </div>
           <div class="compare-cat">
@@ -391,9 +382,9 @@
           <div class="compare-cat">
             <h4>Facturación</h4>
             <ul>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de facturas</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de pagos</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Cancelaciones</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de facturas</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Timbrado de pagos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Cancelaciones</span></li>
             </ul>
           </div>
           <div class="compare-cat">
@@ -425,10 +416,6 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock3">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="feature">
-              <svg class="fx" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#c9c9c9"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-              <p>Capacitación, apoyo en configuración, productos / compromisos.</p>
-            </div>
             <div class="plan-users">5 Usuarios</div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock3">
@@ -437,9 +424,9 @@
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Material digital de autocapacitación</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Capacitación Grupal</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Apoyo en configuración</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
             </ul>
           </div>
           <div class="compare-cat">
@@ -524,10 +511,6 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock4">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="feature">
-              <svg class="fx" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#c9c9c9"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-              <p>Capacitación grupal.</p>
-            </div>
             <div class="plan-users"><input type="number" min="0" value="6" class="user-input" id="enterpriseUsers" data-per-mes="396" data-per-anual="3960" aria-label="Usuarios" /> Usuario (s)</div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock4">
@@ -535,7 +518,7 @@
             <h4>Servicios adicionales</h4>
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Material digital de autocapacitación</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.16)"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
+              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Apoyo en configuración</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
@@ -749,6 +732,17 @@
     </div>
   </footer>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,pt,de,it,zh-CN',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 </body>
 </html>
