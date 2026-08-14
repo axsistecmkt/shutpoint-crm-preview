@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body class="login-page">
   <main class="login">
@@ -65,6 +65,25 @@
   </main>
 
   <script>
+    /* Alinear el logo del panel izquierdo con "Iniciar sesión" */
+    function alignLoginLogo() {
+      const logo = document.querySelector('.login-logo-left');
+      const title = document.querySelector('.login-title');
+      const left = document.querySelector('.login-left');
+      if (!logo || !title || !left) return;
+      if (getComputedStyle(logo).position !== 'absolute') return; // layout apilado en móvil
+      const titleTop = title.getBoundingClientRect().top;
+      const leftTop = left.getBoundingClientRect().top;
+      const logoHeight = logo.getBoundingClientRect().height;
+      const titleHeight = title.getBoundingClientRect().height;
+      const offset = (titleTop - leftTop) + (titleHeight - logoHeight) / 2;
+      logo.style.top = Math.max(0, offset) + 'px';
+    }
+    alignLoginLogo();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignLoginLogo);
+    window.addEventListener('load', alignLoginLogo);
+    window.addEventListener('resize', alignLoginLogo);
+
     /* Password visibility toggle */
     const eye = document.getElementById('passEye');
     const pass = document.getElementById('pass');

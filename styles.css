@@ -608,7 +608,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
   width:min(150%,980px);height:auto;
   filter:brightness(0) invert(1);opacity:.03;
 }
-.login-logo-left{display:inline-block;margin-top:clamp(36px,6vh,64px);margin-bottom:auto}
+.login-logo-left{position:absolute;left:clamp(24px,5vw,80px);top:clamp(120px,22vh,220px)}
 .login-logo-left img{height:clamp(40px,5.6vh,60px);width:auto;filter:brightness(0) invert(1)}
 .login-top-links{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
 .login-top-links a{color:#aeb6c8;font-size:clamp(14px,1.6vh,18px);transition:color .2s}
@@ -685,7 +685,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
   .login-icon-bg{width:min(140%,520px);opacity:.07}
   .login-top-links{gap:26px;margin-bottom:26px}
   .login-top-links a{font-size:15px}
-  .login-logo-left{margin-top:14px;margin-bottom:30px}
+  .login-logo-left{position:static;margin-top:14px;margin-bottom:30px}
   .login-logo-left img{height:36px}
   .login-left-mid{margin:0}
   .login-left-mid h1{font-size:22px;line-height:1.4;max-width:420px}
