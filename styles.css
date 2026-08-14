@@ -251,9 +251,9 @@ body{top:0!important}
   transition:color .2s;
 }
 .compare-link:hover{color:var(--blue-dark)}
-.plan-features{padding:0 8px 8px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;flex:1}
+.plan-features{padding:0 8px 8px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;flex:none}
 .plan-users{margin-top:auto;padding-top:10px;font-size:15px;color:#5b6172}
-.user-input{width:42px;border:1px solid #d3d3d8;border-radius:6px;padding:3px 6px;font-family:inherit;font-size:14px;color:var(--navy)}
+.user-input{width:42px;border:1px solid #d3d3d8;border-radius:6px;padding:0 6px;font-family:inherit;font-size:14px;color:var(--navy);vertical-align:middle}
 
 /* ===================== COMPARAR SERVICIOS (por plan, dentro de cada tarjeta) ===================== */
 .plan-compare{
