@@ -610,7 +610,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
 }
 .login-logo-left{position:absolute;left:clamp(24px,5vw,80px);top:clamp(120px,22vh,220px)}
 .login-logo-left img{height:clamp(40px,5.6vh,60px);width:auto;filter:brightness(0) invert(1)}
-.login-top-links{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+.login-top-links{display:flex;gap:clamp(24px,4vw,56px);margin-bottom:auto;flex-wrap:wrap}
 .login-top-links a{color:#aeb6c8;font-size:clamp(14px,1.6vh,18px);transition:color .2s}
 .login-top-links a:hover{color:#fff}
 .login-left-mid{margin:auto 0}
