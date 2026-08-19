@@ -1,3 +1,35 @@
+/* ===================== IDIOMA (banderitas ES/EN vía cookie googtrans) =====================
+   Método estándar para controlar el Google Website Translator sin su UI
+   propia: el widget lee esta cookie al cargar la página y traduce solo.
+   Es el mismo mecanismo que usan plugins como GTranslate por debajo. */
+(function () {
+  const flags = document.querySelectorAll('.lang-flag');
+  if (!flags.length) return;
+
+  function currentLang() {
+    const m = document.cookie.match(/googtrans=\/es\/(\w+)/);
+    return m ? m[1] : 'es';
+  }
+
+  function setLanguage(lang) {
+    const domain = location.hostname;
+    document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+    if (domain) document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;domain=' + domain + ';';
+    if (lang !== 'es') {
+      document.cookie = 'googtrans=/es/' + lang + ';path=/;';
+      if (domain) document.cookie = 'googtrans=/es/' + lang + ';path=/;domain=' + domain + ';';
+    }
+    location.reload();
+  }
+
+  flags.forEach(btn => btn.addEventListener('click', () => {
+    if (btn.dataset.lang !== currentLang()) setLanguage(btn.dataset.lang);
+  }));
+
+  const active = currentLang();
+  flags.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === active));
+})();
+
 /* ===================== MOBILE NAV ===================== */
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');

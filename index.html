@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
 
@@ -30,7 +30,15 @@
         <span class="nav-sep">|</span>
         <a href="#contacto">Contacto</a>
       </nav>
-      <div id="google_translate_element" class="lang-switch" aria-label="Traducir página"></div>
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" class="lang-flag active" data-lang="es" aria-label="Español (México)" title="Español (México)">
+          <svg viewBox="0 0 3 2"><rect width="1" height="2" x="0" fill="#006341"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#CE1126"/></svg>
+        </button>
+        <button type="button" class="lang-flag" data-lang="en" aria-label="English (US)" title="English (US)">
+          <svg viewBox="0 0 19 10"><rect width="19" height="10" fill="#B22234"/><g fill="#fff"><rect y="0" width="19" height="1"/><rect y="2" width="19" height="1"/><rect y="4" width="19" height="1"/><rect y="6" width="19" height="1"/><rect y="8" width="19" height="1"/></g><rect width="8" height="6" fill="#3C3B6E"/></svg>
+        </button>
+      </div>
+      <div id="google_translate_element" class="gt-hidden" aria-hidden="true"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -57,10 +65,10 @@
             <div class="bars">
               <span class="ytick">80</span><span class="ytick">60</span><span class="ytick">40</span><span class="ytick">20</span><span class="ytick">0</span>
               <div class="bars-plot">
-                <div class="bar" style="height:32%; background:#a9cdea"></div>
-                <div class="bar" style="height:54%; background:#5aa3d8"></div>
-                <div class="bar" style="height:75%; background:#2585c6"></div>
-                <div class="bar" style="height:94%; background:#1b2b52"></div>
+                <div class="bar" style="height:32%; background:#2585c6"></div>
+                <div class="bar" style="height:44%; background:#1b2b52"></div>
+                <div class="bar" style="height:62%; background:#2fb457"></div>
+                <div class="bar" style="height:92%; background:#e23b34"></div>
               </div>
             </div>
             <div class="bars-labels"><span>marzo</span><span>abril</span><span>mayo</span><span>junio</span></div>
@@ -124,7 +132,7 @@
           <button type="button" class="video-thumb" id="videoPlayBtn" aria-label="Reproducir video: Así funciona Shutpoint">
             <img src="assets/video/miniatura-yt.jpg" alt="Así funciona Shutpoint" />
             <span class="video-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 6.2c0-1.6 1.77-2.58 3.13-1.73l9.15 5.8c1.29.82 1.29 2.66 0 3.48l-9.15 5.8C9.77 20.4 8 19.4 8 17.8V6.2Z" fill="#fff"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M6.38 6.2c0-1.6 1.77-2.58 3.13-1.73l9.15 5.8c1.29.82 1.29 2.66 0 3.48l-9.15 5.8C8.15 20.4 6.38 19.4 6.38 17.8V6.2Z" fill="#fff"/></svg>
             </span>
           </button>
         </div>
@@ -741,6 +749,9 @@
           </div>
         </a>
       </div>
+      <div class="blog-more">
+        <a href="https://shutpoint.com/blog/" target="_blank" rel="noopener" class="btn btn-outline">Ver más</a>
+      </div>
     </div>
   </section>
 
@@ -801,12 +812,12 @@
     </div>
   </footer>
 
-  <script src="script.js?v=22"></script>
+  <script src="script.js?v=29"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'es',
-        includedLanguages: 'en,fr,pt,de,it,zh-CN',
+        includedLanguages: 'en',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');

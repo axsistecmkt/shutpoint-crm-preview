@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
 
@@ -28,7 +28,15 @@
         <span class="nav-sep">|</span>
         <a href="index.html#contacto">Contacto</a>
       </nav>
-      <div id="google_translate_element" class="lang-switch" aria-label="Traducir página"></div>
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" class="lang-flag active" data-lang="es" aria-label="Español (México)" title="Español (México)">
+          <svg viewBox="0 0 3 2"><rect width="1" height="2" x="0" fill="#006341"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#CE1126"/></svg>
+        </button>
+        <button type="button" class="lang-flag" data-lang="en" aria-label="English (US)" title="English (US)">
+          <svg viewBox="0 0 19 10"><rect width="19" height="10" fill="#B22234"/><g fill="#fff"><rect y="0" width="19" height="1"/><rect y="2" width="19" height="1"/><rect y="4" width="19" height="1"/><rect y="6" width="19" height="1"/><rect y="8" width="19" height="1"/></g><rect width="8" height="6" fill="#3C3B6E"/></svg>
+        </button>
+      </div>
+      <div id="google_translate_element" class="gt-hidden" aria-hidden="true"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -119,12 +127,12 @@
     </div>
   </footer>
 
-  <script src="script.js?v=22"></script>
+  <script src="script.js?v=29"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'es',
-        includedLanguages: 'en,fr,pt,de,it,zh-CN',
+        includedLanguages: 'en',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
