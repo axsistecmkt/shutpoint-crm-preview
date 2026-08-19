@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body>
 
@@ -23,6 +23,8 @@
         <a href="#herramientas">Herraminetas</a>
         <span class="nav-sep">|</span>
         <a href="#planes">Planes y precio</a>
+        <span class="nav-sep">|</span>
+        <a href="#blog">Blog</a>
         <span class="nav-sep">|</span>
         <a href="faqs.html">FAQs</a>
         <span class="nav-sep">|</span>
@@ -55,10 +57,10 @@
             <div class="bars">
               <span class="ytick">80</span><span class="ytick">60</span><span class="ytick">40</span><span class="ytick">20</span><span class="ytick">0</span>
               <div class="bars-plot">
-                <div class="bar" style="height:62%; background:#2585c6"></div>
-                <div class="bar" style="height:44%; background:#1b2b52"></div>
-                <div class="bar" style="height:92%; background:#2fb457"></div>
-                <div class="bar" style="height:32%; background:#e23b34"></div>
+                <div class="bar" style="height:32%; background:#a9cdea"></div>
+                <div class="bar" style="height:54%; background:#5aa3d8"></div>
+                <div class="bar" style="height:75%; background:#2585c6"></div>
+                <div class="bar" style="height:94%; background:#1b2b52"></div>
               </div>
             </div>
             <div class="bars-labels"><span>marzo</span><span>abril</span><span>mayo</span><span>junio</span></div>
@@ -118,13 +120,13 @@
         <p>Alcanza tus metas sin tanto drama: un proceso comercial eficiente, un equipo de ventas más productivo, supervisión fácil y efectiva, marketing de alto impacto y mejor servicio a tus clientes. Todo en un solo lugar.</p>
       </div>
       <div class="how-video">
-        <div class="video-frame">
-          <a class="video-thumb" href="https://youtu.be/7OUaWjysYfA?si=qNlvI55DEnHVvRwF" target="_blank" rel="noopener" aria-label="Ver Así funciona Shutpoint en YouTube">
+        <div class="video-frame" id="videoFrame">
+          <button type="button" class="video-thumb" id="videoPlayBtn" aria-label="Reproducir video: Así funciona Shutpoint">
             <img src="assets/video/miniatura-yt.jpg" alt="Así funciona Shutpoint" />
             <span class="video-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M8 6.2c0-1.6 1.77-2.58 3.13-1.73l9.15 5.8c1.29.82 1.29 2.66 0 3.48l-9.15 5.8C9.77 20.4 8 19.4 8 17.8V6.2Z" fill="#fff"/></svg>
             </span>
-          </a>
+          </button>
         </div>
         <a class="btn btn-blue video-yt-btn" href="https://youtu.be/7OUaWjysYfA?si=qNlvI55DEnHVvRwF" target="_blank" rel="noopener">Ver en YouTube</a>
       </div>
@@ -200,6 +202,34 @@
         <button class="tool">
           <img src="assets/tools/integracion.png" alt="integración total" /><span>Integración total</span>
           <span class="tool-pop"><b>Integración total</b>Logra un proceso más eficiente integrando Shutpoint a cualquier plataforma en tu empresa.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/asistente-comercial-ia.png" alt="Asistente Comercial con IA" /><span>Asistente Comercial con IA</span>
+          <span class="tool-pop"><b>Asistente Comercial con IA</b>Apóyate en inteligencia artificial para resolver dudas, redactar seguimientos y acelerar el cierre de tus oportunidades.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/contratos-firma-digital.png" alt="Contratos y Firma Digital" /><span>Contratos y Firma Digital</span>
+          <span class="tool-pop"><b>Contratos y Firma Digital</b>Genera contratos y ciérralos con firma digital sin salir de Shutpoint, agilizando tu proceso de venta.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/desempeno-productos.png" alt="Desempeño de Productos" /><span>Desempeño de Productos</span>
+          <span class="tool-pop"><b>Desempeño de Productos</b>Identifica qué productos generan más ventas y cuáles necesitan una estrategia distinta.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/mailing-automatizado.png" alt="Mailing Automatizado" /><span>Mailing Automatizado</span>
+          <span class="tool-pop"><b>Mailing Automatizado</b>Programa envíos de correo que se disparan solos según el comportamiento de tus clientes y prospectos.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/tickets-acuerdos-sla.png" alt="Tickets y Acuerdos SLA" /><span>Tickets y Acuerdos SLA</span>
+          <span class="tool-pop"><b>Tickets y Acuerdos SLA</b>Da seguimiento a tickets de soporte con tiempos de respuesta definidos y cumple tus acuerdos de servicio.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/videollamadas-teams.png" alt="Videollamadas Microsoft Team" /><span>Videollamadas Microsoft Team</span>
+          <span class="tool-pop"><b>Videollamadas Microsoft Team</b>Agenda y realiza videollamadas con tus clientes directo desde Shutpoint, integrado con Microsoft Teams.</span>
+        </button>
+        <button class="tool">
+          <img src="assets/tools/whatsapp-cloud-api.png" alt="WhatsApp Cloud API" /><span>WhatsApp Cloud API</span>
+          <span class="tool-pop"><b>WhatsApp Cloud API</b>Conecta WhatsApp oficial a tu operación comercial y atiende a tus clientes desde un solo lugar.</span>
         </button>
       </div>
     </div>
@@ -518,7 +548,7 @@
             <h4>Servicios adicionales</h4>
             <ul>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Material digital de autocapacitación</span></li>
-              <li class="excl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#e9ebef"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9aa0ab" stroke-width="2" stroke-linecap="round"/></svg><span>Capacitación Grupal</span></li>
+              <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Atención primordial</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Apoyo en configuración</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Capacitación personalizada (paquete 5 usuarios, máximo por grupo 10 personas)</span></li>
               <li class="incl"><svg class="cmp-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2585c6"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Carga masiva de información Clientes / Productos / Compromisos</span></li>
@@ -675,6 +705,45 @@
     </div>
   </section>
 
+  <!-- ===================== BLOG ===================== -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <h2 class="section-title">Blog</h2>
+      <div class="blog-grid">
+        <a class="blog-card" href="https://shutpoint.com/blog/como-sacarle-provecho-a-un-crm/" target="_blank" rel="noopener">
+          <div class="blog-card-img">
+            <img src="https://shutpoint.com/wp-content/uploads/elementor/thumbs/BLOG_0407_SP-1-r89tqbnskkgzwjeyrq6tm6ap54uo38ktcpjyzu6chk.png" alt="5 formas prácticas de cómo sacarle provecho a un CRM desde el primer mes" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <h3>5 formas prácticas de cómo sacarle provecho a un CRM desde el primer mes</h3>
+            <p>Muchas empresas abandonan su CRM a los pocos meses por no saber cómo aprovecharlo. Te compartimos 5 acciones concretas para implementar desde el primer mes.</p>
+            <span class="blog-card-link">Leer más</span>
+          </div>
+        </a>
+        <a class="blog-card" href="https://shutpoint.com/blog/organizar-equipo-ventas-grande/" target="_blank" rel="noopener">
+          <div class="blog-card-img">
+            <img src="https://shutpoint.com/wp-content/uploads/elementor/thumbs/organizar-un-equipo-de-ventas-grande-r7eyh3n08cc61p8f68zrscq7hdi454m758obwibhdk.png" alt="Cómo organizar un equipo de ventas grande sin perder el control comercial" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <h3>Cómo organizar un equipo de ventas grande sin perder el control comercial</h3>
+            <p>Gestionar un equipo comercial de más de 10 personas es un reto sin procesos, KPIs y herramientas adecuadas. Estrategias probadas para mantener el control.</p>
+            <span class="blog-card-link">Leer más</span>
+          </div>
+        </a>
+        <a class="blog-card" href="https://shutpoint.com/blog/kanban-de-clientes-estrategia-comercial/" target="_blank" rel="noopener">
+          <div class="blog-card-img">
+            <img src="https://shutpoint.com/wp-content/uploads/elementor/thumbs/BLOG_KANBAN_DE_CLIENTES-r5hb6ohovvvzoyfpbbl4h9eap7hi1829jqk331b5q0.png" alt="La importancia de tener un Kanban de clientes en tu estrategia comercial" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <h3>La importancia de tener un Kanban de clientes en tu estrategia comercial</h3>
+            <p>Visualiza el estado de cada oportunidad, optimiza procesos y toma mejores decisiones con un Kanban de clientes bien implementado.</p>
+            <span class="blog-card-link">Leer más</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CONTACTO ===================== -->
   <section class="contact" id="contacto">
     <div class="container contact-inner">
@@ -732,7 +801,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=21"></script>
+  <script src="script.js?v=22"></script>
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({

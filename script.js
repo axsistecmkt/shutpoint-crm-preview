@@ -8,6 +8,23 @@ if (navToggle) {
   );
 }
 
+/* ===================== VIDEO INLINE (reproducir MP4 en la página) ===================== */
+const videoPlayBtn = document.getElementById('videoPlayBtn');
+const videoFrame = document.getElementById('videoFrame');
+if (videoPlayBtn && videoFrame) {
+  videoPlayBtn.addEventListener('click', () => {
+    const video = document.createElement('video');
+    video.className = 'video-el';
+    video.src = 'assets/video/shutpoint-comercial.mp4';
+    video.setAttribute('controls', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('playsinline', '');
+    video.poster = 'assets/video/miniatura-yt.jpg';
+    videoFrame.replaceChildren(video);
+    video.play().catch(() => {});
+  });
+}
+
 /* ===================== PRICE AUTO-FIT (card + numbers never change size; safety net only) ===================== */
 function fitPrice(block) {
   if (!block) return;
