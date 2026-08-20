@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=30" />
 </head>
 <body>
 
@@ -29,14 +29,13 @@
         <a href="index.html#contacto">Contacto</a>
       </nav>
       <div class="lang-switch" id="langSwitch">
-        <button type="button" class="lang-flag active" data-lang="es" aria-label="Español (México)" title="Español (México)">
-          <svg viewBox="0 0 3 2"><rect width="1" height="2" x="0" fill="#006341"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#CE1126"/></svg>
+        <button type="button" class="lang-flag active" id="btnLangEs" onclick="setLang('es')" title="Español">
+          <img src="https://flagcdn.com/w40/mx.png" alt="ES" class="flag-img" />
         </button>
-        <button type="button" class="lang-flag" data-lang="en" aria-label="English (US)" title="English (US)">
-          <svg viewBox="0 0 19 10"><rect width="19" height="10" fill="#B22234"/><g fill="#fff"><rect y="0" width="19" height="1"/><rect y="2" width="19" height="1"/><rect y="4" width="19" height="1"/><rect y="6" width="19" height="1"/><rect y="8" width="19" height="1"/></g><rect width="8" height="6" fill="#3C3B6E"/></svg>
+        <button type="button" class="lang-flag" id="btnLangEn" onclick="setLang('en')" title="English">
+          <img src="https://flagcdn.com/w40/us.png" alt="EN" class="flag-img" />
         </button>
       </div>
-      <div id="google_translate_element" class="gt-hidden" aria-hidden="true"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -68,22 +67,22 @@
           <h2 class="faq-group-title">Versión Freemium</h2>
 
           <div class="faq-item">
-            <button class="faq-q">¿A cuántos usuarios puedo dar acceso al usar la versión Freemium?<span class="faq-ico" aria-hidden="true"></span></button>
+            <button class="faq-q"><span class="i18n-desc">¿A cuántos usuarios puedo dar acceso al usar la versión Freemium?</span><span class="faq-ico" aria-hidden="true"></span></button>
             <div class="faq-a"><p>La versión freemium tiene acceso a toda la funcionalidad con las limitantes propias de la versión gratuita, teniendo la posibilidad de ser usada hasta por 3 usuarios.</p></div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q">¿Se puede tener acceso a la app móvil con la versión Freemium?<span class="faq-ico" aria-hidden="true"></span></button>
+            <button class="faq-q"><span class="i18n-desc">¿Se puede tener acceso a la app móvil con la versión Freemium?</span><span class="faq-ico" aria-hidden="true"></span></button>
             <div class="faq-a"><p>La aplicación móvil puede ser utilizada sin problema aun si solo se cuenta con acceso a la versión freemium, contemplando las limitantes propias de esta versión.</p></div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q">¿Qué limitantes de funcionalidad tiene la versión Freemium?<span class="faq-ico" aria-hidden="true"></span></button>
+            <button class="faq-q"><span class="i18n-desc">¿Qué limitantes de funcionalidad tiene la versión Freemium?</span><span class="faq-ico" aria-hidden="true"></span></button>
             <div class="faq-a"><p>Al utilizar la versión freemium tienes acceso al 100% de la funcionalidad de Shutpoint, sin embargo, algunos elementos de la operación estarán limitados a cantidades menores a las disponibles en cualquiera de los otros planes, un ejemplo de ello son: correos masivos disponibles mensuales, número de cotizaciones elaboradas al mes, cantidad de clientes registrados, número de CFDIs timbrados, cantidad de encuestas realizadas por mes, etc.</p></div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-q">¿Cuánto tiempo puedo usar la versión Freemium?<span class="faq-ico" aria-hidden="true"></span></button>
+            <button class="faq-q"><span class="i18n-desc">¿Cuánto tiempo puedo usar la versión Freemium?</span><span class="faq-ico" aria-hidden="true"></span></button>
             <div class="faq-a"><p>La versión freemium es totalmente gratuita y no tiene periodo de vencimiento por lo que puedes utilizarla por tiempo indefinido.</p></div>
           </div>
         </div>
@@ -92,7 +91,7 @@
           <h2 class="faq-group-title">Funcionalidad</h2>
 
           <div class="faq-item">
-            <button class="faq-q">Pronto agregaremos más preguntas sobre la funcionalidad<span class="faq-ico" aria-hidden="true"></span></button>
+            <button class="faq-q"><span class="i18n-desc">Pronto agregaremos más preguntas sobre la funcionalidad</span><span class="faq-ico" aria-hidden="true"></span></button>
             <div class="faq-a"><p>Estamos preparando más contenido para esta sección. Mientras tanto, si tienes una duda específica sobre la funcionalidad de Shutpoint, escríbenos y con gusto te ayudamos.</p></div>
           </div>
         </div>
@@ -127,18 +126,8 @@
     </div>
   </footer>
 
-  <script src="script.js?v=29"></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+  <script src="assets/i18n.js?v=1"></script>
+  <script src="script.js?v=30"></script>
   <script>
     /* Accordion */
     document.querySelectorAll('.faq-q').forEach(q => {

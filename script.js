@@ -265,7 +265,8 @@ if (form) {
       return;
     }
     formMsg.hidden = false;
-    formMsg.textContent = '¡Gracias! Nos pondremos en contacto contigo muy pronto.';
+    var successMsg = '¡Gracias! Nos pondremos en contacto contigo muy pronto.';
+    formMsg.textContent = (window.__spLang === 'en' && window.SP_DICT && SP_DICT[successMsg]) ? SP_DICT[successMsg] : successMsg;
     form.reset();
     if (rcBox) rcBox.classList.remove('checked');
   });

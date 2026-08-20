@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=30" />
 </head>
 <body>
 
@@ -31,14 +31,13 @@
         <a href="#contacto">Contacto</a>
       </nav>
       <div class="lang-switch" id="langSwitch">
-        <button type="button" class="lang-flag active" data-lang="es" aria-label="Español (México)" title="Español (México)">
-          <svg viewBox="0 0 3 2"><rect width="1" height="2" x="0" fill="#006341"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#CE1126"/></svg>
+        <button type="button" class="lang-flag active" id="btnLangEs" onclick="setLang('es')" title="Español">
+          <img src="https://flagcdn.com/w40/mx.png" alt="ES" class="flag-img" />
         </button>
-        <button type="button" class="lang-flag" data-lang="en" aria-label="English (US)" title="English (US)">
-          <svg viewBox="0 0 19 10"><rect width="19" height="10" fill="#B22234"/><g fill="#fff"><rect y="0" width="19" height="1"/><rect y="2" width="19" height="1"/><rect y="4" width="19" height="1"/><rect y="6" width="19" height="1"/><rect y="8" width="19" height="1"/></g><rect width="8" height="6" fill="#3C3B6E"/></svg>
+        <button type="button" class="lang-flag" id="btnLangEn" onclick="setLang('en')" title="English">
+          <img src="https://flagcdn.com/w40/us.png" alt="EN" class="flag-img" />
         </button>
       </div>
-      <div id="google_translate_element" class="gt-hidden" aria-hidden="true"></div>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -54,7 +53,7 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <img class="hero-flecha" src="assets/brand/flecha.png" alt="" aria-hidden="true" />
-          <h1 class="hero-title">El <strong>CRM</strong> que necesitas para<br /><strong>aumentar tus ventas</strong>.</h1>
+          <h1 class="hero-title" id="i18nHeroTitle">El <strong>CRM</strong> que necesitas para<br /><strong>aumentar tus ventas</strong>.</h1>
           <img class="powered-by" src="assets/brand/powered-by-axsis-trim.png" alt="powered by axsis" />
           <a href="https://app.shutpoint.com/es-MX/agenda/VentasShutpoint/Rodrigo?_gl=1*1j6awy7*_gcl_au*NTQ2MjQ3MzYyLjE3ODM0NTI1NzM.*_ga*MTg0NTQyNjE3MS4xNzgzNDUyNTcz*_ga_XSR9R0MVZV*czE3ODYzODg4NTckbzEyJGcwJHQxNzg2Mzg4ODU3JGo2MCRsMCRoMA.." class="btn btn-blue btn-lg">Agenda tu demo</a>
         </div>
@@ -93,9 +92,9 @@
               <div class="donut-center"><b>58</b><small>ventas</small></div>
             </div>
             <ul class="donut-legend">
-              <li><i style="background:#2585c6"></i>responsable 1</li>
-              <li><i style="background:#2fb457"></i>responsable 2</li>
-              <li><i style="background:#f5a623"></i>responsable 3</li>
+              <li><i style="background:#2585c6"></i><span class="i18n-desc">responsable 1</span></li>
+              <li><i style="background:#2fb457"></i><span class="i18n-desc">responsable 2</span></li>
+              <li><i style="background:#f5a623"></i><span class="i18n-desc">responsable 3</span></li>
             </ul>
           </div>
         </div>
@@ -113,7 +112,7 @@
       </div>
       <div class="devices-copy">
         <img class="devices-icon-bg" src="assets/brand/icono-sp.png" alt="" aria-hidden="true" />
-        <h2><strong>La solución tecnológica</strong> en la nube que puede adaptarse al <strong>100% de tu proceso</strong></h2>
+        <h2 id="i18nDevicesTitle"><strong>La solución tecnológica</strong> en la nube que puede adaptarse al <strong>100% de tu proceso</strong></h2>
         <p class="devices-sub">y con la que potenciarás el crecimiento de ventas en tu empresa.</p>
         <a href="#planes" class="btn btn-blue btn-lg">¡Inicia gratis!</a>
       </div>
@@ -124,7 +123,7 @@
   <section class="how">
     <div class="container how-inner">
       <div class="how-copy">
-        <h2><span class="how-thin">Así funciona</span><br /><strong>Shutpoint</strong></h2>
+        <h2 id="i18nHowTitle"><span class="how-thin">Así funciona</span><br /><strong>Shutpoint</strong></h2>
         <p>Alcanza tus metas sin tanto drama: un proceso comercial eficiente, un equipo de ventas más productivo, supervisión fácil y efectiva, marketing de alto impacto y mejor servicio a tus clientes. Todo en un solo lugar.</p>
       </div>
       <div class="how-video">
@@ -148,96 +147,96 @@
       <div class="tools-grid" id="toolsGrid">
         <button class="tool">
           <img src="assets/tools/dashboard.png" alt="dashboards" /><span>Dashboards</span>
-          <span class="tool-pop"><b>Dashboard de supervisión</b>Monitorea las principales métricas de desempeño de cada colaborador y de cada equipo de ventas.</span>
+          <span class="tool-pop"><b>Dashboard de supervisión</b><span class="i18n-desc">Monitorea las principales métricas de desempeño de cada colaborador y de cada equipo de ventas.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/kanban.png" alt="kanban" /><span>Kanban</span>
-          <span class="tool-pop"><b>Kanban de clientes</b>No pierdas de vista a ningún cliente y haz que avancen de forma ágil por todas las fases de venta.</span>
+          <span class="tool-pop"><b>Kanban de clientes</b><span class="i18n-desc">No pierdas de vista a ningún cliente y haz que avancen de forma ágil por todas las fases de venta.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/geolocalizacion.png" alt="geolocalización" /><span>Geolocalización</span>
-          <span class="tool-pop"><b>Geolocalización</b>Ubica a tus clientes y vendedores aumentando la productividad y mejorando su desempeño en campo.</span>
+          <span class="tool-pop"><b>Geolocalización</b><span class="i18n-desc">Ubica a tus clientes y vendedores aumentando la productividad y mejorando su desempeño en campo.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/app-movil.png" alt="app móvil" /><span>App móvil</span>
-          <span class="tool-pop"><b>App móvil</b>Monitorea las principales métricas de desempeño de cada colaborador y de cada equipo de ventas.</span>
+          <span class="tool-pop"><b>App móvil</b><span class="i18n-desc">Monitorea las principales métricas de desempeño de cada colaborador y de cada equipo de ventas.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/kpis.png" alt="KPIs" /><span>KPIs</span>
-          <span class="tool-pop"><b>KPIs y Metas</b>Define los KPIs a evaluar y gestiona tus metas de forma fácil y efectiva, logrando que las cosas sucedan.</span>
+          <span class="tool-pop"><b>KPIs y Metas</b><span class="i18n-desc">Define los KPIs a evaluar y gestiona tus metas de forma fácil y efectiva, logrando que las cosas sucedan.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/service-desk.png" alt="service desk" /><span>Service desk</span>
-          <span class="tool-pop"><b>Service desk</b>Implementa una estrategia de atención a solicitudes de servicio (tickets) y aumenta la satisfacción.</span>
+          <span class="tool-pop"><b>Service desk</b><span class="i18n-desc">Implementa una estrategia de atención a solicitudes de servicio (tickets) y aumenta la satisfacción.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/ecommerce.png" alt="ecommerce" /><span>Ecommerce</span>
-          <span class="tool-pop"><b>Ecommerce B2B</b>Aumenta ventas con un ecommerce B2B, mejora tu performance a la vez que disminuyes costos.</span>
+          <span class="tool-pop"><b>Ecommerce B2B</b><span class="i18n-desc">Aumenta ventas con un ecommerce B2B, mejora tu performance a la vez que disminuyes costos.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/facturacion.png" alt="facturación" /><span>Facturación</span>
-          <span class="tool-pop"><b>Facturación y cobranza</b>Genera CFDIs o cárgalos desde tu ERP al concretar tu venta y gestiona el proceso de cobranza.</span>
+          <span class="tool-pop"><b>Facturación y cobranza</b><span class="i18n-desc">Genera CFDIs o cárgalos desde tu ERP al concretar tu venta y gestiona el proceso de cobranza.</span></span>
         </button>
 
         <button class="tool">
           <img src="assets/tools/embudos.png" alt="embudos de venta" /><span>Embudos de venta</span>
-          <span class="tool-pop"><b>Embudos de venta</b>Gestiona eficientemente tus cotizaciones y oportunidades aumentando la tasa de conversión.</span>
+          <span class="tool-pop"><b>Embudos de venta</b><span class="i18n-desc">Gestiona eficientemente tus cotizaciones y oportunidades aumentando la tasa de conversión.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/alertas.png" alt="alertas" /><span>Alertas</span>
-          <span class="tool-pop"><b>Alertas</b>Configura alertas por correo o en la App y mantente al día de todas las acciones de tu equipo comercial.</span>
+          <span class="tool-pop"><b>Alertas</b><span class="i18n-desc">Configura alertas por correo o en la App y mantente al día de todas las acciones de tu equipo comercial.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/encuestas.png" alt="encuestas" /><span>Encuestas</span>
-          <span class="tool-pop"><b>Encuestas y Sondeos</b>Diseña encuestas de evaluación y sondeos digitales para conocer la opinión de tus clientes y prospectos.</span>
+          <span class="tool-pop"><b>Encuestas y Sondeos</b><span class="i18n-desc">Diseña encuestas de evaluación y sondeos digitales para conocer la opinión de tus clientes y prospectos.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/agenda.png" alt="agenda inteligente" /><span>Agenda</span>
-          <span class="tool-pop"><b>Agenda inteligente</b>Tu equipo gestionará eficientemente su tiempo aumentando el enfoque a cierre de más ventas.</span>
+          <span class="tool-pop"><b>Agenda inteligente</b><span class="i18n-desc">Tu equipo gestionará eficientemente su tiempo aumentando el enfoque a cierre de más ventas.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/whatsapp.png" alt="whatsapp" /><span>Whatsapp</span>
-          <span class="tool-pop"><b>Whatsapp</b>Facilita a tu equipo la comunicación con tus clientes y prospectos a través de Whatsapp.</span>
+          <span class="tool-pop"><b>Whatsapp</b><span class="i18n-desc">Facilita a tu equipo la comunicación con tus clientes y prospectos a través de Whatsapp.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/email-mkt.png" alt="email marketing" /><span>Email marketing</span>
-          <span class="tool-pop"><b>Email Marketing</b>Diseña y envía campañas automáticas de mailing sin afectar la reputación de tu dominio.</span>
+          <span class="tool-pop"><b>Email Marketing</b><span class="i18n-desc">Diseña y envía campañas automáticas de mailing sin afectar la reputación de tu dominio.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/sp-mail.png" alt="SP Mail" /><span>SP Mail</span>
-          <span class="tool-pop"><b>SP Mail</b>Controla la comunicación de tus vendedores con clientes y mantenla ordenada en el expediente de cliente.</span>
+          <span class="tool-pop"><b>SP Mail</b><span class="i18n-desc">Controla la comunicación de tus vendedores con clientes y mantenla ordenada en el expediente de cliente.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/integracion.png" alt="integración total" /><span>Integración total</span>
-          <span class="tool-pop"><b>Integración total</b>Logra un proceso más eficiente integrando Shutpoint a cualquier plataforma en tu empresa.</span>
+          <span class="tool-pop"><b>Integración total</b><span class="i18n-desc">Logra un proceso más eficiente integrando Shutpoint a cualquier plataforma en tu empresa.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/asistente-comercial-ia.png" alt="Asistente Comercial con IA" /><span>Asistente Comercial con IA</span>
-          <span class="tool-pop"><b>Asistente Comercial con IA</b>Apóyate en inteligencia artificial para resolver dudas, redactar seguimientos y acelerar el cierre de tus oportunidades.</span>
+          <span class="tool-pop"><b>Asistente Comercial con IA</b><span class="i18n-desc">Apóyate en inteligencia artificial para resolver dudas, redactar seguimientos y acelerar el cierre de tus oportunidades.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/contratos-firma-digital.png" alt="Contratos y Firma Digital" /><span>Contratos y Firma Digital</span>
-          <span class="tool-pop"><b>Contratos y Firma Digital</b>Genera contratos y ciérralos con firma digital sin salir de Shutpoint, agilizando tu proceso de venta.</span>
+          <span class="tool-pop"><b>Contratos y Firma Digital</b><span class="i18n-desc">Genera contratos y ciérralos con firma digital sin salir de Shutpoint, agilizando tu proceso de venta.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/desempeno-productos.png" alt="Desempeño de Productos" /><span>Desempeño de Productos</span>
-          <span class="tool-pop"><b>Desempeño de Productos</b>Identifica qué productos generan más ventas y cuáles necesitan una estrategia distinta.</span>
+          <span class="tool-pop"><b>Desempeño de Productos</b><span class="i18n-desc">Identifica qué productos generan más ventas y cuáles necesitan una estrategia distinta.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/mailing-automatizado.png" alt="Mailing Automatizado" /><span>Mailing Automatizado</span>
-          <span class="tool-pop"><b>Mailing Automatizado</b>Programa envíos de correo que se disparan solos según el comportamiento de tus clientes y prospectos.</span>
+          <span class="tool-pop"><b>Mailing Automatizado</b><span class="i18n-desc">Programa envíos de correo que se disparan solos según el comportamiento de tus clientes y prospectos.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/tickets-acuerdos-sla.png" alt="Tickets y Acuerdos SLA" /><span>Tickets y Acuerdos SLA</span>
-          <span class="tool-pop"><b>Tickets y Acuerdos SLA</b>Da seguimiento a tickets de soporte con tiempos de respuesta definidos y cumple tus acuerdos de servicio.</span>
+          <span class="tool-pop"><b>Tickets y Acuerdos SLA</b><span class="i18n-desc">Da seguimiento a tickets de soporte con tiempos de respuesta definidos y cumple tus acuerdos de servicio.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/videollamadas-teams.png" alt="Videollamadas Microsoft Team" /><span>Videollamadas Microsoft Team</span>
-          <span class="tool-pop"><b>Videollamadas Microsoft Team</b>Agenda y realiza videollamadas con tus clientes directo desde Shutpoint, integrado con Microsoft Teams.</span>
+          <span class="tool-pop"><b>Videollamadas Microsoft Team</b><span class="i18n-desc">Agenda y realiza videollamadas con tus clientes directo desde Shutpoint, integrado con Microsoft Teams.</span></span>
         </button>
         <button class="tool">
           <img src="assets/tools/whatsapp-cloud-api.png" alt="WhatsApp Cloud API" /><span>WhatsApp Cloud API</span>
-          <span class="tool-pop"><b>WhatsApp Cloud API</b>Conecta WhatsApp oficial a tu operación comercial y atiende a tus clientes desde un solo lugar.</span>
+          <span class="tool-pop"><b>WhatsApp Cloud API</b><span class="i18n-desc">Conecta WhatsApp oficial a tu operación comercial y atiende a tus clientes desde un solo lugar.</span></span>
         </button>
       </div>
     </div>
@@ -264,7 +263,7 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock1">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="plan-users">1 Usuario</div>
+            <div class="plan-users"><span class="i18n-desc">1 Usuario</span></div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock1">
           <div class="compare-cat">
@@ -359,7 +358,7 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock2">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="plan-users">1 Usuario</div>
+            <div class="plan-users"><span class="i18n-desc">1 Usuario</span></div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock2">
           <div class="compare-cat">
@@ -454,7 +453,7 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock3">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="plan-users">5 Usuarios</div>
+            <div class="plan-users"><span class="i18n-desc">5 Usuarios</span></div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock3">
           <div class="compare-cat">
@@ -549,7 +548,7 @@
           <a href="#contacto" class="btn btn-blue plan-btn">contratar</a>
           <button type="button" class="compare-link" data-compare-toggle aria-expanded="false" aria-controls="compareBlock4">Comparar servicios incluidos</button>
           <div class="plan-features">
-            <div class="plan-users"><input type="number" min="0" value="6" class="user-input" id="enterpriseUsers" data-per-mes="396" data-per-anual="3960" aria-label="Usuarios" /> Usuario (s)</div>
+            <div class="plan-users"><input type="number" min="0" value="6" class="user-input" id="enterpriseUsers" data-per-mes="396" data-per-anual="3960" aria-label="Usuarios" /> <span class="i18n-desc">Usuario (s)</span></div>
           </div>
         <div class="plan-compare" data-compare-block id="compareBlock4">
           <div class="compare-cat">
@@ -759,7 +758,7 @@
   <section class="contact" id="contacto">
     <div class="container contact-inner">
       <div class="contact-info">
-        <h2>Visualízate <strong>vendiendo más,<br />más fácil con</strong> Shutpoint.</h2>
+        <h2 id="i18nContactTitle">Visualízate <strong>vendiendo más,<br />más fácil con</strong> Shutpoint.</h2>
         <ul class="contact-list">
           <li><strong>Oficina principal:</strong> Av. Churubusco 1001, Monterrey.</li>
           <li><strong>Teléfono:</strong> 81 8057 1818</li>
@@ -785,7 +784,7 @@
         <textarea name="comentarios" placeholder="Comentarios" rows="4"></textarea>
         <div class="recaptcha">
           <div class="rc-check"><span class="rc-box" id="rcBox"></span>
-            <div class="rc-label">No soy un robot<small>reCAPTCHA va a cambiar sus términos del servicio. <a href="#">Toma medidas.</a></small></div>
+            <div class="rc-label"><span class="i18n-desc">No soy un robot</span><small><span class="i18n-desc">reCAPTCHA va a cambiar sus términos del servicio.</span> <a href="#" class="i18n-desc">Toma medidas.</a></small></div>
           </div>
           <div class="rc-logo">
             <img src="assets/brand/shutpoint-logo.png" alt="" aria-hidden="true" style="display:none" />
@@ -812,17 +811,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=29"></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+  <script src="assets/i18n.js?v=1"></script>
+  <script src="script.js?v=30"></script>
 </body>
 </html>

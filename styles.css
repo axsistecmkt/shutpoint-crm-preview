@@ -59,22 +59,16 @@ a{text-decoration:none;color:inherit}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
 .nav-toggle span{width:26px;height:3px;background:var(--navy);border-radius:3px}
 
-/* ===================== TRANSLATE (banderitas ES/EN, Google Website Translator por debajo) ===================== */
-.lang-switch{display:flex;align-items:center;gap:6px}
+/* ===================== TRANSLATE (banderitas ES/EN, traducción estática propia) ===================== */
+.lang-switch{display:flex;align-items:center;gap:2px;background:rgba(27,43,82,.06);border-radius:999px;padding:3px}
 .lang-flag{
   display:flex;align-items:center;justify-content:center;
-  width:26px;height:19px;border-radius:4px;overflow:hidden;
-  border:1.5px solid transparent;background:none;cursor:pointer;padding:0;
-  opacity:.5;filter:grayscale(70%);transition:opacity .2s,filter .2s,border-color .2s,transform .15s;
+  border:none;background:none;cursor:pointer;padding:5px 6px;border-radius:999px;
+  opacity:.45;transition:opacity .2s,background .2s,box-shadow .2s;line-height:0;
 }
-.lang-flag svg{width:100%;height:100%;display:block}
-.lang-flag:hover{opacity:.85;filter:grayscale(0%);transform:translateY(-1px)}
-.lang-flag.active{opacity:1;filter:grayscale(0%);border-color:var(--blue)}
-.gt-hidden{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
-body{top:0!important}
-.goog-te-banner-frame{display:none!important}
-.goog-tooltip,.goog-tooltip:hover{display:none!important}
-.goog-text-highlight{background:none!important;box-shadow:none!important}
+.lang-flag .flag-img{width:24px;height:18px;border-radius:3px;display:block;pointer-events:none}
+.lang-flag:hover{opacity:.75}
+.lang-flag.active{opacity:1;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 
 /* ===================== HERO ===================== */
 .hero{background:#fff;padding-bottom:40px;overflow:hidden}
@@ -407,8 +401,9 @@ body{top:0!important}
   /* --- header --- */
   .header-inner{padding-top:16px;padding-bottom:16px}
   .logo img{height:26px}
-  .lang-switch{gap:4px;margin-right:6px}
-  .lang-flag{width:22px;height:16px}
+  .lang-switch{margin-right:6px}
+  .lang-flag{padding:4px 5px}
+  .lang-flag .flag-img{width:20px;height:15px}
   .main-nav{
     position:absolute;top:100%;right:0;left:0;background:#fff;flex-direction:column;
     align-items:flex-start;gap:6px;padding:18px 24px;box-shadow:0 18px 30px rgba(0,0,0,.1);
@@ -627,6 +622,11 @@ html:has(body.login-page){height:100%;overflow:hidden}
   padding:clamp(20px,4vh,44px) clamp(24px,5vw,80px) clamp(20px,4vh,40px);position:relative;z-index:0;
   min-height:0;
 }
+.login-left .lang-switch{
+  position:absolute;top:clamp(20px,4vh,44px);right:clamp(24px,5vw,80px);
+  background:rgba(255,255,255,.1);
+}
+.login-left .lang-flag.active{background:rgba(255,255,255,.95)}
 .login-icon-bg{
   position:absolute;z-index:-1;pointer-events:none;
   top:50%;left:60%;transform:translate(-50%,-50%);
@@ -708,6 +708,7 @@ html:has(body.login-page){height:100%;overflow:hidden}
 
   .login-left{flex:0 0 auto;padding:36px 26px 44px;min-height:0}
   .login-icon-bg{width:min(140%,520px);opacity:.07}
+  .login-left .lang-switch{top:32px;right:22px}
   .login-top-links{gap:26px;margin-bottom:26px}
   .login-top-links a{font-size:15px}
   .login-logo-left{position:static;margin-top:14px;margin-bottom:30px}
