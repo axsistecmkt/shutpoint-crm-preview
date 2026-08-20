@@ -283,7 +283,7 @@ a{text-decoration:none;color:inherit}
   filter:brightness(0) invert(1);opacity:.85;transition:opacity .2s,transform .2s;
 }
 .brands-track .company:hover{opacity:1;transform:scale(1.06)}
-@keyframes brandsMarquee{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes brandsMarquee{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 @media(prefers-reduced-motion:reduce){.brands-track{animation:none}}
 
 /* ===================== TESTIMONIALS ===================== */
