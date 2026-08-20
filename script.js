@@ -197,16 +197,6 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ===================== BRANDS CAROUSEL ===================== */
-const brandsTrack = document.getElementById('brandsTrack');
-const brandsPrev = document.getElementById('brandsPrev');
-const brandsNext = document.getElementById('brandsNext');
-if (brandsTrack) {
-  const step = 340;
-  brandsPrev.addEventListener('click', () => brandsTrack.scrollBy({ left: -step, behavior: 'smooth' }));
-  brandsNext.addEventListener('click', () => brandsTrack.scrollBy({ left: step, behavior: 'smooth' }));
-}
-
 /* ===================== TESTIMONIALS CAROUSEL ===================== */
 const testiTrack = document.getElementById('testiTrack');
 const testiDots = document.getElementById('testiDots');

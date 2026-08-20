@@ -274,22 +274,17 @@ a{text-decoration:none;color:inherit}
 /* ===================== BRANDS ===================== */
 .brands{background:var(--navy-band);padding:22px 0 26px}
 .brands-title{text-align:center;color:#fff;font-size:15px;font-weight:600;margin-bottom:16px;letter-spacing:.3px}
-.brands-inner{display:flex;align-items:center;gap:14px}
-.brands-arrow{
-  background:none;border:none;color:#5f7bb0;font-size:34px;cursor:pointer;
-  line-height:1;padding:0 6px;flex:none;transition:color .2s;
-}
-.brands-arrow:hover{color:#fff}
-.brands-track{
-  display:flex;align-items:center;gap:52px;overflow-x:auto;scroll-behavior:smooth;
-  flex:1;scrollbar-width:none;padding:8px 4px;
-}
-.brands-track::-webkit-scrollbar{display:none}
+.brands-inner{overflow:hidden}
+.brands-track{display:flex;width:max-content;animation:brandsMarquee 22s linear infinite}
+.brands-inner:hover .brands-track{animation-play-state:paused}
+.brands-set{display:flex;align-items:center;gap:52px;padding:8px 26px;flex:none}
 .brands-track .company{
   height:34px;max-width:104px;width:auto;flex:none;object-fit:contain;
-  filter:brightness(0) invert(1);opacity:.9;transition:opacity .2s,transform .2s;
+  filter:brightness(0) invert(1);opacity:.85;transition:opacity .2s,transform .2s;
 }
 .brands-track .company:hover{opacity:1;transform:scale(1.06)}
+@keyframes brandsMarquee{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.brands-track{animation:none}}
 
 /* ===================== TESTIMONIALS ===================== */
 .testimonials{background:#fff;padding-top:44px}
