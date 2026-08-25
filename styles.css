@@ -277,7 +277,7 @@ a{text-decoration:none;color:inherit}
 .brands-inner{overflow:hidden}
 .brands-track{display:flex;width:max-content;animation:brandsMarquee 22s linear infinite}
 .brands-inner:hover .brands-track{animation-play-state:paused}
-.brands-set{display:flex;align-items:center;gap:76px;padding:8px 38px;flex:none}
+.brands-set{display:flex;align-items:center;gap:106px;padding:8px 53px;flex:none}
 .brands-track .company{
   height:34px;max-width:104px;width:auto;flex:none;object-fit:contain;
   filter:brightness(0) invert(1);opacity:.85;transition:opacity .2s,transform .2s;
@@ -285,6 +285,9 @@ a{text-decoration:none;color:inherit}
 .brands-track .company[src*="mjb.png"],
 .brands-track .company[src*="fortacero.png"]{
   height:50px;max-width:150px;
+}
+.brands-track .company[src*="acero-precio.png"]{
+  height:64px;max-width:190px;
 }
 .brands-track .company:hover{opacity:1;transform:scale(1.06)}
 @keyframes brandsMarquee{from{transform:translateX(0)}to{transform:translateX(-25%)}}
