@@ -11,7 +11,7 @@ Réplica fiel del diseño `shutpoint.com demo design.pdf`, construido como sitio
 - **Herramientas** — 8 herramientas con tooltips descriptivos.
 - **Planes y precios** — 4 planes (Freemium, Entrepreneur, Business, Enterprise) con toggle mensual/anual.
 - **Empresas que confían en Shutpoint** — carrusel de logos.
-- **Testimoniales** — carrusel con autoplay.
+- **Testimonios** — carrusel con autoplay.
 - **Contacto** — formulario funcional con validación.
 
 ## Estructura

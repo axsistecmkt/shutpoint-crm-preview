@@ -6,9 +6,7 @@
 
 var SP_DICT = {
   /* ---------- Nav / header ---------- */
-  "Herraminetas": "Tools",
   "Herramientas": "Tools",
-  "Planes y precio": "Plans & Pricing",
   "Planes y precios": "Plans & Pricing",
   "Blog": "Blog",
   "FAQs": "FAQs",
@@ -191,9 +189,9 @@ var SP_DICT = {
   "Utiliza la app móvil": "Use the mobile app",
   "Workflow del proceso de tickets": "Ticket process workflow",
 
-  /* ---------- Empresas / Testimoniales ---------- */
+  /* ---------- Empresas / Testimonios ---------- */
   "Empresas que confían en Shutpoint": "Companies that trust Shutpoint",
-  "Testimoniales": "Testimonials",
+  "Testimonios": "Testimonials",
   "\"Supervisión de actividades en campo más efectiva, comprobando cumplimiento de rutas y control de kilometraje adecuado.\"":
     "\"More effective oversight of field activities, verifying route compliance and proper mileage control.\"",
   "Gerente Comercial — Agrovelca": "Commercial Manager — Agrovelca",
@@ -266,9 +264,9 @@ var SP_DICT = {
 
   /* ---------- Login ---------- */
   "Contáctanos": "Contact us",
-  "Terminos y condiciones": "Terms and conditions",
+  "Términos y condiciones": "Terms and conditions",
   "¿No tienes cuenta?": "Don't have an account?",
-  "registrate": "sign up",
+  "regístrate": "sign up",
   "Iniciar sesión": "Log in",
   "correo": "email",
   "contraseña": "password",
@@ -299,7 +297,7 @@ var SP_HTML = {
     en: 'Picture yourself <strong>selling more,<br />more easily with</strong> Shutpoint.'
   },
   i18nLoginHeroTitle: {
-    es: 'Con <strong>Shutpoint CRM</strong> podras tener un <strong>mayor control</strong> sobre tu proceso de ventas y con ello <strong>aumentar tus ganancias</strong>.',
+    es: 'Con <strong>Shutpoint CRM</strong> podrás tener un <strong>mayor control</strong> sobre tu proceso de ventas y con ello <strong>aumentar tus ganancias</strong>.',
     en: 'With <strong>Shutpoint CRM</strong> you can gain <strong>greater control</strong> over your sales process and <strong>increase your profits</strong>.'
   }
 };
