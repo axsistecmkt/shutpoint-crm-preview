@@ -310,6 +310,52 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
   display:flex;align-items:flex-end;gap:8px;
 }
 
+/* Fila de filtros 2: fecha (radios) + rango + buscar */
+.filters-row2{
+  display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  padding:0 18px 16px;margin-top:-6px;
+  background:#fff;border:1px solid var(--gray-200);border-top:0;
+  border-radius:0 0 var(--radius-lg) var(--radius-lg);box-shadow:var(--shadow-sm);
+  margin-bottom:16px;
+}
+.radio-group{display:flex;gap:16px;align-items:center;height:37px;flex-wrap:wrap}
+.radio{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-700);cursor:pointer;user-select:none}
+.radio input[type="radio"]{width:16px;height:16px;margin:0;accent-color:var(--brand-500);cursor:pointer}
+.input-icon{position:relative}
+.input-icon .input{padding-left:36px}
+.input-icon>svg{position:absolute;left:11px;top:11px;width:15px;height:15px;stroke:var(--gray-400);stroke-width:1.9;fill:none;pointer-events:none}
+
+/* Fecha de compromiso: inicio arriba, fin debajo */
+.dt-stack{display:flex;flex-direction:column;line-height:1.35;white-space:nowrap}
+.dt-stack .dt-sub{color:var(--gray-400);font-size:12px}
+
+/* Columna Folio ligado */
+.linked{display:inline-block;font-size:12px;color:var(--gray-600);line-height:1.4;max-width:130px;white-space:normal}
+
+/* Badge de estatus (mayúsculas, con icono opcional) */
+.badge.status{text-transform:uppercase;letter-spacing:.03em;font-size:11px;font-weight:650}
+.badge svg{width:11px;height:11px;stroke:currentColor;stroke-width:2.2;fill:none}
+.add-comment{
+  display:inline-flex;align-items:center;gap:3px;margin-top:6px;
+  font-size:11.5px;font-weight:550;color:var(--brand-600);
+  padding:2px 5px;margin-left:-5px;border-radius:6px;transition:.15s var(--ease);
+}
+.add-comment:hover{background:var(--brand-050)}
+.add-comment svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.4;fill:none}
+.status-cell{min-width:118px}
+
+/* Carga masiva: enlace textual del toolbar */
+.link-action{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12.5px;font-weight:550;color:var(--brand-600);
+  padding:5px 7px;border-radius:7px;transition:.15s var(--ease);
+}
+.link-action:hover{background:var(--brand-050)}
+.link-action svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+
+.rows-per-page{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--gray-500)}
+.rows-per-page select{width:auto;height:32px;padding:0 26px 0 10px;background-position:right 8px center}
+
 /* ============================================================
    TABLAS
    ============================================================ */
@@ -1118,31 +1164,103 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
       <section class="view" id="view-tareas">
         <div class="view-head">
           <div>
-            <div class="vh-title">Compromisos / Tareas</div>
+            <div class="vh-title" style="display:flex;align-items:center;gap:8px">
+              Compromisos
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:var(--gray-400);stroke-width:1.8;fill:none"><path d="M12 17v5M9 10.76a2 2 0 01-1.11 1.79l-1.78.9A2 2 0 005 15.24V16a1 1 0 001 1h12a1 1 0 001-1v-.76a2 2 0 00-1.11-1.79l-1.78-.9A2 2 0 0115 10.76V7a1 1 0 011-1 2 2 0 000-4H8a2 2 0 000 4 1 1 0 011 1z"/></svg>
+            </div>
             <div class="vh-sub">Seguimientos registrados por responsable y cliente</div>
           </div>
           <div class="vh-actions">
-            <button class="btn btn-secondary"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>Exportar</button>
-            <button class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nuevo compromiso</button>
+            <button class="icon-btn" aria-label="Ayuda">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
           </div>
         </div>
 
-        <div class="tabs">
-          <button class="tab active">Todos</button>
-          <button class="tab">Pendientes</button>
-          <button class="tab">Cumplidos</button>
-          <button class="tab">Vencidos</button>
+        <!-- Filtros -->
+        <div class="filters" style="margin-bottom:0;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <div class="field">
+            <label>Compromiso</label>
+            <div class="select-wrap">
+              <select><option>Todos</option><option>Ventas</option><option>Servicio</option><option>Cobranza</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Cliente</label>
+            <input class="input" type="text" placeholder="Cliente" />
+          </div>
+          <div class="field">
+            <label>Tipo de cliente</label>
+            <div class="select-wrap">
+              <select><option>Seleccione…</option><option>Target</option><option>Lead</option><option>Prospecto</option><option>Cliente</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Responsable</label>
+            <div class="select-wrap">
+              <select><option>Jesús Antonio Pérez Luna</option><option>Todos</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de compromiso</label>
+            <div class="select-wrap">
+              <select><option>Seleccione…</option><option>Ventas - Correo seguimiento</option><option>Ventas - Llamada inicial</option><option>Ventas - Whatsapp seguimiento</option><option>Ventas - Envío de factura</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Estatus</label>
+            <div class="select-wrap">
+              <select><option>Seleccione…</option><option>Pendiente</option><option>Cumplido</option><option>Reagendado</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
         </div>
 
+        <div class="filters-row2">
+          <div class="field" style="flex:none">
+            <label>Fecha</label>
+            <div class="radio-group">
+              <label class="radio"><input type="radio" name="fechaTipo" checked /> Compromiso</label>
+              <label class="radio"><input type="radio" name="fechaTipo" /> Creación</label>
+              <label class="radio"><input type="radio" name="fechaTipo" /> Cumplimiento</label>
+            </div>
+          </div>
+          <div class="field" style="min-width:220px">
+            <label>Rango de fechas</label>
+            <div class="input-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <input class="input" type="text" value="01/07/2026 - 31/07/2026" readonly />
+            </div>
+          </div>
+          <button class="btn btn-primary"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg>Buscar</button>
+          <button class="btn btn-ghost">Limpiar</button>
+        </div>
+
+        <!-- Resultados -->
         <div class="card">
           <div class="table-toolbar">
-            <div class="segmented">
-              <button class="active">Mis compromisos</button>
-              <button>De mi equipo</button>
-            </div>
+            <span class="result-count"><b id="tareasCount">9</b> compromisos</span>
             <span class="spacer"></span>
-            <span class="result-count"><b>6</b> compromisos</span>
-            <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filtros</button>
+            <button class="link-action"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>Carga masiva</button>
+            <button class="btn btn-secondary btn-sm"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>Exportar</button>
+            <button class="btn btn-primary btn-sm"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nuevo</button>
+          </div>
+
+          <div class="table-toolbar" style="border-top:1px solid var(--gray-100)">
+            <span class="rows-per-page">Mostrar
+              <div class="select-wrap" style="display:inline-block">
+                <select><option>10</option><option>25</option><option>50</option><option>100</option></select>
+              </div>
+              registros</span>
+            <span class="spacer"></span>
+            <div class="search" style="position:static;width:230px;display:block">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg>
+              <input type="text" placeholder="Buscar…" />
+            </div>
           </div>
 
           <div class="table-scroll">
@@ -1150,12 +1268,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <thead>
                 <tr>
                   <th><span class="th-in">Folio <svg viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg></span></th>
-                  <th><span class="th-in">Responsable <svg viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg></span></th>
+                  <th>Responsable</th>
+                  <th>Programó</th>
                   <th><span class="th-in">Cliente <svg viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg></span></th>
+                  <th><span class="th-in">Fuente de prospección <svg viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg></span></th>
+                  <th>Contacto</th>
                   <th>Tipo de compromiso</th>
                   <th><span class="th-in">Fecha de compromiso <svg viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"/></svg></span></th>
+                  <th>Comentario</th>
                   <th>Fecha de cumplimiento</th>
-                  <th>Comentarios</th>
+                  <th>Comentario final</th>
+                  <th>Folio ligado</th>
                   <th>Estatus</th>
                 </tr>
               </thead>
@@ -1164,7 +1287,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           </div>
 
           <div class="pagination">
-            <span>Mostrando 1–6 de 6</span>
+            <span>Mostrando 1–9 de 9 registros</span>
             <div class="pages">
               <button class="page-btn" disabled>‹</button>
               <button class="page-btn active">1</button>
@@ -1604,13 +1727,18 @@ const CLIENTES = [
   {n:'Cliente Demo 08',fuente:'Recomendación',tipo:'Cliente',tipoB:'b-green',giro:'Tecnología',estatus:'Activo',estB:'b-green',grupo:'Grupo B',alta:'27/03/2026',carac:'Característica adicional de muestra',neces:'Necesidad registrada de muestra',zona:'Zona 2',activo:true,resp:'Responsable 2'}
 ];
 
+/* Datos exactos de la captura de Compromisos (sin alterar textos ni cifras) */
+const RESP = 'Jesús Antonio Pérez Luna';
 const TAREAS = [
-  {folio:'CMP-0001',resp:'Responsable 1',cli:'Cliente Demo 01',tipo:'Llamada',fc:'15/07/2026',fcum:'15/07/2026',com:'Comentario de seguimiento de muestra',est:'Cumplido',estB:'b-green'},
-  {folio:'CMP-0002',resp:'Responsable 2',cli:'Cliente Demo 02',tipo:'Visita',fc:'18/07/2026',fcum:'—',com:'Comentario de seguimiento de muestra',est:'Pendiente',estB:'b-amber'},
-  {folio:'CMP-0003',resp:'Responsable 1',cli:'Cliente Demo 03',tipo:'Envío de cotización',fc:'20/07/2026',fcum:'—',com:'Comentario de seguimiento de muestra',est:'Pendiente',estB:'b-amber'},
-  {folio:'CMP-0004',resp:'Responsable 3',cli:'Cliente Demo 04',tipo:'Correo',fc:'10/07/2026',fcum:'—',com:'Comentario de seguimiento de muestra',est:'Vencido',estB:'b-red'},
-  {folio:'CMP-0005',resp:'Responsable 2',cli:'Cliente Demo 06',tipo:'Reunión',fc:'22/07/2026',fcum:'22/07/2026',com:'Comentario de seguimiento de muestra',est:'Cumplido',estB:'b-green'},
-  {folio:'CMP-0006',resp:'Responsable 3',cli:'Cliente Demo 07',tipo:'Llamada',fc:'24/07/2026',fcum:'—',com:'Comentario de seguimiento de muestra',est:'Pendiente',estB:'b-amber'}
+  {folio:'2607-00108',resp:RESP,prog:RESP,cli:'GRUMA',fuente:'Telemarketing',contacto:'Jacqueline Cardona',tipo:'Ventas - Correo seguimiento',fc:'16/07/2026 10:00',fcFin:'16/07/2026 10:30',com:'Seguimiento al correo del lunes 13 de julio',fcum:'—',comfin:'',ligado:'',est:'Pendiente',estB:'b-amber'},
+  {folio:'2607-00109',resp:RESP,prog:RESP,cli:'GRUMA',fuente:'Telemarketing',contacto:'Miguel Silva',tipo:'Ventas - Correo seguimiento',fc:'15/07/2026 09:00',fcFin:'15/07/2026 09:30',com:'Enviar correo de seguimiento sobre la propuesta de Punchax enviado el lunes 13 de julio',fcum:'22/07/2026 09:39',comfin:'Me respondio que ya cuentan con un sistema parecido',ligado:'',est:'Cumplido',estB:'b-green'},
+  {folio:'2607-00037',resp:RESP,prog:RESP,cli:'GRUMA',fuente:'Telemarketing',contacto:'Jacqueline Cardona',tipo:'Ventas - Correo seguimiento',fc:'06/07/2026 11:30',fcFin:'06/07/2026 12:00',com:'Seguimiento a nuevos requerimientos de IT Staffing',fcum:'13/07/2026 11:34',comfin:'hecho',ligado:'',est:'Cumplido',estB:'b-green'},
+  {folio:'2607-00004',resp:RESP,prog:RESP,cli:'GRUMA',fuente:'Telemarketing',contacto:'Jacqueline Cardona',tipo:'Ventas - Correo seguimiento',fc:'02/07/2026 11:00',fcFin:'02/07/2026 11:30',com:'Seguimiento a requerimiento',fcum:'02/07/2026 10:03',comfin:'envie menaje, aun no le pasan requerimientos',ligado:'',est:'Cumplido',estB:'b-green'},
+  {folio:'2605-00296',resp:RESP,prog:RESP,cli:'INSIGHT',fuente:'Social Media Facebook',contacto:'Daniel Blanck',tipo:'Ventas - Envío de factura',fc:'01/07/2026 09:00',fcFin:'01/07/2026 09:30',com:'Solicitar a Andrea % de participación de celula Insight para enviar factura',fcum:'—',comfin:'',ligado:'Cot. 5380 Celula Dev abril 2026',est:'Pendiente',estB:'b-amber'},
+  {folio:'2607-00102',resp:RESP,prog:RESP,cli:'Impulsora Industrial Monterrey',fuente:'Recomendación de prospecto / cliente / usuario',contacto:'Saúl Mugrabi',tipo:'Ventas - Llamada inicial',fc:'14/07/2026 08:30',fcFin:'14/07/2026 09:00',com:'Llamar para seguimiento al whatsapp de ayer. Concretar reunion',fcum:'13/07/2026 10:24',comfin:'Ya respondio mi mensaje de whatsapp, se agendo una sesion para el lunes 10 de agosto puesto que ahora estan concluyendo dos proyectos',ligado:'',est:'Cumplido',estB:'b-green'},
+  {folio:'2607-00023',resp:RESP,prog:RESP,cli:'Impulsora Industrial Monterrey',fuente:'Recomendación de prospecto / cliente / usuario',contacto:'Nancy Cantú',tipo:'Ventas - Correo seguimiento',fc:'01/07/2026 15:30',fcFin:'01/07/2026 16:00',com:'Seguimiento a reunion con Norma',fcum:'01/07/2026 17:59',comfin:'Fecha actualizada',ligado:'',est:'Reagendado',estB:'b-blue'},
+  {folio:'2607-00033',resp:RESP,prog:RESP,cli:'Impulsora Industrial Monterrey',fuente:'Recomendación de prospecto / cliente / usuario',contacto:'Saúl Mugrabi',tipo:'Ventas - Whatsapp seguimiento',fc:'06/07/2026 09:00',fcFin:'06/07/2026 09:30',com:'Seguimiento a whatsap del jueves 2 de julio buscando una reunion para explorar nuevas oportunidades de colaboracion ademas de Punchax',fcum:'13/07/2026 09:23',comfin:'Le envie whatsapp para agendar reunion esta semana: [9:21 a.m., 13/7/2026] a: Buen día Saul, espero que hayas tenido un buen fin de semana. ¿Tienes un espacio esta semana para conectarnos por videollamada? [9:22 a.m., 13/7/2026] a: me gustaria revisar contigo la atencion que te estan dando en Punchax mi area tecnica y explorar otras formas de colaborar contigo',ligado:'',est:'Cumplido',estB:'b-green'},
+  {folio:'2606-00396',resp:RESP,prog:RESP,cli:'Impulsora Industrial Monterrey',fuente:'Recomendación de prospecto / cliente / usuario',contacto:'Nancy Cantú',tipo:'Ventas - Correo seguimiento',fc:'02/07/2026 15:00',fcFin:'02/07/2026 15:30',com:'Seguimiento a reunion con Norma',fcum:'02/07/2026 09:37',comfin:'Contacte por whatsapp a Saul Mugrabi CEO en atencion a la sugerencia de Lorena Robles y en vista de que Nancy Cantu esta fuera de la oficina y no dijo cuando regresa',ligado:'',est:'Cumplido',estB:'b-green'}
 ];
 
 const KANBAN = [
@@ -1703,18 +1831,34 @@ function renderClientes(){
     </tr>`).join('');
 }
 
+const CLOCK = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+function statusCell(t){
+  if(t.est==='Reagendado')
+    return `<span class="badge status b-blue plain">${CLOCK} Reagendado</span>`;
+  const extra = t.est==='Pendiente'
+    ? '<button class="add-comment"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Comentario</button>' : '';
+  return `<span class="badge status ${t.estB}">${t.est}</span>${extra}`;
+}
 function renderTareas(){
   document.getElementById('tbodyTareas').innerHTML = TAREAS.map(t=>`
     <tr>
       <td class="cell-strong">${t.folio}</td>
       <td><div class="person"><span class="av">${ini(t.resp)}</span>${t.resp}</div></td>
+      <td class="cell-muted">${t.prog}</td>
       <td class="cell-strong">${t.cli}</td>
+      <td class="cell-muted">${t.fuente}</td>
+      <td>${t.contacto}</td>
       <td><span class="badge plain b-gray">${t.tipo}</span></td>
-      <td class="cell-muted">${t.fc}</td>
-      <td class="cell-muted">${t.fcum}</td>
+      <td class="cell-muted"><div class="dt-stack"><span>${t.fc}</span><span class="dt-sub">${t.fcFin}</span></div></td>
       <td class="cell-wrap">${t.com}</td>
-      <td><span class="badge ${t.estB}">${t.est}</span></td>
+      <td class="cell-muted" style="white-space:nowrap">${t.fcum}</td>
+      <td class="cell-wrap">${t.comfin || '<span style="color:var(--gray-300)">—</span>'}</td>
+      <td>${t.ligado ? `<span class="linked">${t.ligado}</span>` : '<span style="color:var(--gray-300)">—</span>'}</td>
+      <td class="status-cell">${statusCell(t)}</td>
     </tr>`).join('');
+  const n = TAREAS.length;
+  const cnt = document.getElementById('tareasCount'); if(cnt) cnt.textContent = n;
+  const chip = document.querySelector('.nav-item[data-view="tareas"] .chip'); if(chip) chip.textContent = n;
 }
 
 function renderKanban(){
