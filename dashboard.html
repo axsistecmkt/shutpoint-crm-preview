@@ -360,15 +360,20 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
    BARRA SUPERIOR CRM (Inv, búsqueda rápida, acciones)
    ============================================================ */
 .tb-actions{margin-left:auto;display:flex;align-items:center;gap:4px;flex-wrap:nowrap}
-.quick-search{position:relative;width:216px}
+.quick-search{position:relative;width:246px}
 .quick-search input{
-  width:100%;height:34px;padding:0 30px 0 12px;
-  border:1px solid var(--gray-200);border-radius:8px;background:var(--gray-025);
-  font-size:12.5px;transition:.16s var(--ease);
+  width:100%;height:38px;padding:0 30px 0 38px;
+  border:1.5px solid var(--brand-100);border-radius:10px;
+  background:linear-gradient(var(--brand-050),#fff);
+  font-size:13px;color:var(--gray-800);
+  box-shadow:0 1px 2px rgba(31,108,176,.08);
+  transition:.16s var(--ease);
 }
-.quick-search input::placeholder{color:var(--gray-400)}
-.quick-search input:focus{outline:none;border-color:var(--brand-500);background:#fff;box-shadow:0 0 0 3px var(--brand-050)}
-.quick-search .qs-caret{position:absolute;right:9px;top:10px;width:14px;height:14px;stroke:var(--gray-400);stroke-width:2;fill:none;pointer-events:none}
+.quick-search input::placeholder{color:var(--brand-600);opacity:.7}
+.quick-search input:hover{border-color:var(--brand-200,#BBD6F3)}
+.quick-search input:focus{outline:none;border-color:var(--brand-500);background:#fff;box-shadow:0 0 0 3px var(--brand-050),0 2px 8px rgba(31,108,176,.14)}
+.quick-search .qs-ico{position:absolute;left:12px;top:11px;width:16px;height:16px;stroke:var(--brand-500);stroke-width:2.1;fill:none;pointer-events:none}
+.quick-search .qs-caret{position:absolute;right:10px;top:12px;width:14px;height:14px;stroke:var(--brand-500);stroke-width:2;fill:none;pointer-events:none;opacity:.7}
 .tb-btn{
   display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px;
   border-radius:8px;font-size:12.5px;font-weight:550;color:var(--gray-600);
@@ -402,44 +407,50 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 /* ============================================================
    BARRA INFERIOR FIJA (acciones principales)
    ============================================================ */
-.bottom-bar{
-  position:fixed;bottom:0;left:var(--sidebar-w);right:0;z-index:34;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  height:60px;padding:0 16px;
-  background:rgba(255,255,255,.93);backdrop-filter:blur(12px);
-  border-top:1px solid var(--gray-200);box-shadow:0 -4px 18px rgba(9,17,34,.07);
-}
+/* Escritorio: barra de acciones en línea, a la derecha de la barra superior */
+.action-bar{display:flex;align-items:center;gap:4px;margin-left:auto}
 .bb-btn{
-  display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 15px;
-  border-radius:10px;font-size:13px;font-weight:550;color:var(--gray-600);
+  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;
+  border-radius:9px;font-size:12.5px;font-weight:550;color:var(--gray-600);
   white-space:nowrap;transition:.15s var(--ease);
 }
-.bb-btn svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
+.bb-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
 .bb-btn:hover{background:var(--brand-050);color:var(--brand-700)}
-.bb-cta{height:40px;padding:0 18px}
-.bb-cta svg{width:17px;height:17px}
+.bb-cta{height:36px;padding:0 15px}
+.bb-cta svg{width:16px;height:16px}
 .bb-bell{position:relative;display:inline-flex}
 .bb-bell .badge-dot{top:-1px;right:-1px}
 .bb-pop{display:inline-flex}
-/* el menú del bottom-bar abre hacia arriba */
-.bottom-bar .menu-pop.up{bottom:calc(100% + 12px)}
+/* En escritorio los menús de las acciones abren hacia abajo */
+.action-bar .menu-pop.up{top:calc(100% + 10px);bottom:auto}
 
-/* Deja espacio para que el contenido/footer no queden tapados por la barra */
-.main{padding-bottom:60px}
+/* Escritorio angosto: solo iconos para que quepa la búsqueda */
+@media (max-width:1200px){
+  .action-bar .bb-l{display:none}
+  .bb-btn,.bb-cta{padding:0 10px}
+}
 
 @media (max-width:900px){
-  .bottom-bar{left:0}
   .topbar-logo{display:flex}
-  /* La barra superior deja solo logo + búsqueda; Inv. vive en la barra inferior */
-  .topbar .tb-actions .tb-btn{display:none}
-  .topbar .tb-actions{flex:1;margin-left:10px}
-  .topbar .quick-search{width:auto;flex:1;max-width:none}
-  /* Bottom-bar estilo navegación: iconos arriba, etiqueta pequeña */
-  .bottom-bar{gap:2px;justify-content:space-around;height:62px;padding:0 6px}
+  .topbar .quick-search{flex:1;max-width:none}
+  /* Sin backdrop-filter el position:fixed de la barra escapa al viewport (no al topbar) */
+  .topbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  /* La barra de acciones se fija abajo como navegación móvil */
+  .action-bar{
+    position:fixed;bottom:0;left:0;right:0;z-index:34;margin-left:0;
+    justify-content:space-around;gap:2px;height:62px;padding:0 6px;
+    background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+    border-top:1px solid var(--gray-200);box-shadow:0 -4px 18px rgba(9,17,34,.07);
+  }
+  .action-bar .bb-l{display:block}
   .bb-btn,.bb-cta{flex-direction:column;gap:3px;height:auto;padding:6px 8px;font-size:10.5px;font-weight:600;border-radius:12px;flex:1;max-width:84px}
   .bb-btn svg,.bb-cta svg{width:21px;height:21px}
   .bb-cta{color:#fff}
   .bb-l{font-size:10px;letter-spacing:-.01em}
+  /* En móvil los menús abren hacia arriba */
+  .action-bar .menu-pop.up{bottom:calc(100% + 12px);top:auto}
+  /* Espacio para la barra fija inferior */
+  .main{padding-bottom:62px}
 }
 @media (max-width:380px){.bb-l{display:none}.bb-btn,.bb-cta{padding:9px}}
 
@@ -1536,20 +1547,14 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
       </button>
       <a class="topbar-logo" href="#" aria-label="Shutpoint"><img src="assets/brand/shutpoint-logo-trim.png" alt="Shutpoint" /></a>
 
-      <div class="tb-actions">
-        <button class="tb-btn" aria-label="Inventario">
-          <svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M3 9h18v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><circle cx="7.5" cy="13.5" r="1.5"/><circle cx="16.5" cy="13.5" r="1.5"/></svg>
-          <span class="tbl">Inv.</span>
-        </button>
-        <div class="quick-search">
-          <input type="text" placeholder="Búsqueda rápida de clientes" />
-          <svg class="qs-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
+      <div class="quick-search">
+        <svg class="qs-ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg>
+        <input type="text" placeholder="Búsqueda rápida de clientes" />
+        <svg class="qs-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
-    </header>
 
-    <!-- Menú fijo inferior (acciones principales) -->
-    <nav class="bottom-bar" id="bottomBar">
+      <!-- Acciones: en línea en escritorio, barra fija inferior en móvil -->
+      <nav class="action-bar" id="actionBar">
       <button class="bb-btn" aria-label="Inventario">
         <svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M3 9h18v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><circle cx="7.5" cy="13.5" r="1.5"/><circle cx="16.5" cy="13.5" r="1.5"/></svg>
         <span class="bb-l">Inv.</span>
@@ -1612,6 +1617,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
         </div>
       </div>
     </nav>
+    </header>
 
     <main class="content">
 
