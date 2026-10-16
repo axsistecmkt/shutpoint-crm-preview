@@ -537,6 +537,84 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 .page-bar .help:hover{background:var(--gray-100);color:var(--gray-600)}
 .page-bar .help svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none}
 
+/* Botón CTA destacado (Nuevo registro) */
+.tb-cta{
+  display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px;
+  border-radius:8px;font-size:12.5px;font-weight:650;white-space:nowrap;
+  color:#fff;background:linear-gradient(135deg,var(--brand-500),var(--brand-600));
+  box-shadow:0 2px 8px rgba(31,108,176,.32);transition:.16s var(--ease);
+}
+.tb-cta svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.2;fill:none;flex:none}
+.tb-cta:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(31,108,176,.4)}
+.tb-cta:active{transform:translateY(0)}
+@media (max-width:1320px){.tb-cta .tbl{display:inline}}
+
+/* Chips de secciones bajo el título de Tareas */
+.section-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 2px 16px}
+.sec-chip{
+  display:inline-flex;align-items:center;gap:7px;padding:6px 13px;
+  border:1px solid var(--gray-200);border-radius:99px;background:#fff;
+  font-size:12.5px;font-weight:550;color:var(--gray-600);
+  transition:.14s var(--ease);box-shadow:var(--shadow-xs);
+}
+.sec-chip .sc-n{
+  min-width:18px;height:18px;padding:0 5px;border-radius:99px;
+  background:var(--gray-100);color:var(--gray-500);
+  font-size:11px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;
+}
+.sec-chip:hover{border-color:var(--brand-200,#BBD6F3);color:var(--brand-700);background:var(--brand-050)}
+.sec-chip.active{background:var(--brand-500);border-color:var(--brand-500);color:#fff;box-shadow:0 2px 8px rgba(43,133,209,.3)}
+.sec-chip.active .sc-n{background:rgba(255,255,255,.25);color:#fff}
+
+/* Panel flash al enfocar desde un chip */
+.panel.flash{animation:panelFlash 1.1s var(--ease)}
+@keyframes panelFlash{0%{box-shadow:0 0 0 0 rgba(43,133,209,.0)}25%{box-shadow:0 0 0 3px rgba(43,133,209,.35)}100%{box-shadow:0 0 0 0 rgba(43,133,209,0)}}
+
+/* Panel de notificaciones */
+.notif-pop{width:360px;max-width:calc(100vw - 24px);padding:0;overflow:hidden}
+.notif-head{display:flex;align-items:center;gap:8px;padding:13px 15px;border-bottom:1px solid var(--gray-100)}
+.notif-head .nh-title{font-size:14px;font-weight:650}
+.notif-head .nh-count{font-size:11px;font-weight:650;background:var(--brand-500);color:#fff;padding:1px 7px;border-radius:99px}
+.notif-head .nh-clear{margin-left:auto;font-size:11.5px;font-weight:550;color:var(--brand-600);padding:3px 7px;border-radius:6px}
+.notif-head .nh-clear:hover{background:var(--brand-050)}
+.notif-chips{display:flex;gap:6px;padding:11px 15px;flex-wrap:wrap;border-bottom:1px solid var(--gray-100)}
+.notif-chip{
+  display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;
+  border:1px solid var(--gray-200);background:#fff;font-size:12px;font-weight:550;color:var(--gray-600);
+  transition:.14s var(--ease);
+}
+.notif-chip .dot{width:7px;height:7px;border-radius:99px}
+.notif-chip:hover{background:var(--gray-050)}
+.notif-chip.active{background:var(--navy-900);border-color:var(--navy-900);color:#fff}
+.notif-chip.active .nc-n{color:rgba(255,255,255,.7)}
+.notif-chip .nc-n{color:var(--gray-400);font-weight:650}
+.notif-list{max-height:340px;overflow-y:auto;padding:6px}
+.notif-item{
+  display:flex;gap:11px;padding:10px;border-radius:10px;align-items:flex-start;
+  transition:background .13s var(--ease);cursor:pointer;
+}
+.notif-item:hover{background:var(--gray-050)}
+.notif-ico{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.notif-ico svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.9;fill:none}
+.notif-ico.wa{background:var(--green-050);color:var(--green-600)}
+.notif-ico.mail{background:var(--brand-050);color:var(--brand-600)}
+.notif-ico.comment{background:var(--violet-050);color:var(--violet-700)}
+.notif-main{min-width:0;flex:1}
+.notif-top{display:flex;align-items:center;gap:7px}
+.notif-from{font-size:12.5px;font-weight:650;color:var(--gray-900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notif-tag{font-size:10px;font-weight:650;letter-spacing:.03em;text-transform:uppercase;padding:1px 6px;border-radius:99px;flex:none}
+.notif-tag.wa{background:var(--green-050);color:var(--green-600)}
+.notif-tag.mail{background:var(--brand-050);color:var(--brand-700)}
+.notif-tag.comment{background:var(--violet-050);color:var(--violet-700)}
+.notif-time{margin-left:auto;font-size:11px;color:var(--gray-400);flex:none}
+.notif-text{font-size:12px;color:var(--gray-600);line-height:1.45;margin-top:2px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.notif-unread{width:7px;height:7px;border-radius:99px;background:var(--brand-500);flex:none;margin-top:6px}
+.notif-empty{padding:30px 16px;text-align:center;color:var(--gray-400);font-size:12.5px}
+
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -1292,8 +1370,6 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <div class="menu-sep"></div>
           <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Chat</button>
           <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M4 9V5a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 000 6v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4a2 2 0 000-6z"/><path d="M9 7v10" stroke-dasharray="2 2"/></svg>Ticket</button>
-          <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Tutoriales</button>
-          <button class="menu-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Preguntas frecuentes</button>
         </div>
       </div>
 
@@ -1326,6 +1402,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <div class="menu-sep"></div>
           <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M18.4 18.4A9 9 0 103 12"/><path d="M12 8v4l3 2"/></svg>¿Necesitas ayuda?</button>
           <button class="menu-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Preguntas frecuentes</button>
+          <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Tutoriales</button>
           <div class="menu-sep"></div>
           <button class="menu-item danger"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>Salir</button>
         </div>
@@ -1351,22 +1428,50 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <svg class="qs-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <span class="tb-divider"></span>
-        <button class="tb-btn primary">
+        <button class="tb-cta">
           <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
           <span class="tbl">Nuevo registro</span>
         </button>
-        <button class="tb-btn">
-          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8l5 5m0-5l-5 5"/></svg>
-          <span class="tbl">Clientes olvidados</span>
-        </button>
-        <button class="tb-btn">
-          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8a3 3 0 11-.01 0M20.5 10.5L19 12l-.8-.8"/></svg>
-          <span class="tbl">Clientes asignados</span>
-        </button>
+
+        <!-- Clientes con submenú (olvidados / asignados) -->
+        <div class="pop-wrap">
+          <button class="tb-btn" id="clientesBtn" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span class="tbl">Clientes</span>
+            <svg class="tbl" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="menu-pop down" id="clientesMenu">
+            <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8l5 5m0-5l-5 5"/></svg>Clientes olvidados</button>
+            <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></svg>Clientes asignados</button>
+          </div>
+        </div>
+
         <button class="tb-btn">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
           <span class="tbl">Agenda</span>
         </button>
+
+        <!-- Notificaciones -->
+        <div class="pop-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notificaciones" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
+            <span class="badge-dot"></span>
+          </button>
+          <div class="menu-pop down notif-pop" id="notifMenu">
+            <div class="notif-head">
+              <span class="nh-title">Notificaciones</span>
+              <span class="nh-count">6</span>
+              <button class="nh-clear">Marcar leídas</button>
+            </div>
+            <div class="notif-chips" id="notifChips">
+              <button class="notif-chip active" data-ntype="all">Todas <span class="nc-n">6</span></button>
+              <button class="notif-chip" data-ntype="wa"><span class="dot" style="background:var(--green-500)"></span>WhatsApp <span class="nc-n">2</span></button>
+              <button class="notif-chip" data-ntype="mail"><span class="dot" style="background:var(--brand-500)"></span>Correos <span class="nc-n">2</span></button>
+              <button class="notif-chip" data-ntype="comment"><span class="dot" style="background:var(--violet-700)"></span>Comentarios <span class="nc-n">2</span></button>
+            </div>
+            <div class="notif-list" id="notifList"></div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -1422,6 +1527,15 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <h1>Tareas</h1>
           <svg class="pin" viewBox="0 0 24 24"><path d="M12 17v5M9 10.76a2 2 0 01-1.11 1.79l-1.78.9A2 2 0 005 15.24V16a1 1 0 001 1h12a1 1 0 001-1v-.76a2 2 0 00-1.11-1.79l-1.78-.9A2 2 0 0115 10.76V7a1 1 0 011-1 2 2 0 000-4H8a2 2 0 000 4 1 1 0 011 1z"/></svg>
           <button class="help" aria-label="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></button>
+        </div>
+
+        <div class="section-chips" id="sectionChips">
+          <button class="sec-chip active" data-target="compromisos">Compromisos <span class="sc-n">9</span></button>
+          <button class="sec-chip" data-target="cot-vencer">Cotizaciones a vencer <span class="sc-n">0</span></button>
+          <button class="sec-chip" data-target="opp-vencer">Oportunidades a vencer <span class="sc-n">0</span></button>
+          <button class="sec-chip" data-target="tickets">Tickets <span class="sc-n">0</span></button>
+          <button class="sec-chip" data-target="solicitudes">Solicitudes <span class="sc-n">0</span></button>
+          <button class="sec-chip" data-target="cot-aut">Cotizaciones autorizadas <span class="sc-n">0</span></button>
         </div>
 
         <div class="panels">
@@ -2242,6 +2356,39 @@ function statusCell(t){
     ? '<button class="add-comment"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Comentario</button>' : '';
   return `<span class="badge status ${t.estB}">${t.est}</span>${extra}`;
 }
+/* Notificaciones de muestra, agrupadas por tipo (WhatsApp, Correos, Comentarios) */
+const NOTIFS = [
+  {type:'wa',from:'Saúl Mugrabi',text:'¿Tienes un espacio esta semana para conectarnos por videollamada?',time:'9:21',unread:true},
+  {type:'mail',from:'Jacqueline Cardona · GRUMA',text:'Re: Seguimiento a nuevos requerimientos de IT Staffing',time:'10:14',unread:true},
+  {type:'comment',from:'Nancy Cantú',text:'Comentó en el compromiso 2607-00023: “Fecha actualizada”.',time:'Ayer',unread:true},
+  {type:'wa',from:'Miguel Silva',text:'Me respondió que ya cuentan con un sistema parecido.',time:'Lun',unread:false},
+  {type:'mail',from:'Daniel Blanck · INSIGHT',text:'Factura pendiente — Cot. 5380 Celula Dev abril 2026',time:'Mar',unread:true},
+  {type:'comment',from:'Lorena Robles',text:'Te sugirió contactar a Saul Mugrabi (CEO) en Impulsora Industrial Monterrey.',time:'Mié',unread:false}
+];
+const NTAG = {wa:'WhatsApp',mail:'Correo',comment:'Comentario'};
+const NICO = {
+  wa:'<svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-12 7.6L3 21l1.9-5.9A8.4 8.4 0 1121 11.5z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>',
+  comment:'<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>'
+};
+function renderNotifs(filter){
+  const list = document.getElementById('notifList'); if(!list) return;
+  const data = (!filter||filter==='all') ? NOTIFS : NOTIFS.filter(n=>n.type===filter);
+  list.innerHTML = data.length ? data.map(n=>`
+    <div class="notif-item">
+      <span class="notif-ico ${n.type}">${NICO[n.type]}</span>
+      <div class="notif-main">
+        <div class="notif-top">
+          <span class="notif-from">${n.from}</span>
+          <span class="notif-tag ${n.type}">${NTAG[n.type]}</span>
+          <span class="notif-time">${n.time}</span>
+        </div>
+        <div class="notif-text">${n.text}</div>
+      </div>
+      ${n.unread?'<span class="notif-unread"></span>':''}
+    </div>`).join('') : '<div class="notif-empty">No hay notificaciones de este tipo</div>';
+}
+
 /* Panel Compromisos: tabla compacta con los datos reales */
 function renderCompromisos(){
   const tb = document.getElementById('tbodyCompromisos');
@@ -2443,7 +2590,7 @@ function toggleMenu(btn){
 
 document.addEventListener('click',e=>{
   // disparadores de menú
-  const trg = e.target.closest('#contactBtn, #userBtn');
+  const trg = e.target.closest('#contactBtn, #userBtn, #clientesBtn, #notifBtn');
   if(trg){ toggleMenu(trg); return; }
   // abrir modal de usuario desde el menú
   if(e.target.closest('#openUserModal')){ closeMenus(); openUserModal(); return; }
@@ -2472,6 +2619,25 @@ document.addEventListener('click',e=>{
   if(pc){ pc.closest('.panel').style.display='none'; }
   const pe = e.target.closest('.p-expand');
   if(pe){ pe.closest('.panel').classList.toggle('collapsed'); }
+
+  // chips de sección: llevan al panel y lo resaltan
+  const sc = e.target.closest('.sec-chip');
+  if(sc){
+    document.querySelectorAll('.sec-chip').forEach(x=>x.classList.remove('active'));
+    sc.classList.add('active');
+    const panel = document.querySelector('.panel[data-panel="'+sc.dataset.target+'"]');
+    if(panel){
+      panel.style.display=''; panel.classList.remove('collapsed');
+      panel.scrollIntoView({behavior:'smooth',block:'start'});
+      panel.classList.remove('flash'); void panel.offsetWidth; panel.classList.add('flash');
+    }
+  }
+  // chips de notificaciones: filtran por tipo
+  const nc = e.target.closest('.notif-chip');
+  if(nc){
+    document.querySelectorAll('.notif-chip').forEach(x=>x.classList.remove('active'));
+    nc.classList.add('active'); renderNotifs(nc.dataset.ntype);
+  }
 });
 function updateRecCount(){
   const n = document.querySelectorAll('#tbodyDestinatarios .check.on').length;
@@ -2536,6 +2702,7 @@ ed.addEventListener('focus',()=>{ const ph=ed.querySelector('.ph'); if(ph) ph.re
 renderDashboard();
 renderClientes();
 renderCompromisos();
+renderNotifs('all');
 renderKanban();
 renderDestinatarios();
 renderDonut('donutResp','legendResp','donutRespTotal',CHART_RESP);
