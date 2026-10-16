@@ -407,19 +407,23 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 /* ============================================================
    BARRA INFERIOR FIJA (acciones principales)
    ============================================================ */
-/* Escritorio: barra de acciones en línea, a la derecha de la barra superior */
-.action-bar{display:flex;align-items:center;gap:4px;margin-left:auto}
+/* Escritorio: barra de acciones navy, en línea a la derecha de la barra superior */
+.action-bar{
+  display:flex;align-items:center;gap:3px;margin-left:auto;
+  background:var(--navy-900);border-radius:12px;padding:4px;
+  box-shadow:0 2px 10px rgba(9,17,34,.2);
+}
 .bb-btn{
-  display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;
-  border-radius:9px;font-size:12.5px;font-weight:550;color:var(--gray-600);
+  display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px;
+  border-radius:9px;font-size:12.5px;font-weight:550;color:rgba(255,255,255,.82);
   white-space:nowrap;transition:.15s var(--ease);
 }
 .bb-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
-.bb-btn:hover{background:var(--brand-050);color:var(--brand-700)}
-.bb-cta{height:36px;padding:0 15px}
+.bb-btn:hover{background:rgba(255,255,255,.14);color:#fff}
+.bb-cta{height:34px;padding:0 14px}
 .bb-cta svg{width:16px;height:16px}
 .bb-bell{position:relative;display:inline-flex}
-.bb-bell .badge-dot{top:-1px;right:-1px}
+.bb-bell .badge-dot{top:-1px;right:-1px;border-color:var(--navy-900)}
 .bb-pop{display:inline-flex}
 /* En escritorio los menús de las acciones abren hacia abajo */
 .action-bar .menu-pop.up{top:calc(100% + 10px);bottom:auto}
@@ -427,7 +431,7 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 /* Escritorio angosto: solo iconos para que quepa la búsqueda */
 @media (max-width:1200px){
   .action-bar .bb-l{display:none}
-  .bb-btn,.bb-cta{padding:0 10px}
+  .bb-btn,.bb-cta{padding:0 9px}
 }
 
 @media (max-width:900px){
@@ -435,24 +439,41 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
   .topbar .quick-search{flex:1;max-width:none}
   /* Sin backdrop-filter el position:fixed de la barra escapa al viewport (no al topbar) */
   .topbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
-  /* La barra de acciones se fija abajo como navegación móvil */
+  /* La barra de acciones (navy) se fija abajo como navegación móvil */
   .action-bar{
     position:fixed;bottom:0;left:0;right:0;z-index:34;margin-left:0;
-    justify-content:space-around;gap:2px;height:62px;padding:0 6px;
-    background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
-    border-top:1px solid var(--gray-200);box-shadow:0 -4px 18px rgba(9,17,34,.07);
+    justify-content:space-around;gap:2px;height:64px;padding:0 6px;border-radius:0;
+    background:var(--navy-900);box-shadow:0 -4px 18px rgba(9,17,34,.2);
   }
   .action-bar .bb-l{display:block}
-  .bb-btn,.bb-cta{flex-direction:column;gap:3px;height:auto;padding:6px 8px;font-size:10.5px;font-weight:600;border-radius:12px;flex:1;max-width:84px}
+  .action-bar > *{flex:1;max-width:86px;display:flex;justify-content:center}
+  .bb-btn,.bb-cta{flex-direction:column;gap:3px;height:auto;padding:6px 6px;font-size:10px;font-weight:600;border-radius:12px;width:100%;max-width:86px;color:rgba(255,255,255,.78)}
   .bb-btn svg,.bb-cta svg{width:21px;height:21px}
-  .bb-cta{color:#fff}
-  .bb-l{font-size:10px;letter-spacing:-.01em}
+  .bb-btn:hover,.bb-btn:active{background:rgba(255,255,255,.12);color:#fff}
+  .bb-l{font-size:9.5px;letter-spacing:-.01em}
+  /* Orden en móvil: Nuevo registro al centro (3º de 5) */
+  .action-bar > .bb-btn[aria-label="Inventario"]{order:1}
+  .action-bar > .bb-pop:has(#clientesBtn){order:2}
+  .action-bar > .bb-pop:has(#nuevoBtn){order:3}
+  .action-bar > .bb-btn:not([aria-label]){order:4}
+  .action-bar > .bb-pop:has(#notifBtn){order:5}
+  /* Botón central elevado y destacado */
+  .action-bar .bb-cta{
+    transform:translateY(-16px);color:#fff;
+    background:linear-gradient(135deg,var(--brand-500),var(--brand-600));
+    border:3px solid var(--navy-900);border-radius:18px;
+    box-shadow:0 6px 16px rgba(31,108,176,.5);
+    padding:9px 6px 7px;max-width:82px;
+  }
+  .action-bar .bb-cta:hover,.action-bar .bb-cta:active{transform:translateY(-18px)}
+  .action-bar .bb-cta .bb-l{font-weight:700}
+  /* La celda del botón central no empuja el layout por el transform */
+  .action-bar > .bb-pop:has(#nuevoBtn){align-self:stretch;align-items:center}
   /* En móvil los menús abren hacia arriba */
-  .action-bar .menu-pop.up{bottom:calc(100% + 12px);top:auto}
-  /* Espacio para la barra fija inferior */
-  .main{padding-bottom:62px}
+  .action-bar .menu-pop.up{bottom:calc(100% + 14px);top:auto}
+  .main{padding-bottom:64px}
 }
-@media (max-width:380px){.bb-l{display:none}.bb-btn,.bb-cta{padding:9px}}
+@media (max-width:380px){.action-bar .bb-l{display:none}.bb-btn{padding:9px}.action-bar .bb-cta{padding:10px}}
 
 /* ============================================================
    MENÚS DESPLEGABLES (perfil, contáctanos)
