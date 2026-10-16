@@ -409,6 +409,12 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
    ============================================================ */
 /* Escritorio: acciones directamente sobre el header navy, a la derecha */
 .action-bar{display:flex;align-items:center;gap:3px;margin-left:auto}
+/* Orden en escritorio: Nuevo registro primero, luego Inv. a su derecha */
+.action-bar > .bb-pop:has(#nuevoBtn){order:1}
+.action-bar > .bb-btn[aria-label="Inventario"]{order:2}
+.action-bar > .bb-pop:has(#clientesBtn){order:3}
+.action-bar > .bb-btn:not([aria-label]){order:4}
+.action-bar > .bb-pop:has(#notifBtn){order:5}
 .bb-btn{
   display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px;
   border-radius:9px;font-size:12.5px;font-weight:550;color:rgba(255,255,255,.82);
@@ -529,7 +535,8 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 .side-action:hover{background:var(--brand-050);border-color:var(--brand-100);color:var(--brand-700)}
 .side-action .sa-caret{margin-left:auto;transition:transform .18s var(--ease)}
 .side-action[aria-expanded="true"] .sa-caret{transform:rotate(180deg)}
-.user-mini{cursor:pointer;border-radius:8px;padding:5px 6px;margin:0 -6px;transition:.15s var(--ease)}
+.user-mini{width:100%;box-sizing:border-box;cursor:pointer;border-radius:10px;padding:8px 9px;margin:0;border:1px solid transparent;transition:.15s var(--ease)}
+.user-mini:hover{border-color:var(--gray-200)}
 .user-mini:hover{background:var(--brand-050)}
 .user-mini .um-caret{margin-left:auto;width:15px;height:15px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none}
 
@@ -741,13 +748,22 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 .nav-flyout button.fly-item:hover::before{background:var(--brand-500)}
 
 /* Grid de "Nuevo registro" */
-.nr-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px;min-width:300px}
-.nr-item{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 8px;border-radius:12px;color:var(--gray-700);transition:.14s var(--ease);text-align:center}
-.nr-item svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.7;fill:none}
-.nr-item span{font-size:12px;font-weight:550}
-.nr-item:hover{background:var(--brand-050);color:var(--brand-700)}
+.nr-head{display:flex;align-items:center;gap:8px;padding:11px 12px 10px;font-size:13px;font-weight:650;color:var(--gray-900);border-bottom:1px solid var(--gray-100);margin-bottom:4px}
+.nr-head svg{width:16px;height:16px;stroke:var(--brand-500);stroke-width:2.2;fill:none}
+.nr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;min-width:312px}
+.nr-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px;border-radius:12px;color:var(--gray-700);transition:.15s var(--ease);text-align:center;border:1px solid transparent}
+.nr-item .nr-ico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:.15s var(--ease)}
+.nr-item .nr-ico svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+.nr-item span:last-child{font-size:11.5px;font-weight:600}
+.nr-item:hover{background:var(--gray-050);border-color:var(--gray-200)}
+.nr-item:hover .nr-ico{transform:translateY(-2px)}
+.nr-ico.c-blue{background:var(--brand-050);color:var(--brand-600)}
+.nr-ico.c-green{background:var(--green-050);color:var(--green-600)}
+.nr-ico.c-amber{background:var(--amber-050);color:var(--amber-700)}
+.nr-ico.c-violet{background:var(--violet-050);color:var(--violet-700)}
+.nr-ico.c-teal{background:var(--teal-050);color:var(--teal-700)}
 /* Centrado del grid de Nuevo registro sobre su botón (escritorio) */
-#nuevoMenu{left:50%;margin-left:-156px}
+#nuevoMenu{left:50%;margin-left:-162px}
 
 @media (max-width:900px){.tareas-sticky{margin:0 -16px;padding:8px 16px 4px}}
 @media (max-width:620px){
@@ -1588,16 +1604,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <span class="bb-l">Nuevo registro</span>
         </button>
         <div class="menu-pop up" id="nuevoMenu">
+          <div class="nr-head"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>¿Qué quieres crear?</div>
           <div class="nr-grid">
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg><span>Cliente</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M4 9V5a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 000 6v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4a2 2 0 000-6z"/></svg><span>Ticket</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Compromiso</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>Seguimiento</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg><span>Oportunidad</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span>Cotización</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg><span>Pedidos</span></button>
-            <button class="nr-item"><svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg><span>Pagos</span></button>
-            <button class="nr-item" style="grid-column:1/-1"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg><span>Solicitudes</span></button>
+            <button class="nr-item"><span class="nr-ico c-blue"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><span>Cliente</span></button>
+            <button class="nr-item"><span class="nr-ico c-amber"><svg viewBox="0 0 24 24"><path d="M4 9V5a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 000 6v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4a2 2 0 000-6z"/></svg></span><span>Ticket</span></button>
+            <button class="nr-item"><span class="nr-ico c-green"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span><span>Compromiso</span></button>
+            <button class="nr-item"><span class="nr-ico c-teal"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><span>Seguimiento</span></button>
+            <button class="nr-item"><span class="nr-ico c-violet"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg></span><span>Oportunidad</span></button>
+            <button class="nr-item"><span class="nr-ico c-blue"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span>Cotización</span></button>
+            <button class="nr-item"><span class="nr-ico c-amber"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg></span><span>Pedidos</span></button>
+            <button class="nr-item"><span class="nr-ico c-green"><svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></span><span>Pagos</span></button>
+            <button class="nr-item"><span class="nr-ico c-violet"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><span>Solicitudes</span></button>
           </div>
         </div>
       </div>
