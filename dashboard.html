@@ -381,8 +381,67 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 /* La barra de acciones se adapta: etiquetas se ocultan y dejan solo iconos */
 @media (max-width:1320px){.tb-btn .tbl{display:none}.tb-btn{padding:0 9px}.quick-search{width:180px}}
 @media (max-width:980px){.quick-search{width:150px}}
-@media (max-width:720px){.quick-search{display:none}.tb-divider{display:none}}
+@media (max-width:720px){.tb-divider{display:none}}
 @media (max-width:520px){.tb-actions{gap:2px}}
+
+/* Logo de Shutpoint en la barra superior (solo móvil, fuera del drawer) */
+.topbar-logo{display:none;align-items:center;height:28px}
+.topbar-logo img{height:22px;width:auto;display:block}
+
+/* Pie del sidebar: Contáctanos, perfil y, hasta abajo, powered by axsis */
+.sidebar-foot{display:flex;flex-direction:column}
+.sidebar-foot .logo-slot--foot{order:9;margin:14px 0 2px}
+/* Punto verde de presencia (online) sobre el avatar, estilo Teams */
+.user-mini .avatar{position:relative}
+.user-mini .avatar::after{
+  content:'';position:absolute;right:-1px;bottom:-1px;
+  width:10px;height:10px;border-radius:99px;
+  background:var(--green-500);border:2px solid #fff;
+}
+
+/* ============================================================
+   BARRA INFERIOR FIJA (acciones principales)
+   ============================================================ */
+.bottom-bar{
+  position:fixed;bottom:0;left:var(--sidebar-w);right:0;z-index:34;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  height:60px;padding:0 16px;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(12px);
+  border-top:1px solid var(--gray-200);box-shadow:0 -4px 18px rgba(9,17,34,.07);
+}
+.bb-btn{
+  display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 15px;
+  border-radius:10px;font-size:13px;font-weight:550;color:var(--gray-600);
+  white-space:nowrap;transition:.15s var(--ease);
+}
+.bb-btn svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
+.bb-btn:hover{background:var(--brand-050);color:var(--brand-700)}
+.bb-cta{height:40px;padding:0 18px}
+.bb-cta svg{width:17px;height:17px}
+.bb-bell{position:relative;display:inline-flex}
+.bb-bell .badge-dot{top:-1px;right:-1px}
+.bb-pop{display:inline-flex}
+/* el menú del bottom-bar abre hacia arriba */
+.bottom-bar .menu-pop.up{bottom:calc(100% + 12px)}
+
+/* Deja espacio para que el contenido/footer no queden tapados por la barra */
+.main{padding-bottom:60px}
+
+@media (max-width:900px){
+  .bottom-bar{left:0}
+  .topbar-logo{display:flex}
+  /* La barra superior deja solo logo + búsqueda; Inv. vive en la barra inferior */
+  .topbar .tb-actions .tb-btn{display:none}
+  .topbar .tb-actions{flex:1;margin-left:10px}
+  .topbar .quick-search{width:auto;flex:1;max-width:none}
+  /* Bottom-bar estilo navegación: iconos arriba, etiqueta pequeña */
+  .bottom-bar{gap:2px;justify-content:space-around;height:62px;padding:0 6px}
+  .bb-btn,.bb-cta{flex-direction:column;gap:3px;height:auto;padding:6px 8px;font-size:10.5px;font-weight:600;border-radius:12px;flex:1;max-width:84px}
+  .bb-btn svg,.bb-cta svg{width:21px;height:21px}
+  .bb-cta{color:#fff}
+  .bb-l{font-size:10px;letter-spacing:-.01em}
+}
+@media (max-width:380px){.bb-l{display:none}.bb-btn,.bb-cta{padding:9px}}
 
 /* ============================================================
    MENÚS DESPLEGABLES (perfil, contáctanos)
@@ -1253,9 +1312,9 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 
   .empty{padding:44px 18px}
 
-  /* En móvil el aviso baja al pie: arriba tapaba el título de la vista */
+  /* En móvil el aviso se coloca justo encima de la barra inferior */
   .toast{
-    top:auto;bottom:12px;left:12px;right:12px;
+    top:auto;bottom:92px;left:12px;right:12px;
     transform:none;max-width:none;
     font-size:12px;padding:9px 6px 9px 12px;
     animation:toastInPie .38s cubic-bezier(.2,.9,.32,1.2) both;
@@ -1277,8 +1336,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 
 <!-- ===================== BANNER ===================== -->
 <div class="toast" id="previewToast" role="status">
-  <span class="toast-dot"></span>
-  <span><strong>Preview visual de rediseño</strong> · los datos son de muestra</span>
+  <span class="toast-dot" style="background:var(--green-500)"></span>
+  <span><strong>Online</strong> — Tienes wifi</span>
   <button class="toast-close" id="noteClose" aria-label="Cerrar aviso">
     <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
@@ -1417,6 +1476,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
+      <a class="topbar-logo" href="#" aria-label="Shutpoint"><img src="assets/brand/shutpoint-logo-trim.png" alt="Shutpoint" /></a>
 
       <div class="tb-actions">
         <button class="tb-btn" aria-label="Inventario">
@@ -1427,53 +1487,58 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           <input type="text" placeholder="Búsqueda rápida de clientes" />
           <svg class="qs-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </div>
-        <span class="tb-divider"></span>
-        <button class="tb-cta">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          <span class="tbl">Nuevo registro</span>
-        </button>
-
-        <!-- Clientes con submenú (olvidados / asignados) -->
-        <div class="pop-wrap">
-          <button class="tb-btn" id="clientesBtn" aria-haspopup="true" aria-expanded="false">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            <span class="tbl">Clientes</span>
-            <svg class="tbl" viewBox="0 0 24 24" style="width:13px;height:13px"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="menu-pop down" id="clientesMenu">
-            <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8l5 5m0-5l-5 5"/></svg>Clientes olvidados</button>
-            <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></svg>Clientes asignados</button>
-          </div>
-        </div>
-
-        <button class="tb-btn">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="tbl">Agenda</span>
-        </button>
-
-        <!-- Notificaciones -->
-        <div class="pop-wrap">
-          <button class="icon-btn" id="notifBtn" aria-label="Notificaciones" aria-haspopup="true" aria-expanded="false">
-            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
-            <span class="badge-dot"></span>
-          </button>
-          <div class="menu-pop down notif-pop" id="notifMenu">
-            <div class="notif-head">
-              <span class="nh-title">Notificaciones</span>
-              <span class="nh-count">6</span>
-              <button class="nh-clear">Marcar leídas</button>
-            </div>
-            <div class="notif-chips" id="notifChips">
-              <button class="notif-chip active" data-ntype="all">Todas <span class="nc-n">6</span></button>
-              <button class="notif-chip" data-ntype="wa"><span class="dot" style="background:var(--green-500)"></span>WhatsApp <span class="nc-n">2</span></button>
-              <button class="notif-chip" data-ntype="mail"><span class="dot" style="background:var(--brand-500)"></span>Correos <span class="nc-n">2</span></button>
-              <button class="notif-chip" data-ntype="comment"><span class="dot" style="background:var(--violet-700)"></span>Comentarios <span class="nc-n">2</span></button>
-            </div>
-            <div class="notif-list" id="notifList"></div>
-          </div>
-        </div>
       </div>
     </header>
+
+    <!-- Menú fijo inferior (acciones principales) -->
+    <nav class="bottom-bar" id="bottomBar">
+      <button class="bb-btn" aria-label="Inventario">
+        <svg viewBox="0 0 24 24"><path d="M3 9l2-5h14l2 5M3 9h18v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><circle cx="7.5" cy="13.5" r="1.5"/><circle cx="16.5" cy="13.5" r="1.5"/></svg>
+        <span class="bb-l">Inv.</span>
+      </button>
+
+      <button class="tb-cta bb-cta">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="bb-l">Nuevo registro</span>
+      </button>
+
+      <div class="pop-wrap bb-pop">
+        <button class="bb-btn" id="clientesBtn" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="bb-l">Clientes</span>
+        </button>
+        <div class="menu-pop up" id="clientesMenu" style="left:0;min-width:210px">
+          <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8l5 5m0-5l-5 5"/></svg>Clientes olvidados</button>
+          <button class="menu-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></svg>Clientes asignados</button>
+        </div>
+      </div>
+
+      <button class="bb-btn">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span class="bb-l">Agenda</span>
+      </button>
+
+      <div class="pop-wrap bb-pop">
+        <button class="bb-btn" id="notifBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="bb-bell"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg><span class="badge-dot"></span></span>
+          <span class="bb-l">Avisos</span>
+        </button>
+        <div class="menu-pop up notif-pop" id="notifMenu" style="right:0">
+          <div class="notif-head">
+            <span class="nh-title">Notificaciones</span>
+            <span class="nh-count">6</span>
+            <button class="nh-clear">Marcar leídas</button>
+          </div>
+          <div class="notif-chips" id="notifChips">
+            <button class="notif-chip active" data-ntype="all">Todas <span class="nc-n">6</span></button>
+            <button class="notif-chip" data-ntype="wa"><span class="dot" style="background:var(--green-500)"></span>WhatsApp <span class="nc-n">2</span></button>
+            <button class="notif-chip" data-ntype="mail"><span class="dot" style="background:var(--brand-500)"></span>Correos <span class="nc-n">2</span></button>
+            <button class="notif-chip" data-ntype="comment"><span class="dot" style="background:var(--violet-700)"></span>Comentarios <span class="nc-n">2</span></button>
+          </div>
+          <div class="notif-list" id="notifList"></div>
+        </div>
+      </div>
+    </nav>
 
     <main class="content">
 
@@ -1626,7 +1691,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <div class="table-scroll">
                   <table>
                     <thead><tr><th>Folio</th><th>Nombre</th><th>Cliente</th><th>Fase venta</th><th>Fecha vigencia</th><th>Total cotización</th></tr></thead>
-                    <tbody><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
+                    <tbody id="tbodyCotVencer"><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                   </table>
                 </div>
                 <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
@@ -1659,7 +1724,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <div class="table-scroll">
                   <table>
                     <thead><tr><th>Folio</th><th>Nombre</th><th>Cliente</th><th>Fase venta</th><th>Fecha vigencia</th><th>Total</th></tr></thead>
-                    <tbody><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
+                    <tbody id="tbodyOppVencer"><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                   </table>
                 </div>
                 <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
@@ -1689,7 +1754,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <div class="table-scroll">
                 <table>
                   <thead><tr><th>Folio</th><th>Asunto</th><th>Cliente</th><th>Fecha</th><th>Estatus</th></tr></thead>
-                  <tbody><tr><td colspan="5" class="panel-empty">No se encontraron resultados</td></tr></tbody>
+                  <tbody id="tbodyTickets"><tr><td colspan="5" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
               <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
@@ -1718,7 +1783,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <div class="table-scroll">
                 <table>
                   <thead><tr><th>Folio</th><th>Revisión</th><th>Tipo de solicitud</th><th>Solicitud</th><th>Respuesta</th><th>Atención</th><th>Estatus</th></tr></thead>
-                  <tbody><tr><td colspan="7" class="panel-empty">No se encontraron resultados</td></tr></tbody>
+                  <tbody id="tbodySolicitudes"><tr><td colspan="7" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
               <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
@@ -1752,7 +1817,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <div class="table-scroll">
                 <table>
                   <thead><tr><th>Folio</th><th>Fecha de creación</th><th>Nombre</th><th>Cliente</th><th>Producto</th><th>Descuento (%)</th><th>Precio Unitario</th><th>Revisión</th></tr></thead>
-                  <tbody><tr><td colspan="8" class="panel-empty">No se encontraron resultados</td></tr></tbody>
+                  <tbody id="tbodyCotAut"><tr><td colspan="8" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
               <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
@@ -2407,6 +2472,74 @@ function renderCompromisos(){
   const cnt = document.getElementById('compromisosCount'); if(cnt) cnt.textContent = n;
 }
 
+/* ---------- Datos falsos de los demás paneles ---------- */
+const money = n => '$'+Number(n).toLocaleString('es-MX',{minimumFractionDigits:2});
+const FASES = ['Negociación','Propuesta enviada','Calificación','Cierre','Análisis'];
+const COT_VENCER = [
+  {folio:'COT-5412',nombre:'Licencias SP Mail',cli:'GRUMA',fase:'Negociación',vig:'28/10/2026',total:185400},
+  {folio:'COT-5398',nombre:'Bolsa de horas IT Staffing',cli:'Impulsora Industrial Monterrey',fase:'Propuesta enviada',vig:'30/10/2026',total:320000},
+  {folio:'COT-5377',nombre:'Implementación CRM',cli:'INSIGHT',fase:'Cierre',vig:'02/11/2026',total:96500},
+  {folio:'COT-5350',nombre:'Soporte anual',cli:'GRUMA',fase:'Calificación',vig:'05/11/2026',total:54800},
+  {folio:'COT-5341',nombre:'Consultoría de procesos',cli:'Impulsora Industrial Monterrey',fase:'Análisis',vig:'09/11/2026',total:128900}
+];
+const OPP_VENCER = [
+  {folio:'OPP-2208',nombre:'Expansión a planta Norte',cli:'GRUMA',fase:'Negociación',vig:'27/10/2026',total:540000},
+  {folio:'OPP-2191',nombre:'Nuevo módulo de reportes',cli:'INSIGHT',fase:'Propuesta enviada',vig:'31/10/2026',total:76400},
+  {folio:'OPP-2187',nombre:'Renovación de contrato',cli:'Impulsora Industrial Monterrey',fase:'Cierre',vig:'03/11/2026',total:233100},
+  {folio:'OPP-2170',nombre:'Capacitación de equipo',cli:'GRUMA',fase:'Calificación',vig:'08/11/2026',total:42500}
+];
+const TICKETS = [
+  {folio:'TK-0912',asunto:'Error al generar cotización PDF',cli:'GRUMA',fecha:'14/10/2026',est:'Abierto',estB:'b-amber'},
+  {folio:'TK-0908',asunto:'Alta de nuevo usuario',cli:'INSIGHT',fecha:'13/10/2026',est:'En proceso',estB:'b-blue'},
+  {folio:'TK-0901',asunto:'No llegan correos de SP Mail',cli:'Impulsora Industrial Monterrey',fecha:'12/10/2026',est:'Resuelto',estB:'b-green'},
+  {folio:'TK-0897',asunto:'Solicitud de reporte de ventas',cli:'GRUMA',fecha:'10/10/2026',est:'Cerrado',estB:'b-gray'}
+];
+const SOLICITUDES = [
+  {folio:'SOL-3301',rev:'R1',tipo:'Descuento especial',sol:'20% en licencias para GRUMA',resp:'Autorizado 15%',at:'Dirección comercial',est:'Autorizada',estB:'b-green'},
+  {folio:'SOL-3295',rev:'R2',tipo:'Prórroga de pago',sol:'30 días adicionales',resp:'En revisión',at:'Finanzas',est:'Pendiente',estB:'b-amber'},
+  {folio:'SOL-3288',rev:'R1',tipo:'Cambio de responsable',sol:'Reasignar cuenta INSIGHT',resp:'Rechazada',at:'Supervisión',est:'Rechazada',estB:'b-red'},
+  {folio:'SOL-3270',rev:'R3',tipo:'Alta de producto',sol:'Nuevo paquete IT Staffing',resp:'Autorizado',at:'Dirección comercial',est:'Autorizada',estB:'b-green'}
+];
+const COT_AUT = [
+  {folio:'COT-5412',fecha:'08/10/2026',nombre:'Licencias SP Mail',cli:'GRUMA',prod:'SP Mail Pro x50',desc:'10',pu:185400,rev:'R1'},
+  {folio:'COT-5377',fecha:'05/10/2026',nombre:'Implementación CRM',cli:'INSIGHT',prod:'Shutpoint CRM',desc:'5',pu:96500,rev:'R2'},
+  {folio:'COT-5333',fecha:'01/10/2026',nombre:'Bolsa de horas',cli:'Impulsora Industrial Monterrey',prod:'IT Staffing 200h',desc:'0',pu:300000,rev:'R1'},
+  {folio:'COT-5309',fecha:'26/09/2026',nombre:'Soporte anual',cli:'GRUMA',prod:'Soporte Premium',desc:'15',pu:54800,rev:'R1'}
+];
+function fillTable(id, rows, cols){
+  const tb = document.getElementById(id); if(!tb) return;
+  tb.innerHTML = rows.map(r=>'<tr>'+cols.map(c=>c(r)).join('')+'</tr>').join('');
+}
+function renderPanels(){
+  fillTable('tbodyCotVencer', COT_VENCER, [
+    r=>`<td class="cell-strong">${r.folio}</td>`, r=>`<td>${r.nombre}</td>`, r=>`<td class="cell-strong">${r.cli}</td>`,
+    r=>`<td><span class="badge plain b-gray">${r.fase}</span></td>`, r=>`<td class="cell-muted">${r.vig}</td>`,
+    r=>`<td class="cell-strong" style="white-space:nowrap">${money(r.total)}</td>`]);
+  fillTable('tbodyOppVencer', OPP_VENCER, [
+    r=>`<td class="cell-strong">${r.folio}</td>`, r=>`<td>${r.nombre}</td>`, r=>`<td class="cell-strong">${r.cli}</td>`,
+    r=>`<td><span class="badge plain b-gray">${r.fase}</span></td>`, r=>`<td class="cell-muted">${r.vig}</td>`,
+    r=>`<td class="cell-strong" style="white-space:nowrap">${money(r.total)}</td>`]);
+  fillTable('tbodyTickets', TICKETS, [
+    r=>`<td class="cell-strong">${r.folio}</td>`, r=>`<td class="cell-wrap">${r.asunto}</td>`, r=>`<td class="cell-strong">${r.cli}</td>`,
+    r=>`<td class="cell-muted">${r.fecha}</td>`, r=>`<td><span class="badge ${r.estB}">${r.est}</span></td>`]);
+  fillTable('tbodySolicitudes', SOLICITUDES, [
+    r=>`<td class="cell-strong">${r.folio}</td>`, r=>`<td class="cell-muted">${r.rev}</td>`, r=>`<td>${r.tipo}</td>`,
+    r=>`<td class="cell-wrap">${r.sol}</td>`, r=>`<td class="cell-muted">${r.resp}</td>`, r=>`<td class="cell-muted">${r.at}</td>`,
+    r=>`<td><span class="badge ${r.estB}">${r.est}</span></td>`]);
+  fillTable('tbodyCotAut', COT_AUT, [
+    r=>`<td class="cell-strong">${r.folio}</td>`, r=>`<td class="cell-muted">${r.fecha}</td>`, r=>`<td>${r.nombre}</td>`,
+    r=>`<td class="cell-strong">${r.cli}</td>`, r=>`<td>${r.prod}</td>`, r=>`<td class="cell-muted">${r.desc}%</td>`,
+    r=>`<td class="cell-strong" style="white-space:nowrap">${money(r.pu)}</td>`, r=>`<td class="cell-muted">${r.rev}</td>`]);
+
+  // actualizar contadores (chips de sección, pills, result-counts)
+  const counts = {compromisos:TAREAS.length,'cot-vencer':COT_VENCER.length,'opp-vencer':OPP_VENCER.length,
+    tickets:TICKETS.length,solicitudes:SOLICITUDES.length,'cot-aut':COT_AUT.length};
+  document.querySelectorAll('.sec-chip').forEach(c=>{ const k=c.dataset.target; const n=c.querySelector('.sc-n'); if(n&&counts[k]!=null) n.textContent=counts[k]; });
+  const setFoot=(panel,n)=>{ const p=document.querySelector('.panel[data-panel="'+panel+'"] .result-count'); if(p) p.innerHTML=n+' registros'; };
+  setFoot('cot-vencer',COT_VENCER.length); setFoot('opp-vencer',OPP_VENCER.length);
+  setFoot('tickets',TICKETS.length); setFoot('solicitudes',SOLICITUDES.length); setFoot('cot-aut',COT_AUT.length);
+}
+
 function renderKanban(){
   document.getElementById('kanban').innerHTML = KANBAN.map(col=>{
     const total = col.cards.reduce((s,c)=>s+Number(c.m.replace(/[^0-9.]/g,'')||0),0);
@@ -2703,6 +2836,7 @@ renderDashboard();
 renderClientes();
 renderCompromisos();
 renderNotifs('all');
+renderPanels();
 renderKanban();
 renderDestinatarios();
 renderDonut('donutResp','legendResp','donutRespTotal',CHART_RESP);
