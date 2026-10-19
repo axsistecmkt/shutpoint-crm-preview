@@ -105,6 +105,9 @@ svg{flex:none}
   from{opacity:1;transform:none}
   to{opacity:0;transform:translateY(14px) scale(.97)}
 }
+/* Entrada/salida desde arriba (móvil) */
+@keyframes toastInTop{from{opacity:0;transform:translateY(-24px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes toastOutTop{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-20px) scale(.97)}}
 
 /* ============================================================
    LAYOUT
@@ -475,8 +478,9 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
   /* En móvil los menús abren hacia arriba */
   .action-bar .menu-pop.up{bottom:calc(100% + 14px);top:auto}
   .main{padding-bottom:64px}
-  /* El aviso sube por encima de la barra inferior */
-  .toast{top:auto;left:12px;right:12px;bottom:96px;max-width:none}
+  /* En móvil el aviso aparece desde arriba */
+  .toast{top:12px;bottom:auto;left:12px;right:12px;max-width:none;animation:toastInTop .4s var(--ease) both}
+  .toast.out{animation:toastOutTop .24s var(--ease) forwards}
 }
 @media (max-width:380px){.action-bar .bb-l{display:none}.bb-btn{padding:9px}.action-bar .bb-cta{padding:10px}}
 
@@ -648,6 +652,12 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 
 /* Chips de secciones bajo el título de Tareas */
 .section-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 2px 16px}
+/* En móvil las chips van en carrusel horizontal (una sola fila, scroll) */
+@media (max-width:900px){
+  .section-chips{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0;padding-bottom:4px}
+  .section-chips::-webkit-scrollbar{display:none}
+  .section-chips .sec-chip{flex:none}
+}
 .sec-chip{
   display:inline-flex;align-items:center;gap:7px;padding:6px 13px;
   border:1px solid var(--gray-200);border-radius:99px;background:#fff;
@@ -1411,22 +1421,14 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 
   .empty{padding:44px 18px}
 
-  /* En móvil el aviso se coloca justo encima de la barra inferior */
+  /* En móvil el aviso aparece desde arriba */
   .toast{
-    top:auto;bottom:92px;left:12px;right:12px;
+    top:12px;bottom:auto;left:12px;right:12px;
     transform:none;max-width:none;
     font-size:12px;padding:9px 6px 9px 12px;
-    animation:toastInPie .38s cubic-bezier(.2,.9,.32,1.2) both;
+    animation:toastInTop .38s cubic-bezier(.2,.9,.32,1.2) both;
   }
-  @keyframes toastInPie{
-    from{opacity:0;transform:translateY(26px) scale(.97)}
-    to{opacity:1;transform:none}
-  }
-  .toast.out{animation:toastOutPie .24s var(--ease) forwards}
-  @keyframes toastOutPie{
-    from{opacity:1;transform:none}
-    to{opacity:0;transform:translateY(20px) scale(.97)}
-  }
+  .toast.out{animation:toastOutTop .24s var(--ease) forwards}
 }
 </style>
 </head>
