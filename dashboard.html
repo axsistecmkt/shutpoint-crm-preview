@@ -1025,12 +1025,90 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 .legend-item .pc{color:var(--gray-400);font-size:11.5px;width:38px;text-align:right;font-variant-numeric:tabular-nums}
 
 /* Desempeño section */
-.desemp-filters{display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);margin-bottom:16px;align-items:flex-end}
-.desemp-filters .field{flex:1;min-width:130px}
-.desemp-filters .field label{font-size:11px;font-weight:600;color:var(--gray-500);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.04em}
-.desemp-filters .btn-search{width:40px;height:36px;border-radius:8px;background:var(--brand-500);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
-.desemp-filters .btn-search:hover{background:var(--brand-600)}
-.desemp-filters .btn-search svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+/* --- Empty state (hero filter form) --- */
+.desemp-empty-state{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 160px);padding:24px}
+.desemp-filters-hero{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);padding:40px 36px 36px;max-width:680px;width:100%;text-align:center}
+.desemp-hero-icon{width:56px;height:56px;border-radius:16px;background:var(--brand-050);color:var(--brand-500);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.desemp-hero-icon svg{width:28px;height:28px;stroke:currentColor;stroke-width:1.8;fill:none}
+.desemp-filters-hero h2{margin:0 0 4px;font-size:22px;font-weight:700;color:var(--navy-900)}
+.desemp-filters-hero .desemp-hero-sub{font-size:13.5px;color:var(--gray-500);margin-bottom:28px}
+.desemp-hero-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;margin-bottom:24px}
+.desemp-hero-fields .dh-field{position:relative}
+.desemp-hero-fields .dh-field.full-width{grid-column:1/-1}
+.desemp-hero-fields .dh-field label{font-size:11px;font-weight:600;color:var(--gray-500);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.04em}
+.dh-trigger{display:flex;align-items:center;gap:8px;width:100%;padding:9px 12px;border:1px solid var(--gray-200);border-radius:var(--radius);background:#fff;cursor:pointer;font-size:13px;color:var(--gray-700);transition:border-color .15s var(--ease)}
+.dh-trigger:hover,.dh-trigger.open{border-color:var(--brand-500)}
+.dh-trigger .dh-icon{width:16px;height:16px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none}
+.dh-trigger .dh-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dh-trigger .dh-arrow{width:16px;height:16px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none;margin-left:auto;transition:transform .15s var(--ease)}
+.dh-trigger.open .dh-arrow{transform:rotate(180deg)}
+.desemp-hero-btn{width:100%;padding:14px 24px;border-radius:var(--radius);background:var(--brand-500);color:#fff;font-size:15px;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .15s var(--ease),transform .1s var(--ease);box-shadow:0 4px 14px rgba(43,133,209,.25)}
+.desemp-hero-btn:hover{background:var(--brand-600);transform:translateY(-1px)}
+.desemp-hero-btn:active{transform:translateY(0)}
+.desemp-hero-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+
+/* --- Dropdown popup --- */
+.dd-popup{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:120;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .16s var(--ease),transform .16s var(--ease),visibility .16s;max-height:340px;overflow-y:auto}
+.dd-popup.open{opacity:1;visibility:visible;transform:none}
+.dd-popup.wide{min-width:480px;right:auto}
+.dd-popup .dd-search{padding:10px 12px;border-bottom:1px solid var(--gray-100)}
+.dd-popup .dd-search input{width:100%;padding:7px 10px;border:1px solid var(--gray-200);border-radius:6px;font-size:12.5px;color:var(--gray-700);outline:none}
+.dd-popup .dd-search input:focus{border-color:var(--brand-500)}
+.dd-popup .dd-actions{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;border-bottom:1px solid var(--gray-100)}
+.dd-popup .dd-actions button{padding:5px 12px;border-radius:6px;border:1px solid var(--gray-200);background:#fff;font-size:11.5px;color:var(--gray-600);cursor:pointer;white-space:nowrap}
+.dd-popup .dd-actions button:hover{background:var(--gray-050);border-color:var(--gray-300)}
+.dd-popup .dd-section-title{font-size:11px;font-weight:700;color:var(--gray-500);padding:8px 12px 4px;text-transform:uppercase;letter-spacing:.04em}
+.dd-popup .dd-item{display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;font-size:13px;color:var(--gray-700);transition:background .1s}
+.dd-popup .dd-item:hover{background:var(--gray-050)}
+.dd-popup .dd-item.selected{font-weight:600;color:var(--brand-600)}
+.dd-popup .dd-item .dd-check{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--gray-300);display:flex;align-items:center;justify-content:center;flex:none;transition:all .12s}
+.dd-popup .dd-item.selected .dd-check{background:var(--brand-500);border-color:var(--brand-500)}
+.dd-popup .dd-item .dd-check svg{width:10px;height:10px;stroke:#fff;stroke-width:2.5;fill:none;opacity:0}
+.dd-popup .dd-item.selected .dd-check svg{opacity:1}
+.dd-popup .dd-item .dd-name{font-weight:600}
+.dd-popup .dd-item .dd-role{font-size:11.5px;color:var(--gray-500);margin-left:6px}
+.dd-popup .dd-item .dd-dep{font-size:11px;color:var(--gray-400)}
+.dd-popup .dd-item-info{display:flex;flex-direction:column;flex:1;min-width:0}
+.dd-popup .dd-item-line{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.dd-popup .dd-item-highlight{background:var(--brand-500);color:#fff;border-radius:4px}
+
+/* --- Periodo popup (wide) --- */
+.dd-periodo{min-width:580px;max-height:420px;display:flex;flex-direction:column}
+.dd-periodo .dd-periodo-body{display:flex;min-height:0;flex:1;overflow:hidden}
+.dd-periodo .dd-presets{width:170px;border-right:1px solid var(--gray-100);padding:8px 0;overflow-y:auto;flex:none}
+.dd-periodo .dd-presets button{display:block;width:100%;text-align:left;padding:7px 14px;font-size:12.5px;color:var(--gray-600);background:none;border:none;cursor:pointer;transition:background .1s}
+.dd-periodo .dd-presets button:hover{background:var(--gray-050)}
+.dd-periodo .dd-presets button.active{background:var(--brand-500);color:#fff;font-weight:600}
+.dd-periodo .dd-calendar-side{flex:1;padding:14px;overflow-y:auto}
+.dd-periodo .dd-date-inputs{display:flex;gap:10px;margin-bottom:14px;align-items:center}
+.dd-periodo .dd-date-inputs input{flex:1;padding:7px 10px;border:1px solid var(--gray-200);border-radius:6px;font-size:12.5px;color:var(--gray-700);text-align:center}
+.dd-periodo .dd-date-inputs svg{width:16px;height:16px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none}
+.dd-calendars{display:flex;gap:16px}
+.dd-cal{flex:1;min-width:0}
+.dd-cal-head{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px}
+.dd-cal-head button{width:24px;height:24px;border-radius:6px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-400)}
+.dd-cal-head button:hover{background:var(--gray-100);color:var(--gray-700)}
+.dd-cal-head button svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.dd-cal-head span{font-size:13px;font-weight:600;color:var(--gray-800);min-width:100px;text-align:center}
+.dd-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;font-size:12px}
+.dd-cal-grid .dd-cal-dow{font-size:10px;font-weight:600;color:var(--gray-400);padding:4px 0;text-transform:lowercase}
+.dd-cal-grid .dd-cal-day{padding:5px 2px;border-radius:6px;cursor:pointer;color:var(--gray-600)}
+.dd-cal-grid .dd-cal-day:hover{background:var(--brand-050)}
+.dd-cal-grid .dd-cal-day.today{font-weight:700;color:var(--brand-500);background:var(--brand-050)}
+.dd-cal-grid .dd-cal-day.in-range{background:var(--brand-050)}
+.dd-cal-grid .dd-cal-day.range-start,.dd-cal-grid .dd-cal-day.range-end{background:var(--brand-500);color:#fff;font-weight:600}
+.dd-cal-grid .dd-cal-day.other-month{color:var(--gray-300)}
+
+/* --- Data state (compact filters) --- */
+.desemp-data-state{animation:fadeInUp .3s var(--ease) both}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.desemp-filters-compact{display:flex;flex-wrap:wrap;gap:10px;padding:14px 16px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);margin-bottom:16px;align-items:flex-end}
+.desemp-filters-compact .dh-field{flex:1;min-width:120px;position:relative}
+.desemp-filters-compact .dh-field label{font-size:10px;font-weight:600;color:var(--gray-500);margin-bottom:3px;display:block;text-transform:uppercase;letter-spacing:.04em}
+.desemp-filters-compact .dh-trigger{padding:6px 10px;font-size:12px}
+.desemp-filters-compact .btn-search-compact{width:40px;height:36px;border-radius:8px;background:var(--brand-500);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.desemp-filters-compact .btn-search-compact:hover{background:var(--brand-600)}
+.desemp-filters-compact .btn-search-compact svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
 .desemp-tabs{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
 .desemp-period{font-size:12px;color:var(--gray-500);margin-bottom:14px}
 .desemp-hr{border:none;border-top:2px solid var(--navy-900);margin:0 0 18px}
@@ -1088,12 +1166,19 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 @media(max-width:900px){
   .kpi-grid-3{grid-template-columns:1fr}
   .kpi-grid-4{grid-template-columns:repeat(2,1fr)}
-  .desemp-filters{gap:8px}
-  .desemp-filters .field{min-width:100%;flex-basis:100%}
+  .desemp-filters-compact .dh-field{min-width:100%;flex-basis:100%}
+  .desemp-hero-fields{grid-template-columns:1fr}
+  .desemp-filters-hero{padding:28px 20px 24px}
+  .dd-periodo{min-width:100%}
+  .dd-periodo .dd-presets{width:130px}
+  .dd-calendars{flex-direction:column}
 }
 @media(max-width:620px){
   .kpi-grid-3{grid-template-columns:1fr}
   .kpi-grid-4{grid-template-columns:1fr}
+  .dd-periodo .dd-periodo-body{flex-direction:column}
+  .dd-periodo .dd-presets{width:100%;border-right:none;border-bottom:1px solid var(--gray-100);display:flex;flex-wrap:wrap;padding:8px}
+  .dd-periodo .dd-presets button{width:auto;padding:5px 10px;font-size:11px}
 }
 
 /* ============================================================
@@ -2364,52 +2449,231 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
           </div>
         </div>
 
-        <!-- Filter bar -->
-        <div class="desemp-filters">
-          <div class="field">
-            <label>Zona de usuario</label>
-            <div class="select-wrap">
-              <select><option>Centro américa, México, :</option><option>Zona 1</option><option>Zona 2</option></select>
-              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        <!-- ========== EMPTY STATE ========== -->
+        <div class="desemp-empty-state" id="desempEmpty">
+          <div class="desemp-filters-hero">
+            <div class="desemp-hero-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+            <h2>Consulta de Desempeño</h2>
+            <p class="desemp-hero-sub">Selecciona los filtros y presiona Buscar para generar el reporte</p>
+
+            <div class="desemp-hero-fields">
+              <!-- Zona -->
+              <div class="dh-field" id="dhZona">
+                <label>Zona de usuario</label>
+                <div class="dh-trigger" onclick="toggleDD('ddZona',this)">
+                  <svg class="dh-icon" viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg>
+                  <span class="dh-text" id="dhZonaText">Centro américa, México, Sudamérica</span>
+                  <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="dd-popup" id="ddZona">
+                  <div class="dd-search"><input type="text" placeholder="Buscar..." oninput="filterDD(this,'ddZona')"></div>
+                  <div class="dd-actions">
+                    <button onclick="selectAllDD('ddZona',true)">Seleccionar Todos</button>
+                    <button onclick="selectAllDD('ddZona',false)">Desmarcar Todos</button>
+                  </div>
+                  <div class="dd-item selected" data-val="Centro américa" onclick="toggleDDItem(this,'ddZona')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">Centro américa</span></div></div>
+                  <div class="dd-item selected" data-val="México" onclick="toggleDDItem(this,'ddZona')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">México</span></div></div>
+                  <div class="dd-item selected" data-val="Sudamérica" onclick="toggleDDItem(this,'ddZona')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">Sudamérica</span></div></div>
+                </div>
+              </div>
+
+              <!-- Responsable -->
+              <div class="dh-field" id="dhResp">
+                <label>Seleccione responsable</label>
+                <div class="dh-trigger" onclick="toggleDD('ddResp',this)">
+                  <svg class="dh-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="dh-text" id="dhRespText">Jesús Pérez</span>
+                  <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="dd-popup" id="ddResp" style="min-width:380px">
+                  <div class="dd-search"><input type="text" placeholder="Buscar..." oninput="filterDD(this,'ddResp')"></div>
+                  <div class="dd-actions">
+                    <button onclick="selectAllDD('ddResp',true)">Seleccionar Todos</button>
+                    <button onclick="selectAllDD('ddResp',false)">Desmarcar Todos</button>
+                  </div>
+                  <div class="dd-actions">
+                    <button onclick="selectGroupDD('ddResp','activo',true)">Sel. activos</button>
+                    <button onclick="selectGroupDD('ddResp','inactivo',true)">Sel. inactivos</button>
+                    <button onclick="selectGroupDD('ddResp','activo',false)">Des. activos</button>
+                    <button onclick="selectGroupDD('ddResp','inactivo',false)">Des. inactivos</button>
+                  </div>
+                  <div class="dd-section-title">ACTIVOS</div>
+                  <div class="dd-item" data-val="Alberto Bernal" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Alberto Bernal</span><span class="dd-role">Desarrollador</span></div><span class="dd-dep">Depende de Oscar Casillas</span></div></div>
+                  <div class="dd-item" data-val="Alfredo Marcelino" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Alfredo Marcelino</span><span class="dd-role">Desarrollador</span></div><span class="dd-dep">Depende de Oscar Casillas</span></div></div>
+                  <div class="dd-item" data-val="Alonso Medina" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Alonso Medina</span><span class="dd-role">Business Developer</span></div><span class="dd-dep">Depende de Marco Morales</span></div></div>
+                  <div class="dd-item" data-val="Amanda Garza" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Amanda Garza</span><span class="dd-role">Consultor e Implementador</span></div><span class="dd-dep">Depende de Norma Pérez</span></div></div>
+                  <div class="dd-item" data-val="Carlos Reyes" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Carlos Reyes</span><span class="dd-role">CEO</span></div><span class="dd-dep">Depende de Paulina Serna</span></div></div>
+                  <div class="dd-item selected" data-val="Jesús Pérez" data-group="activo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Jesús Pérez</span><span class="dd-role">Director Comercial</span></div><span class="dd-dep">Depende de Paulina Serna</span></div></div>
+                  <div class="dd-section-title">INACTIVOS</div>
+                  <div class="dd-item" data-val="Roberto López" data-group="inactivo" onclick="toggleDDItem(this,'ddResp')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><div class="dd-item-line"><span class="dd-name">Roberto López</span><span class="dd-role">Ventas</span></div><span class="dd-dep">Depende de Jesús Pérez</span></div></div>
+                </div>
+              </div>
+
+              <!-- Periodo -->
+              <div class="dh-field" id="dhPeriodo">
+                <label>Periodo a consultar</label>
+                <div class="dh-trigger" onclick="toggleDD('ddPeriodo',this)">
+                  <svg class="dh-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <span class="dh-text" id="dhPeriodoText">01/05/2026 - 02/11/2026</span>
+                  <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="dd-popup dd-periodo" id="ddPeriodo">
+                  <div class="dd-periodo-body">
+                    <div class="dd-presets">
+                      <button onclick="setPeriodoPreset('Limpiar')">Limpiar</button>
+                      <button onclick="setPeriodoPreset('Hoy')">Hoy</button>
+                      <button onclick="setPeriodoPreset('Ayer')">Ayer</button>
+                      <button onclick="setPeriodoPreset('Esta semana')">Esta semana</button>
+                      <button onclick="setPeriodoPreset('Últimos 7 días')">Últimos 7 días</button>
+                      <button onclick="setPeriodoPreset('Últimos 30 días')">Últimos 30 días</button>
+                      <button onclick="setPeriodoPreset('Este mes')">Este mes</button>
+                      <button onclick="setPeriodoPreset('Mes anterior')">Mes anterior</button>
+                      <button class="active" onclick="setPeriodoPreset('Últimos 6 meses')">Últimos 6 meses</button>
+                      <button onclick="setPeriodoPreset('Año actual')">Año actual</button>
+                      <button onclick="setPeriodoPreset('Año anterior')">Año anterior</button>
+                      <button onclick="setPeriodoPreset('Personalizado')">Personalizado</button>
+                    </div>
+                    <div class="dd-calendar-side">
+                      <div class="dd-date-inputs">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        <input type="text" value="01/05/2026" id="periodoStart" readonly>
+                        <input type="text" value="02/11/2026" id="periodoEnd" readonly>
+                      </div>
+                      <div class="dd-calendars">
+                        <div class="dd-cal">
+                          <div class="dd-cal-head">
+                            <button><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                            <span>may. 2026</span>
+                            <span></span>
+                          </div>
+                          <div class="dd-cal-grid">
+                            <span class="dd-cal-dow">lu</span><span class="dd-cal-dow">ma</span><span class="dd-cal-dow">mi</span><span class="dd-cal-dow">ju</span><span class="dd-cal-dow">vi</span><span class="dd-cal-dow">sá</span><span class="dd-cal-dow">do</span>
+                            <span class="dd-cal-day other-month">27</span><span class="dd-cal-day other-month">28</span><span class="dd-cal-day other-month">29</span><span class="dd-cal-day other-month">30</span><span class="dd-cal-day range-start">1</span><span class="dd-cal-day in-range">2</span><span class="dd-cal-day in-range">3</span>
+                            <span class="dd-cal-day in-range">4</span><span class="dd-cal-day in-range">5</span><span class="dd-cal-day in-range">6</span><span class="dd-cal-day in-range">7</span><span class="dd-cal-day in-range">8</span><span class="dd-cal-day in-range">9</span><span class="dd-cal-day in-range">10</span>
+                            <span class="dd-cal-day in-range">11</span><span class="dd-cal-day in-range">12</span><span class="dd-cal-day in-range">13</span><span class="dd-cal-day in-range">14</span><span class="dd-cal-day in-range">15</span><span class="dd-cal-day in-range">16</span><span class="dd-cal-day in-range">17</span>
+                            <span class="dd-cal-day in-range">18</span><span class="dd-cal-day in-range">19</span><span class="dd-cal-day in-range">20</span><span class="dd-cal-day in-range">21</span><span class="dd-cal-day in-range">22</span><span class="dd-cal-day in-range">23</span><span class="dd-cal-day in-range">24</span>
+                            <span class="dd-cal-day in-range">25</span><span class="dd-cal-day in-range">26</span><span class="dd-cal-day in-range">27</span><span class="dd-cal-day in-range">28</span><span class="dd-cal-day in-range">29</span><span class="dd-cal-day in-range">30</span><span class="dd-cal-day in-range">31</span>
+                          </div>
+                        </div>
+                        <div class="dd-cal">
+                          <div class="dd-cal-head">
+                            <span></span>
+                            <span>jun. 2026</span>
+                            <button><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+                          </div>
+                          <div class="dd-cal-grid">
+                            <span class="dd-cal-dow">lu</span><span class="dd-cal-dow">ma</span><span class="dd-cal-dow">mi</span><span class="dd-cal-dow">ju</span><span class="dd-cal-dow">vi</span><span class="dd-cal-dow">sá</span><span class="dd-cal-dow">do</span>
+                            <span class="dd-cal-day in-range">1</span><span class="dd-cal-day in-range">2</span><span class="dd-cal-day in-range">3</span><span class="dd-cal-day in-range">4</span><span class="dd-cal-day in-range">5</span><span class="dd-cal-day in-range">6</span><span class="dd-cal-day in-range">7</span>
+                            <span class="dd-cal-day in-range">8</span><span class="dd-cal-day in-range">9</span><span class="dd-cal-day in-range">10</span><span class="dd-cal-day in-range">11</span><span class="dd-cal-day in-range">12</span><span class="dd-cal-day in-range">13</span><span class="dd-cal-day in-range">14</span>
+                            <span class="dd-cal-day in-range">15</span><span class="dd-cal-day in-range">16</span><span class="dd-cal-day in-range">17</span><span class="dd-cal-day in-range">18</span><span class="dd-cal-day in-range">19</span><span class="dd-cal-day in-range">20</span><span class="dd-cal-day in-range">21</span>
+                            <span class="dd-cal-day in-range">22</span><span class="dd-cal-day in-range">23</span><span class="dd-cal-day in-range">24</span><span class="dd-cal-day in-range">25</span><span class="dd-cal-day in-range">26</span><span class="dd-cal-day in-range">27</span><span class="dd-cal-day in-range">28</span>
+                            <span class="dd-cal-day in-range">29</span><span class="dd-cal-day in-range">30</span><span class="dd-cal-day other-month">1</span><span class="dd-cal-day other-month">2</span><span class="dd-cal-day other-month">3</span><span class="dd-cal-day other-month">4</span><span class="dd-cal-day other-month">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto -->
+              <div class="dh-field" id="dhProducto">
+                <label>Producto</label>
+                <div class="dh-trigger" onclick="toggleDD('ddProducto',this)">
+                  <svg class="dh-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+                  <span class="dh-text" id="dhProductoText">Todos</span>
+                  <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="dd-popup" id="ddProducto">
+                  <div class="dd-search"><input type="text" placeholder="Buscar producto..." oninput="filterProducto(this)"></div>
+                  <div class="dd-item" data-val="[SP13] Adecuaciones Shutpoint" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP13] Adecuaciones Shutpoint</span></div></div>
+                  <div class="dd-item" data-val="[SP06] Capacitación Shutpoint Express" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP06] Capacitación Shutpoint Express</span></div></div>
+                  <div class="dd-item" data-val="[SP05] Capacitación Shutpoint Full" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP05] Capacitación Shutpoint Full</span></div></div>
+                  <div class="dd-item" data-val="[SP07] Carga masiva de información a Shutpoint" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP07] Carga masiva de información a Shutpoint</span></div></div>
+                  <div class="dd-item" data-val="[SP04] Configuración Shutpoint" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP04] Configuración Shutpoint</span></div></div>
+                  <div class="dd-item" data-val="[SP09] Integración Shutpoint a otro sistema" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP09] Integración Shutpoint a otro sistema o envío de información</span></div></div>
+                  <div class="dd-item" data-val="[SP01] Membresía Shutpoint" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP01] Membresía Shutpoint</span></div></div>
+                  <div class="dd-item" data-val="[SP02] Staff Augmentation" onclick="selectProducto(this)"><div class="dd-item-info"><span class="dd-name">[SP02] Staff Augmentation</span></div></div>
+                </div>
+              </div>
+
+              <!-- Moneda -->
+              <div class="dh-field" style="max-width:160px">
+                <label>Moneda</label>
+                <div class="select-wrap">
+                  <select id="desempMoneda"><option>MXN</option><option>USD</option><option>EUR</option></select>
+                  <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
             </div>
+
+            <button class="desemp-hero-btn" onclick="desempBuscar()">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg>
+              Buscar
+            </button>
           </div>
-          <div class="field">
-            <label>Seleccione responsable</label>
-            <div class="select-wrap">
-              <select><option>Jesús Pérez</option><option>Santos Martínez</option><option>Rodrigo Franco</option><option>Todos</option></select>
-              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-            </div>
-          </div>
-          <div class="field">
-            <label>Periodo a consultar</label>
-            <div style="display:flex;align-items:center;gap:6px">
-              <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <input type="text" value="01/05/2026 - 02/11/2026" readonly style="width:100%;padding:7px 10px;border:1px solid var(--gray-200);border-radius:8px;font-size:13px;color:var(--gray-700);background:#fff">
-            </div>
-          </div>
-          <div class="field">
-            <label>Producto</label>
-            <input type="text" placeholder="Producto" style="width:100%;padding:7px 10px;border:1px solid var(--gray-200);border-radius:8px;font-size:13px;color:var(--gray-700)">
-          </div>
-          <div class="field" style="min-width:90px;flex:0 1 90px">
-            <label>Moneda</label>
-            <div class="select-wrap">
-              <select><option>MXN</option><option>USD</option><option>EUR</option></select>
-              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-            </div>
-          </div>
-          <button class="btn-search" title="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></button>
         </div>
 
-        <!-- Tabs -->
-        <div class="desemp-tabs">
-          <div class="segmented">
-            <button class="active">Grupo</button>
-            <button>Jesús Pérez</button>
+        <!-- ========== DATA STATE ========== -->
+        <div class="desemp-data-state" id="desempData" style="display:none">
+
+          <!-- Compact filter bar -->
+          <div class="desemp-filters-compact">
+            <div class="dh-field" id="dhZona2">
+              <label>Zona</label>
+              <div class="dh-trigger" onclick="toggleDD('ddZona2',this)">
+                <span class="dh-text" id="dhZona2Text">Centro américa, México, Sudamérica</span>
+                <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+              <div class="dd-popup" id="ddZona2">
+                <div class="dd-search"><input type="text" placeholder="Buscar..." oninput="filterDD(this,'ddZona2')"></div>
+                <div class="dd-actions">
+                  <button onclick="selectAllDD('ddZona2',true)">Seleccionar Todos</button>
+                  <button onclick="selectAllDD('ddZona2',false)">Desmarcar Todos</button>
+                </div>
+                <div class="dd-item selected" data-val="Centro américa" onclick="toggleDDItem(this,'ddZona2')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">Centro américa</span></div></div>
+                <div class="dd-item selected" data-val="México" onclick="toggleDDItem(this,'ddZona2')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">México</span></div></div>
+                <div class="dd-item selected" data-val="Sudamérica" onclick="toggleDDItem(this,'ddZona2')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">Sudamérica</span></div></div>
+              </div>
+            </div>
+            <div class="dh-field" id="dhResp2">
+              <label>Responsable</label>
+              <div class="dh-trigger" onclick="toggleDD('ddResp2',this)">
+                <span class="dh-text">Jesús Pérez</span>
+                <svg class="dh-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+              <div class="dd-popup" id="ddResp2" style="min-width:380px">
+                <div class="dd-search"><input type="text" placeholder="Buscar..."></div>
+                <div class="dd-actions">
+                  <button onclick="selectAllDD('ddResp2',true)">Seleccionar Todos</button>
+                  <button onclick="selectAllDD('ddResp2',false)">Desmarcar Todos</button>
+                </div>
+                <div class="dd-item selected" data-val="Jesús Pérez" onclick="toggleDDItem(this,'ddResp2')"><div class="dd-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><div class="dd-item-info"><span class="dd-name">Jesús Pérez</span><span class="dd-role">Director Comercial</span></div></div>
+              </div>
+            </div>
+            <div class="dh-field">
+              <label>Periodo</label>
+              <div class="dh-trigger" style="cursor:default">
+                <svg class="dh-icon" viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <span class="dh-text">01/05/2026 - 02/11/2026</span>
+              </div>
+            </div>
+            <div class="dh-field" style="max-width:100px">
+              <label>Moneda</label>
+              <div class="select-wrap"><select><option>MXN</option><option>USD</option><option>EUR</option></select><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <button class="btn-search-compact" title="Buscar" onclick="desempBuscar()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></button>
           </div>
-        </div>
-        <hr class="desemp-hr">
-        <div class="desemp-period">Periodo de consulta: 01/05/2026 - 02/11/2026</div>
+
+          <!-- Tabs -->
+          <div class="desemp-tabs">
+            <div class="segmented">
+              <button class="active">Grupo</button>
+              <button>Jesús Pérez</button>
+            </div>
+          </div>
+          <hr class="desemp-hr">
+          <div class="desemp-period">Periodo de consulta: 01/05/2026 - 02/11/2026</div>
 
         <!-- 3 Main KPIs -->
         <div class="kpi-grid-3">
@@ -2423,9 +2687,9 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">69.00<small>%</small></div>
-            <div class="progress"><i class="g" style="width:69%"></i></div>
-            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">55.56 % del 27/10/2025 al 30/04/2026</span></div>
+            <div class="kpi-value">72.50<small>%</small></div>
+            <div class="progress"><i class="g" style="width:72.5%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">+8.3 % vs periodo anterior</span></div>
           </div>
 
           <div class="kpi">
@@ -2438,9 +2702,9 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">91.67<small>%</small></div>
-            <div class="progress"><i style="width:91.67%"></i></div>
-            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">0.00 % del 27/10/2025 al 30/04/2026</span></div>
+            <div class="kpi-value">85.33<small>%</small></div>
+            <div class="progress"><i style="width:85.33%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">+12.5 % vs periodo anterior</span></div>
           </div>
 
           <div class="kpi">
@@ -2453,9 +2717,9 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">56.89<small>%</small></div>
-            <div class="progress"><i class="a" style="width:56.89%"></i></div>
-            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">0.00 % del 27/10/2025 al 30/04/2026</span></div>
+            <div class="kpi-value">63.18<small>%</small></div>
+            <div class="progress"><i class="a" style="width:63.18%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">+5.2 % vs periodo anterior</span></div>
           </div>
         </div>
 
@@ -2471,7 +2735,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">7</div>
+            <div class="kpi-value">12</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
 
@@ -2485,7 +2749,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">5</div>
+            <div class="kpi-value">8</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
 
@@ -2499,7 +2763,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">0</div>
+            <div class="kpi-value">3</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
 
@@ -2512,7 +2776,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button title="Línea"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></button>
               </div>
             </div>
-            <div class="kpi-value">0</div>
+            <div class="kpi-value">2</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
         </div>
@@ -2536,8 +2800,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <button class="active">Graficar monto cotizado</button>
             </div>
             <div class="donut-summary">
-              <div class="ds-total">$ 1,637,157.20 Concretado</div>
-              <div class="ds-sub">11 Cotizaciones concretadas</div>
+              <div class="ds-total">$ 2,847,350.00 Concretado</div>
+              <div class="ds-sub">15 Cotizaciones concretadas</div>
             </div>
             <div class="donut-wrap">
               <div class="donut">
@@ -2565,8 +2829,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <button class="active">Graficar monto cotizado</button>
             </div>
             <div class="donut-summary">
-              <div class="ds-total">$ 1,637,157.20 Concretado</div>
-              <div class="ds-sub">11 Cotizaciones concretadas</div>
+              <div class="ds-total">$ 2,847,350.00 Concretado</div>
+              <div class="ds-sub">15 Cotizaciones concretadas</div>
             </div>
             <div class="donut-wrap">
               <div class="donut">
@@ -2607,16 +2871,16 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <table class="table-head-blue">
                 <thead><tr><th>Fases</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Monto</th></tr></thead>
                 <tbody>
-                  <tr><td>Acercamiento</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Cotización antigua</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Seguimiento de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Presentación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Facturación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Aprobación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>EN CIERRE</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Compitiendo</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Negociación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
-                  <tr><td>Presentación de propuesta AA y AAA</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Acercamiento</td><td style="text-align:right">8</td><td style="text-align:right">$ 485,200.00</td></tr>
+                  <tr><td>Cotización antigua</td><td style="text-align:right">2</td><td style="text-align:right">$ 124,500.00</td></tr>
+                  <tr><td>Seguimiento de cotización</td><td style="text-align:right">5</td><td style="text-align:right">$ 612,350.00</td></tr>
+                  <tr><td>Presentación de cotización</td><td style="text-align:right">4</td><td style="text-align:right">$ 398,700.00</td></tr>
+                  <tr><td>Facturación de cotización</td><td style="text-align:right">3</td><td style="text-align:right">$ 287,100.00</td></tr>
+                  <tr><td>Aprobación de cotización</td><td style="text-align:right">6</td><td style="text-align:right">$ 523,450.00</td></tr>
+                  <tr><td>EN CIERRE</td><td style="text-align:right">2</td><td style="text-align:right">$ 195,800.00</td></tr>
+                  <tr><td>Compitiendo</td><td style="text-align:right">3</td><td style="text-align:right">$ 340,250.00</td></tr>
+                  <tr><td>Negociación de cotización</td><td style="text-align:right">1</td><td style="text-align:right">$ 87,600.00</td></tr>
+                  <tr><td>Presentación de propuesta AA y AAA</td><td style="text-align:right">4</td><td style="text-align:right">$ 312,400.00</td></tr>
                 </tbody>
               </table>
             </div>
@@ -2635,8 +2899,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <table style="width:100%;font-size:12.5px;border-collapse:collapse">
                   <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Cotizaciones</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
                   <tbody>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Total abiertas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Por vencer a <input type="number" value="30" style="width:40px;padding:2px 4px;border:1px solid var(--gray-200);border-radius:4px;font-size:12px;text-align:center"> días</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Total abiertas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">7</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 892,400.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Por vencer a <input type="number" value="30" style="width:40px;padding:2px 4px;border:1px solid var(--gray-200);border-radius:4px;font-size:12px;text-align:center"> días</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">4</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 523,100.00</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -2644,11 +2908,11 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <table style="width:100%;font-size:12.5px;border-collapse:collapse">
                   <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Cotizaciones del Periodo</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
                   <tbody>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Elaboradas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">10</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 1,412,684.20</td></tr>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Abierta</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Concretada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">11</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 1,637,157.20</td></tr>
-                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Rechazada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
-                    <tr><td style="padding:8px 12px">Vencida</td><td style="padding:8px 12px;text-align:right">0</td><td style="padding:8px 12px;text-align:right">$ 0.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Elaboradas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">22</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 3,367,350.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Abierta</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">7</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 892,400.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Concretada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">15</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 2,847,350.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Rechazada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">3</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 185,600.00</td></tr>
+                    <tr><td style="padding:8px 12px">Vencida</td><td style="padding:8px 12px;text-align:right">2</td><td style="padding:8px 12px;text-align:right">$ 134,000.00</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -2740,20 +3004,22 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               </div>
             </div>
             <div class="donut-summary">
-              <div class="ds-total">$ 1,295,731.56 Facturado</div>
-              <div class="ds-sub">9 Facturas capturadas</div>
+              <div class="ds-total">$ 1,925,480.75 Facturado</div>
+              <div class="ds-sub">12 Facturas capturadas</div>
             </div>
             <div class="donut-wrap" style="justify-content:center">
               <div class="donut" style="width:200px;height:200px">
                 <svg viewBox="0 0 120 120">
-                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="204 314" stroke-dashoffset="0"/>
-                  <circle cx="60" cy="60" r="50" stroke="#EF5350" stroke-dasharray="110 314" stroke-dashoffset="-204"/>
+                  <circle cx="60" cy="60" r="50" stroke="#2B85D1" stroke-dasharray="157 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#1B2A4E" stroke-dasharray="105 314" stroke-dashoffset="-157"/>
+                  <circle cx="60" cy="60" r="50" stroke="#27A35C" stroke-dasharray="52 314" stroke-dashoffset="-262"/>
                 </svg>
-                <div class="donut-center"><b>9</b><span>Facturas</span></div>
+                <div class="donut-center"><b>12</b><span>Facturas</span></div>
               </div>
               <div class="legend">
-                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">Jesús Pérez</span><span class="vl">Cant: 7</span></div>
-                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">Valor: $ 834,758.56</span></div>
+                <div class="legend-item"><span class="sw" style="background:#2B85D1"></span><span class="lb">Jesús Pérez</span><span class="vl">Cant: 6 · $ 985,230.50</span></div>
+                <div class="legend-item"><span class="sw" style="background:#1B2A4E"></span><span class="lb">Santos Martínez</span><span class="vl">Cant: 4 · $ 642,750.25</span></div>
+                <div class="legend-item"><span class="sw" style="background:#27A35C"></span><span class="lb">Amanda Garza</span><span class="vl">Cant: 2 · $ 297,500.00</span></div>
               </div>
             </div>
           </div>
@@ -2768,15 +3034,24 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               </div>
             </div>
             <div class="donut-summary">
-              <div class="ds-total">$ 0.00 Pagado</div>
-              <div class="ds-sub">0 Pagos recibidos</div>
+              <div class="ds-total">$ 1,150,200.00 Pagado</div>
+              <div class="ds-sub">8 Pagos recibidos</div>
             </div>
             <div class="donut-wrap" style="justify-content:center">
               <div class="donut" style="width:200px;height:200px">
                 <svg viewBox="0 0 120 120">
-                  <circle cx="60" cy="60" r="50" stroke="var(--gray-200)" stroke-dasharray="314 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#2B85D1" stroke-dasharray="118 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#1B2A4E" stroke-dasharray="79 314" stroke-dashoffset="-118"/>
+                  <circle cx="60" cy="60" r="50" stroke="#27A35C" stroke-dasharray="78 314" stroke-dashoffset="-197"/>
+                  <circle cx="60" cy="60" r="50" stroke="#E1930F" stroke-dasharray="39 314" stroke-dashoffset="-275"/>
                 </svg>
-                <div class="donut-center"><b>0</b><span>Pagos</span></div>
+                <div class="donut-center"><b>8</b><span>Pagos</span></div>
+              </div>
+              <div class="legend">
+                <div class="legend-item"><span class="sw" style="background:#2B85D1"></span><span class="lb">Jesús Pérez</span><span class="vl">Cant: 3 · $ 435,600.00</span></div>
+                <div class="legend-item"><span class="sw" style="background:#1B2A4E"></span><span class="lb">Santos Martínez</span><span class="vl">Cant: 2 · $ 298,100.00</span></div>
+                <div class="legend-item"><span class="sw" style="background:#27A35C"></span><span class="lb">Amanda Garza</span><span class="vl">Cant: 2 · $ 291,500.00</span></div>
+                <div class="legend-item"><span class="sw" style="background:#E1930F"></span><span class="lb">Carlos Reyes</span><span class="vl">Cant: 1 · $ 125,000.00</span></div>
               </div>
             </div>
           </div>
@@ -2799,16 +3074,16 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <table class="table-head-blue">
                 <thead><tr><th>Tipo de compromisos</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Meta</th></tr></thead>
                 <tbody>
-                  <tr><td>Actividad administrativa</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Actividad complementaria de implementación</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Alta de usuarios</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Anotar actividades al día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Anotar actividades del día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Aplicar examenes</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Asesoría (menos de 1 hr)</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Baja de empresa</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>CA-Envío de información Axsis</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Capacitación - Exprés presencial (más de 1 hr)</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Actividad administrativa</td><td style="text-align:right">14</td><td style="text-align:right">20</td></tr>
+                  <tr><td>Actividad complementaria de implementación</td><td style="text-align:right">8</td><td style="text-align:right">10</td></tr>
+                  <tr><td>Alta de usuarios</td><td style="text-align:right">3</td><td style="text-align:right">5</td></tr>
+                  <tr><td>Anotar actividades al día</td><td style="text-align:right">22</td><td style="text-align:right">25</td></tr>
+                  <tr><td>Anotar actividades del día</td><td style="text-align:right">18</td><td style="text-align:right">25</td></tr>
+                  <tr><td>Aplicar examenes</td><td style="text-align:right">2</td><td style="text-align:right">5</td></tr>
+                  <tr><td>Asesoría (menos de 1 hr)</td><td style="text-align:right">6</td><td style="text-align:right">10</td></tr>
+                  <tr><td>Baja de empresa</td><td style="text-align:right">1</td><td style="text-align:right"></td></tr>
+                  <tr><td>CA-Envío de información Axsis</td><td style="text-align:right">5</td><td style="text-align:right">8</td></tr>
+                  <tr><td>Capacitación - Exprés presencial (más de 1 hr)</td><td style="text-align:right">4</td><td style="text-align:right">6</td></tr>
                 </tbody>
               </table>
             </div>
@@ -2843,16 +3118,16 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <table class="table-head-green">
                 <thead><tr><th>Tipo de seguimientos</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Meta</th></tr></thead>
                 <tbody>
-                  <tr><td>Actividad administrativa</td><td style="text-align:right">2</td><td style="text-align:right"></td></tr>
-                  <tr><td>Actividad complementaria realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Alerta de baja interacción Shutpoint enviada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Alta de usuarios realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Anotar actividades al día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Aplicacion de Examenes</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Asesoría realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Auditoría Presencial</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Auditoría Remota</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
-                  <tr><td>Baja de empresa realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Actividad administrativa</td><td style="text-align:right">12</td><td style="text-align:right">15</td></tr>
+                  <tr><td>Actividad complementaria realizada</td><td style="text-align:right">7</td><td style="text-align:right">10</td></tr>
+                  <tr><td>Alerta de baja interacción Shutpoint enviada</td><td style="text-align:right">3</td><td style="text-align:right">5</td></tr>
+                  <tr><td>Alta de usuarios realizada</td><td style="text-align:right">4</td><td style="text-align:right">5</td></tr>
+                  <tr><td>Anotar actividades al día</td><td style="text-align:right">19</td><td style="text-align:right">25</td></tr>
+                  <tr><td>Aplicacion de Examenes</td><td style="text-align:right">2</td><td style="text-align:right">5</td></tr>
+                  <tr><td>Asesoría realizada</td><td style="text-align:right">5</td><td style="text-align:right">8</td></tr>
+                  <tr><td>Auditoría Presencial</td><td style="text-align:right">1</td><td style="text-align:right">3</td></tr>
+                  <tr><td>Auditoría Remota</td><td style="text-align:right">3</td><td style="text-align:right">4</td></tr>
+                  <tr><td>Baja de empresa realizada</td><td style="text-align:right">1</td><td style="text-align:right"></td></tr>
                 </tbody>
               </table>
             </div>
@@ -2899,17 +3174,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                   <circle cx="60" cy="60" r="50" stroke="#78909C" stroke-dasharray="30 314" stroke-dashoffset="-250"/>
                   <circle cx="60" cy="60" r="50" stroke="#FFB74D" stroke-dasharray="34 314" stroke-dashoffset="-280"/>
                 </svg>
-                <div class="donut-center"><b>0</b><span>Promedio</span></div>
+                <div class="donut-center"><b>4.2</b><span>Promedio</span></div>
               </div>
               <div class="legend">
-                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 6</span></div>
+                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 5</span></div>
+                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 4</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 3</span></div>
+                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 5</span></div>
+                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 4</span></div>
+                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 3</span></div>
+                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 4</span></div>
               </div>
             </div>
           </div>
@@ -2938,17 +3213,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                   <circle cx="60" cy="60" r="50" stroke="#78909C" stroke-dasharray="30 314" stroke-dashoffset="-250"/>
                   <circle cx="60" cy="60" r="50" stroke="#FFB74D" stroke-dasharray="34 314" stroke-dashoffset="-280"/>
                 </svg>
-                <div class="donut-center"><b>0</b><span>Promedio</span></div>
+                <div class="donut-center"><b>5.8</b><span>Promedio</span></div>
               </div>
               <div class="legend">
-                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 0</span></div>
-                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 8</span></div>
+                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 7</span></div>
+                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 5</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 4</span></div>
+                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 7</span></div>
+                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 6</span></div>
+                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 5</span></div>
+                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 6</span></div>
               </div>
             </div>
           </div>
@@ -2966,19 +3241,19 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             <table class="ipack-table">
               <thead><tr><th>Indicador</th><th>Valor</th></tr></thead>
               <tbody>
-                <tr><td>Lead:</td><td>7</td></tr>
-                <tr><td>Ventas - Correo inicial enviado:</td><td>87</td></tr>
-                <tr><td>Ventas - Correo seguimiento enviado:</td><td>235</td></tr>
-                <tr><td>Ventas - Llamada inicial efectiva:</td><td>6</td></tr>
-                <tr><td>Prospecto:</td><td>5</td></tr>
-                <tr><td>Ventas - Presentación inicial realizada AA / AAA:</td><td>2</td></tr>
-                <tr><td>Ventas - Demostración de solución realizada:</td><td>1</td></tr>
-                <tr><td>Oportunidades elaboradas:</td><td>$ 19,279,245.50</td></tr>
-                <tr><td>Ventas - Presentación de propuesta económica realizada:</td><td>1</td></tr>
-                <tr><td>Oportunidades concretada:</td><td>$ 1,035,000.00</td></tr>
-                <tr><td>Cliente:</td><td>0</td></tr>
-                <tr><td>Cotizaciones elaboradas:</td><td>$ 1,412,684.20</td></tr>
-                <tr><td>Cotizaciones concretada:</td><td>$ 1,637,157.20</td></tr>
+                <tr><td>Lead:</td><td>12</td></tr>
+                <tr><td>Ventas - Correo inicial enviado:</td><td>145</td></tr>
+                <tr><td>Ventas - Correo seguimiento enviado:</td><td>312</td></tr>
+                <tr><td>Ventas - Llamada inicial efectiva:</td><td>18</td></tr>
+                <tr><td>Prospecto:</td><td>8</td></tr>
+                <tr><td>Ventas - Presentación inicial realizada AA / AAA:</td><td>6</td></tr>
+                <tr><td>Ventas - Demostración de solución realizada:</td><td>4</td></tr>
+                <tr><td>Oportunidades elaboradas:</td><td>$ 4,580,350.00</td></tr>
+                <tr><td>Ventas - Presentación de propuesta económica realizada:</td><td>5</td></tr>
+                <tr><td>Oportunidades concretada:</td><td>$ 2,135,000.00</td></tr>
+                <tr><td>Cliente:</td><td>3</td></tr>
+                <tr><td>Cotizaciones elaboradas:</td><td>$ 3,367,350.00</td></tr>
+                <tr><td>Cotizaciones concretada:</td><td>$ 2,847,350.00</td></tr>
               </tbody>
             </table>
           </div>
@@ -3024,16 +3299,30 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               <svg viewBox="0 0 400 200" style="width:100%">
                 <line x1="40" y1="30" x2="40" y2="170" stroke="var(--gray-200)" stroke-width="1"/>
                 <line x1="40" y1="170" x2="380" y2="170" stroke="var(--gray-200)" stroke-width="1"/>
-                <text x="20" y="35" font-size="9" fill="var(--gray-400)">$ 1.00</text>
-                <text x="20" y="65" font-size="9" fill="var(--gray-400)">$ 0.80</text>
-                <text x="20" y="100" font-size="9" fill="var(--gray-400)">$ 0.60</text>
-                <text x="20" y="135" font-size="9" fill="var(--gray-400)">$ 0.40</text>
-                <text x="20" y="165" font-size="9" fill="var(--gray-400)">$ 0.20</text>
-                <text x="20" y="175" font-size="9" fill="var(--gray-400)">$ 0.00</text>
-                <text x="200" y="190" font-size="9" fill="var(--gray-500)" text-anchor="middle">02/nov./2026</text>
+                <text x="15" y="35" font-size="8" fill="var(--gray-400)">$600K</text>
+                <text x="15" y="65" font-size="8" fill="var(--gray-400)">$480K</text>
+                <text x="15" y="100" font-size="8" fill="var(--gray-400)">$360K</text>
+                <text x="15" y="135" font-size="8" fill="var(--gray-400)">$240K</text>
+                <text x="15" y="165" font-size="8" fill="var(--gray-400)">$120K</text>
                 <line x1="40" y1="65" x2="380" y2="65" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
                 <line x1="40" y1="100" x2="380" y2="100" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
                 <line x1="40" y1="135" x2="380" y2="135" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
+                <rect x="55" y="95" width="22" height="75" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="95" y="55" width="22" height="115" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="135" y="75" width="22" height="95" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="175" y="110" width="22" height="60" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="215" y="40" width="22" height="130" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="255" y="85" width="22" height="85" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="295" y="60" width="22" height="110" rx="3" fill="#2B85D1" opacity=".85"/>
+                <rect x="335" y="120" width="22" height="50" rx="3" fill="#2B85D1" opacity=".85"/>
+                <text x="66" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">May</text>
+                <text x="106" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Jun</text>
+                <text x="146" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Jul</text>
+                <text x="186" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Ago</text>
+                <text x="226" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Sep</text>
+                <text x="266" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Oct</text>
+                <text x="306" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Nov</text>
+                <text x="346" y="185" font-size="7" fill="var(--gray-500)" text-anchor="middle">Dic</text>
               </svg>
             </div>
           </div>
@@ -3095,6 +3384,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             </div>
           </div>
         </div>
+
+        </div><!-- /desempData -->
 
       </section>
 
@@ -3583,15 +3874,15 @@ const KANBAN = [
 ];
 
 const CHART_RESP = [
-  {l:'Responsable 1',v:12,c:'#2B85D1'},
-  {l:'Responsable 2',v:8,c:'#1B2A4E'},
-  {l:'Responsable 3',v:5,c:'#27A35C'},
-  {l:'Responsable 4',v:3,c:'#E1930F'}
+  {l:'Jesús Pérez',v:12,c:'#2B85D1'},
+  {l:'Santos Martínez',v:8,c:'#1B2A4E'},
+  {l:'Amanda Garza',v:5,c:'#27A35C'},
+  {l:'Carlos Reyes',v:3,c:'#E1930F'}
 ];
 const CHART_TIPO = [
-  {l:'Tipo 1',v:14,c:'#2B85D1'},
-  {l:'Tipo 2',v:9,c:'#7C6BD6'},
-  {l:'Tipo 3',v:5,c:'#12766E'}
+  {l:'Membresía Shutpoint',v:14,c:'#2B85D1'},
+  {l:'Software Factory',v:9,c:'#7C6BD6'},
+  {l:'Cloud Services',v:5,c:'#12766E'}
 ];
 
 /* KPIs del periodo — mismos valores que la vista Desempeño */
@@ -3837,6 +4128,120 @@ function renderKanban(){
     </div>`;
   }).join('');
 }
+
+/* ── Desempeño: empty ↔ data state toggle ── */
+function desempBuscar(){
+  var empty = document.getElementById('desempEmpty');
+  var data  = document.getElementById('desempData');
+  if(!empty||!data) return;
+  if(data.style.display==='none'||!data.style.display){
+    empty.style.display='none';
+    data.style.display='';
+  }
+}
+
+/* ── Dropdown popup open/close ── */
+function toggleDD(popupId, triggerEl){
+  var popup = document.getElementById(popupId);
+  if(!popup) return;
+  document.querySelectorAll('.dd-popup.open').forEach(function(p){
+    if(p.id!==popupId) p.classList.remove('open');
+  });
+  popup.classList.toggle('open');
+  if(triggerEl){
+    var rect = triggerEl.getBoundingClientRect();
+    popup.style.top = (rect.bottom + 4) + 'px';
+    popup.style.left = rect.left + 'px';
+  }
+}
+
+/* ── Filter dropdown items by search ── */
+function filterDD(input, popupId){
+  var val = input.value.toLowerCase();
+  var popup = document.getElementById(popupId);
+  if(!popup) return;
+  popup.querySelectorAll('.dd-item').forEach(function(item){
+    var txt = item.textContent.toLowerCase();
+    item.style.display = txt.indexOf(val)>=0 ? '' : 'none';
+  });
+}
+
+/* ── Select/deselect all items ── */
+function selectAllDD(popupId, select){
+  var popup = document.getElementById(popupId);
+  if(!popup) return;
+  popup.querySelectorAll('.dd-item').forEach(function(item){
+    if(select) item.classList.add('selected');
+    else item.classList.remove('selected');
+  });
+  updateDDTrigger(popupId);
+}
+
+/* ── Select/deselect by group ── */
+function selectGroupDD(popupId, group, select){
+  var popup = document.getElementById(popupId);
+  if(!popup) return;
+  var section = popup.querySelector('[data-group="'+group+'"]');
+  if(!section) return;
+  section.querySelectorAll('.dd-item').forEach(function(item){
+    if(select) item.classList.add('selected');
+    else item.classList.remove('selected');
+  });
+  updateDDTrigger(popupId);
+}
+
+/* ── Toggle individual item ── */
+function toggleDDItem(el){
+  el.classList.toggle('selected');
+  var popup = el.closest('.dd-popup');
+  if(popup) updateDDTrigger(popup.id);
+}
+
+/* ── Update trigger text with count ── */
+function updateDDTrigger(popupId){
+  var popup = document.getElementById(popupId);
+  if(!popup) return;
+  var sel = popup.querySelectorAll('.dd-item.selected');
+  var trigger = popup.previousElementSibling;
+  if(!trigger||!trigger.classList.contains('dh-trigger')) return;
+  var textEl = trigger.querySelector('.dh-trigger-text');
+  if(!textEl) return;
+  if(sel.length===0) textEl.textContent = 'Seleccionar...';
+  else if(sel.length===1) textEl.textContent = sel[0].textContent.trim().split('\n')[0];
+  else textEl.textContent = sel.length + ' seleccionados';
+}
+
+/* ── Period preset selection ── */
+function setPeriodoPreset(btn){
+  var wrap = btn.closest('.dd-presets');
+  if(wrap){
+    wrap.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+}
+
+/* ── Product selection ── */
+function selectProducto(el){
+  var popup = el.closest('.dd-popup');
+  if(!popup) return;
+  popup.querySelectorAll('.dd-item').forEach(function(i){ i.classList.remove('selected'); });
+  el.classList.add('selected');
+  var trigger = popup.previousElementSibling;
+  if(trigger && trigger.classList.contains('dh-trigger')){
+    var textEl = trigger.querySelector('.dh-trigger-text');
+    if(textEl) textEl.textContent = el.textContent.trim();
+  }
+  popup.classList.remove('open');
+}
+
+/* ── Close dropdowns on outside click ── */
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.dd-popup') && !e.target.closest('.dh-trigger')){
+    document.querySelectorAll('.dd-popup.open').forEach(function(p){
+      p.classList.remove('open');
+    });
+  }
+});
 
 function renderDonut(svgId,legendId,totalId,data){
   const total = data.reduce((s,d)=>s+d.v,0);
