@@ -1346,7 +1346,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 
   .sidebar.collapsed{width:70px}
   .sidebar.collapsed .nav-item span.lbl,.sidebar.collapsed .nav-label,.sidebar.collapsed .user-mini .meta,.sidebar.collapsed .nav-item .chip,.sidebar.collapsed .side-action .lbl,.sidebar.collapsed .sp-axsis,.sidebar.collapsed .um-caret{display:none}
-  .sidebar.collapsed .help-btn-wrap{position:static;margin:0 auto 8px}
+  .sidebar.collapsed .sidebar-foot>div:first-child{flex-direction:column;align-items:center;gap:8px}
+  .sidebar.collapsed .help-btn-wrap{order:-1;margin:0 auto}
   .sidebar.collapsed .nav-item{justify-content:center;padding:10px}
   .sidebar.collapsed .side-action{justify-content:center}
   .sidebar.collapsed .logo-slot{margin:16px 10px 14px;justify-content:center}
