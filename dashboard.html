@@ -1024,6 +1024,78 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 .legend-item .vl{margin-left:auto;font-weight:600;color:var(--gray-900);font-variant-numeric:tabular-nums}
 .legend-item .pc{color:var(--gray-400);font-size:11.5px;width:38px;text-align:right;font-variant-numeric:tabular-nums}
 
+/* Desempeño section */
+.desemp-filters{display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);margin-bottom:16px;align-items:flex-end}
+.desemp-filters .field{flex:1;min-width:130px}
+.desemp-filters .field label{font-size:11px;font-weight:600;color:var(--gray-500);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.04em}
+.desemp-filters .btn-search{width:40px;height:36px;border-radius:8px;background:var(--brand-500);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.desemp-filters .btn-search:hover{background:var(--brand-600)}
+.desemp-filters .btn-search svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+.desemp-tabs{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.desemp-period{font-size:12px;color:var(--gray-500);margin-bottom:14px}
+.desemp-hr{border:none;border-top:2px solid var(--navy-900);margin:0 0 18px}
+.kpi-grid-3{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-bottom:16px}
+.kpi-grid-4{display:grid;gap:14px;grid-template-columns:repeat(4,1fr);margin-bottom:16px}
+.kpi .kpi-top{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px}
+.kpi .kpi-label{flex:1}
+.stat-controls{display:flex;gap:2px;margin-left:auto;flex:none}
+.stat-controls button{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);background:none;border:none;cursor:pointer;padding:0}
+.stat-controls button:hover{background:var(--gray-100);color:var(--gray-700)}
+.stat-controls button svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.8;fill:none}
+.kpi-compare{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--gray-500);margin-top:6px}
+.kpi-compare svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none;flex:none}
+.kpi-compare .up{color:var(--green-600)}
+.kpi-compare .down{color:var(--red-500)}
+.card-controls{display:flex;gap:4px;margin-left:auto;flex:none}
+.card-controls button{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);background:none;border:none;cursor:pointer;padding:0}
+.card-controls button:hover{background:var(--gray-100);color:var(--gray-700)}
+.card-controls button svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none}
+.donut-summary{text-align:center;padding:10px 18px 0}
+.donut-summary .ds-total{font-size:20px;font-weight:700;color:var(--gray-800)}
+.donut-summary .ds-sub{font-size:12px;color:var(--gray-500);margin-top:2px}
+.card-tabs{display:flex;border:1px solid var(--gray-200);border-radius:8px;overflow:hidden;margin:12px 18px 0}
+.card-tabs button{flex:1;padding:7px 14px;font-size:12px;font-weight:550;background:#fff;border:none;color:var(--gray-500);cursor:pointer;transition:.15s var(--ease);white-space:nowrap}
+.card-tabs button.active,.card-tabs button:hover{background:var(--brand-500);color:#fff}
+.table-head-blue thead th{background:var(--brand-500);color:#fff;font-weight:600;font-size:12px;padding:9px 12px}
+.table-head-green thead th{background:var(--green-600);color:#fff;font-weight:600;font-size:12px;padding:9px 12px}
+.table-pagination{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;font-size:11.5px;color:var(--gray-500);flex-wrap:wrap;gap:8px}
+.table-pagination .pages{display:flex;gap:2px}
+.table-pagination .pages button{width:26px;height:26px;border-radius:5px;border:1px solid var(--gray-200);background:#fff;font-size:11px;cursor:pointer;color:var(--gray-600)}
+.table-pagination .pages button.active{background:var(--brand-500);color:#fff;border-color:var(--brand-500)}
+.table-pagination .pages button:hover:not(.active){background:var(--gray-050)}
+.funnel-wrap{padding:18px;position:relative}
+.funnel-bar{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.funnel-bar .fb-bar{height:28px;border-radius:6px;min-width:30px;transition:width .5s var(--ease)}
+.funnel-bar .fb-label{font-size:12px;color:var(--gray-600);white-space:nowrap}
+.funnel-bar .fb-value{font-size:12px;font-weight:600;color:var(--gray-800);white-space:nowrap}
+.estatus-section{margin-top:14px}
+.estatus-section .es-title{font-size:12px;font-weight:600;color:var(--gray-800);padding:8px 12px;background:var(--brand-050);border-radius:6px;margin-bottom:6px}
+.estatus-row{display:flex;align-items:center;padding:7px 12px;font-size:12.5px;border-bottom:1px solid var(--gray-050)}
+.estatus-row .er-icon{width:16px;height:16px;color:var(--gray-400);flex:none;margin-right:8px}
+.estatus-row .er-icon svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.estatus-row .er-label{flex:1;color:var(--gray-600)}
+.estatus-row .er-qty{width:70px;text-align:right;font-weight:600;color:var(--gray-800)}
+.estatus-row .er-amt{width:110px;text-align:right;color:var(--gray-600);font-variant-numeric:tabular-nums}
+.card-body{padding:16px 18px}
+.ipack-table{width:100%}
+.ipack-table th{background:var(--brand-500);color:#fff;font-weight:600;font-size:12px;padding:9px 14px;text-align:left}
+.ipack-table td{padding:9px 14px;font-size:13px;border-bottom:1px solid var(--gray-050)}
+.ipack-table td:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.historico-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;padding:14px 18px;border-bottom:1px solid var(--gray-100)}
+.historico-controls .field{min-width:120px}
+.historico-controls .field label{font-size:11px;font-weight:600;color:var(--gray-500);margin-bottom:4px;display:block}
+.historico-chart{height:250px;display:flex;align-items:center;justify-content:center;color:var(--gray-300);font-size:13px;padding:20px}
+@media(max-width:900px){
+  .kpi-grid-3{grid-template-columns:1fr}
+  .kpi-grid-4{grid-template-columns:repeat(2,1fr)}
+  .desemp-filters{gap:8px}
+  .desemp-filters .field{min-width:100%;flex-basis:100%}
+}
+@media(max-width:620px){
+  .kpi-grid-3{grid-template-columns:1fr}
+  .kpi-grid-4{grid-template-columns:1fr}
+}
+
 /* ============================================================
    DASHBOARD
    ============================================================ */
@@ -1391,11 +1463,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   }
   .sidebar.open{transform:none}
   .sidebar .nav-item span.lbl,.sidebar .nav-label,.sidebar .user-mini .meta,.sidebar .nav-item .chip{display:block}
-  .sidebar .nav-item{justify-content:flex-start;padding:9px 10px}
-  .sidebar .nav-item svg{margin:0}
-  .sidebar .side-action svg{margin:0}
+  .sidebar .nav-item{justify-content:flex-start;padding:9px 14px;gap:11px}
+  .sidebar .nav-item svg{margin:0;flex:none}
+  .sidebar .nav-item .ti{margin:0;text-align:center;width:20px;flex:none}
+  .sidebar .nav-label{display:block;padding:12px 14px 6px}
+  .sidebar .nav-sep{margin:8px 14px}
+  .sidebar .side-action{justify-content:flex-start;padding:9px 14px;gap:11px}
+  .sidebar .side-action svg{margin:0;flex:none}
   .sidebar .side-action .sa-caret{display:inline}
   .sidebar .nav-item .sub-caret{display:inline}
+  .sidebar .user-mini{justify-content:flex-start}
+  .sidebar .sidebar-foot>div:first-child{flex-direction:row!important;align-items:center!important}
   .sidebar .logo-slot{margin:18px 16px 16px;justify-content:flex-start}
   .sidebar .logo-slot .brand-full{display:block}
   .sidebar .logo-slot .brand-icon{display:none}
@@ -2279,57 +2357,121 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
       <section class="view" id="view-desempeno">
         <div class="view-head">
           <div>
-            <div class="vh-title">Desempeño</div>
-            <div class="vh-sub">Indicadores de cumplimiento, efectividad y generación</div>
+            <div class="vh-title">DESEMPEÑO <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--gray-400);stroke-width:2;fill:none;vertical-align:middle;cursor:pointer"><path d="M11.5 2a9.5 9.5 0 100 19 9.5 9.5 0 000-19zM2 12h20"/></svg></div>
           </div>
           <div class="vh-actions">
-            <div class="field" style="min-width:170px">
-              <div class="select-wrap">
-                <select><option>Periodo actual</option><option>Mes anterior</option><option>Trimestre</option><option>Año</option></select>
-                <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-              </div>
-            </div>
             <button class="btn btn-secondary"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>Exportar</button>
           </div>
         </div>
 
-        <div class="kpi-grid">
+        <!-- Filter bar -->
+        <div class="desemp-filters">
+          <div class="field">
+            <label>Zona de usuario</label>
+            <div class="select-wrap">
+              <select><option>Centro américa, México, :</option><option>Zona 1</option><option>Zona 2</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Seleccione responsable</label>
+            <div class="select-wrap">
+              <select><option>Jesús Pérez</option><option>Santos Martínez</option><option>Rodrigo Franco</option><option>Todos</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="field">
+            <label>Periodo a consultar</label>
+            <div style="display:flex;align-items:center;gap:6px">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <input type="text" value="01/05/2026 - 02/11/2026" readonly style="width:100%;padding:7px 10px;border:1px solid var(--gray-200);border-radius:8px;font-size:13px;color:var(--gray-700);background:#fff">
+            </div>
+          </div>
+          <div class="field">
+            <label>Producto</label>
+            <input type="text" placeholder="Producto" style="width:100%;padding:7px 10px;border:1px solid var(--gray-200);border-radius:8px;font-size:13px;color:var(--gray-700)">
+          </div>
+          <div class="field" style="min-width:90px;flex:0 1 90px">
+            <label>Moneda</label>
+            <div class="select-wrap">
+              <select><option>MXN</option><option>USD</option><option>EUR</option></select>
+              <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <button class="btn-search" title="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="desemp-tabs">
+          <div class="segmented">
+            <button class="active">Grupo</button>
+            <button>Jesús Pérez</button>
+          </div>
+        </div>
+        <hr class="desemp-hr">
+        <div class="desemp-period">Periodo de consulta: 01/05/2026 - 02/11/2026</div>
+
+        <!-- 3 Main KPIs -->
+        <div class="kpi-grid-3">
           <div class="kpi">
             <div class="kpi-top">
               <div class="kpi-ico g"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
               <div class="kpi-label">Cumplimiento de compromisos</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Configurar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+                <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">78<small>%</small></div>
-            <div class="progress"><i class="g" style="width:78%"></i></div>
-            <div class="kpi-foot">Compromisos cumplidos en tiempo</div>
+            <div class="kpi-value">69.00<small>%</small></div>
+            <div class="progress"><i class="g" style="width:69%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">55.56 % del 27/10/2025 al 30/04/2026</span></div>
           </div>
 
           <div class="kpi">
             <div class="kpi-top">
               <div class="kpi-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6"/></svg></div>
               <div class="kpi-label">Efectividad en cotizaciones</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Configurar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+                <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">42<small>%</small></div>
-            <div class="progress"><i style="width:42%"></i></div>
-            <div class="kpi-foot">Cotizaciones concretadas / emitidas</div>
+            <div class="kpi-value">91.67<small>%</small></div>
+            <div class="progress"><i style="width:91.67%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">0.00 % del 27/10/2025 al 30/04/2026</span></div>
           </div>
 
           <div class="kpi">
             <div class="kpi-top">
               <div class="kpi-ico a"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
               <div class="kpi-label">Efectividad en monto cotizado</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Configurar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+                <button title="Gráfica"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">35<small>%</small></div>
-            <div class="progress"><i class="a" style="width:35%"></i></div>
-            <div class="kpi-foot">Monto concretado / monto cotizado</div>
+            <div class="kpi-value">56.89<small>%</small></div>
+            <div class="progress"><i class="a" style="width:56.89%"></i></div>
+            <div class="kpi-compare"><svg viewBox="0 0 24 24" class="up"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="up">0.00 % del 27/10/2025 al 30/04/2026</span></div>
           </div>
+        </div>
 
+        <!-- 4 Counter KPIs -->
+        <div class="kpi-grid-4">
           <div class="kpi">
             <div class="kpi-top">
               <div class="kpi-ico v"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg></div>
               <div class="kpi-label">Leads generados</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Línea"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></button>
+                <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">24</div>
+            <div class="kpi-value">7</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
 
@@ -2337,8 +2479,13 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             <div class="kpi-top">
               <div class="kpi-ico t"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div>
               <div class="kpi-label">Prospectos generados</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Línea"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></button>
+                <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">15</div>
+            <div class="kpi-value">5</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
 
@@ -2346,19 +2493,51 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             <div class="kpi-top">
               <div class="kpi-ico g"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <div class="kpi-label">Clientes generados</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Línea"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></button>
+                <button title="Barras"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></button>
+              </div>
             </div>
-            <div class="kpi-value">6</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-foot">En el periodo seleccionado</div>
+          </div>
+
+          <div class="kpi">
+            <div class="kpi-top">
+              <div class="kpi-ico" style="background:var(--gray-050);color:var(--gray-500)"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l5-5M17 6h5v5"/></svg></div>
+              <div class="kpi-label">Descartados</div>
+              <div class="stat-controls">
+                <button title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                <button title="Línea"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></button>
+              </div>
+            </div>
+            <div class="kpi-value">0</div>
             <div class="kpi-foot">En el periodo seleccionado</div>
           </div>
         </div>
 
-        <div class="chart-grid">
+        <!-- Donut charts: Cotizaciones concretadas -->
+        <div class="chart-grid" style="margin-bottom:16px">
           <div class="card">
             <div class="card-head">
               <div>
                 <div class="card-title">Cotizaciones concretadas por responsable</div>
                 <div class="card-sub">Distribución del periodo</div>
               </div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div class="card-tabs">
+              <button>Graficar cantidad de cotizaciones</button>
+              <button class="active">Graficar monto cotizado</button>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">$ 1,637,157.20 Concretado</div>
+              <div class="ds-sub">11 Cotizaciones concretadas</div>
             </div>
             <div class="donut-wrap">
               <div class="donut">
@@ -2375,6 +2554,19 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <div class="card-title">Cotizaciones concretadas por tipo</div>
                 <div class="card-sub">Distribución del periodo</div>
               </div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div class="card-tabs">
+              <button>Graficar cantidad de cotizaciones</button>
+              <button class="active">Graficar monto cotizado</button>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">$ 1,637,157.20 Concretado</div>
+              <div class="ds-sub">11 Cotizaciones concretadas</div>
             </div>
             <div class="donut-wrap">
               <div class="donut">
@@ -2385,6 +2577,525 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             </div>
           </div>
         </div>
+
+        <!-- Cotizaciones por fase / estatus -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Cotizaciones por fase</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div style="padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <div class="segmented" style="font-size:12px">
+                <button class="active">Tabla</button>
+                <button>Gráfica</button>
+              </div>
+              <div class="field" style="min-width:100px">
+                <label style="font-size:10px;font-weight:600;color:var(--gray-500)">Ver por</label>
+                <div class="select-wrap">
+                  <select style="font-size:12px;padding:5px 8px"><option>Periodo</option><option>Mes</option></select>
+                  <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
+              <span style="font-size:12px;color:var(--gray-500)">Mostrar <select style="padding:3px 6px;border:1px solid var(--gray-200);border-radius:5px;font-size:12px"><option>10</option></select> registros</span>
+            </div>
+            <div class="table-scroll">
+              <table class="table-head-blue">
+                <thead><tr><th>Fases</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Monto</th></tr></thead>
+                <tbody>
+                  <tr><td>Acercamiento</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Cotización antigua</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Seguimiento de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Presentación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Facturación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Aprobación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>EN CIERRE</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Compitiendo</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Negociación de cotización</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                  <tr><td>Presentación de propuesta AA y AAA</td><td style="text-align:right">0</td><td style="text-align:right">$ 0.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Cotizaciones por estatus</div></div>
+              <div class="card-controls">
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="estatus-section">
+                <div class="es-title" style="background:var(--brand-500);color:#fff;border-radius:6px">Cotizaciones</div>
+                <table style="width:100%;font-size:12.5px;border-collapse:collapse">
+                  <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Cotizaciones</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Total abiertas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Por vencer a <input type="number" value="30" style="width:40px;padding:2px 4px;border:1px solid var(--gray-200);border-radius:4px;font-size:12px;text-align:center"> días</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="estatus-section" style="margin-top:14px">
+                <table style="width:100%;font-size:12.5px;border-collapse:collapse">
+                  <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Cotizaciones del Periodo</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Elaboradas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">10</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 1,412,684.20</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Abierta</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Concretada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">11</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 1,637,157.20</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Rechazada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">0</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 0.00</td></tr>
+                    <tr><td style="padding:8px 12px">Vencida</td><td style="padding:8px 12px;text-align:right">0</td><td style="padding:8px 12px;text-align:right">$ 0.00</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oportunidades por fase / estatus -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Oportunidades por fase</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div style="padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <div class="segmented" style="font-size:12px">
+                <button>Tabla</button>
+                <button class="active">Gráfica</button>
+              </div>
+              <div class="card-tabs" style="margin:0;flex:1;min-width:200px">
+                <button>Graficar cantidad de cotizaciones</button>
+                <button class="active">Graficar monto cotizado</button>
+              </div>
+            </div>
+            <div class="funnel-wrap">
+              <div style="text-align:center;margin-bottom:14px">
+                <div style="font-size:15px;font-weight:600;color:var(--gray-800)">65 oportunidades abiertas</div>
+                <div style="font-size:12px;color:var(--gray-500)">$ 18,509,968.03 cotizado</div>
+              </div>
+              <svg viewBox="0 0 400 220" style="width:100%;max-width:500px;display:block;margin:0 auto">
+                <polygon points="20,10 380,10 340,60 60,60" fill="#4CAF50" opacity=".85"/>
+                <polygon points="60,65 340,65 310,115 90,115" fill="#66BB6A" opacity=".85"/>
+                <polygon points="90,120 310,120 280,170 120,170" fill="#EF5350" opacity=".75"/>
+                <polygon points="120,175 280,175 260,210 140,210" fill="#42A5F5" opacity=".8"/>
+                <text x="200" y="42" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Goal shared · $ 3,856,138.55</text>
+                <text x="200" y="95" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Qualified champion · $ 10,229,448.00</text>
+                <text x="200" y="150" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Evaluating · $ 4,312,946.00</text>
+                <text x="200" y="198" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Signed agreement · $ 101,435.48</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Oportunidades por estatus</div></div>
+              <div class="card-controls">
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="estatus-section">
+                <table style="width:100%;font-size:12.5px;border-collapse:collapse">
+                  <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Oportunidades</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Total abiertas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">3</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 3,600,400.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Por vencer a <input type="number" value="30" style="width:40px;padding:2px 4px;border:1px solid var(--gray-200);border-radius:4px;font-size:12px;text-align:center"> días</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">3</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 3,600,400.00</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="estatus-section" style="margin-top:14px">
+                <table style="width:100%;font-size:12.5px;border-collapse:collapse">
+                  <thead><tr><th style="padding:8px 12px;text-align:left;background:var(--brand-500);color:#fff;font-size:12px">Oportunidades del Periodo</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Cantidad</th><th style="padding:8px 12px;text-align:right;background:var(--brand-500);color:#fff;font-size:12px">Monto</th></tr></thead>
+                  <tbody>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Elaboradas</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">15</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 19,279,245.50</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Abierta</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">3</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 3,600,400.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Concretada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">1</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 1,035,000.00</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid var(--gray-050)">Rechazada</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">4</td><td style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--gray-050)">$ 2,382,400.00</td></tr>
+                    <tr style="color:var(--red-500)"><td style="padding:8px 12px">Vencida</td><td style="padding:8px 12px;text-align:right">11</td><td style="padding:8px 12px;text-align:right">$ 15,299,045.50</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facturas / Pagos -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Facturas</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">$ 1,295,731.56 Facturado</div>
+              <div class="ds-sub">9 Facturas capturadas</div>
+            </div>
+            <div class="donut-wrap" style="justify-content:center">
+              <div class="donut" style="width:200px;height:200px">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="204 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#EF5350" stroke-dasharray="110 314" stroke-dashoffset="-204"/>
+                </svg>
+                <div class="donut-center"><b>9</b><span>Facturas</span></div>
+              </div>
+              <div class="legend">
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">Jesús Pérez</span><span class="vl">Cant: 7</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">Valor: $ 834,758.56</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Pagos</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">$ 0.00 Pagado</div>
+              <div class="ds-sub">0 Pagos recibidos</div>
+            </div>
+            <div class="donut-wrap" style="justify-content:center">
+              <div class="donut" style="width:200px;height:200px">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" stroke="var(--gray-200)" stroke-dasharray="314 314" stroke-dashoffset="0"/>
+                </svg>
+                <div class="donut-center"><b>0</b><span>Pagos</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compromisos creados / Actividad de seguimientos -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Compromisos creados</div></div>
+              <div class="card-controls">
+                <button title="Configurar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div style="padding:10px 18px;font-size:12px;color:var(--gray-500)">Mostrar <select style="padding:3px 6px;border:1px solid var(--gray-200);border-radius:5px;font-size:12px"><option>10</option></select> registros</div>
+            <div class="table-scroll">
+              <table class="table-head-blue">
+                <thead><tr><th>Tipo de compromisos</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Meta</th></tr></thead>
+                <tbody>
+                  <tr><td>Actividad administrativa</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Actividad complementaria de implementación</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Alta de usuarios</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Anotar actividades al día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Anotar actividades del día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Aplicar examenes</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Asesoría (menos de 1 hr)</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Baja de empresa</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>CA-Envío de información Axsis</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Capacitación - Exprés presencial (más de 1 hr)</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-pagination">
+              <span>Mostrando registros del 1 al 10 de un total de 158 registros</span>
+              <div class="pages">
+                <button>Anterior</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>…</button>
+                <button>16</button>
+                <button>Siguiente</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Actividad de seguimientos</div></div>
+              <div class="card-controls">
+                <button title="Configurar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+                <button title="Ayuda"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+              </div>
+            </div>
+            <div style="padding:10px 18px;font-size:12px;color:var(--gray-500)">Mostrar <select style="padding:3px 6px;border:1px solid var(--gray-200);border-radius:5px;font-size:12px"><option>10</option></select> registros</div>
+            <div class="table-scroll">
+              <table class="table-head-green">
+                <thead><tr><th>Tipo de seguimientos</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Meta</th></tr></thead>
+                <tbody>
+                  <tr><td>Actividad administrativa</td><td style="text-align:right">2</td><td style="text-align:right"></td></tr>
+                  <tr><td>Actividad complementaria realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Alerta de baja interacción Shutpoint enviada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Alta de usuarios realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Anotar actividades al día</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Aplicacion de Examenes</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Asesoría realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Auditoría Presencial</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Auditoría Remota</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                  <tr><td>Baja de empresa realizada</td><td style="text-align:right">0</td><td style="text-align:right"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-pagination">
+              <span>Mostrando registros del 1 al 10 de un total de 201 registros</span>
+              <div class="pages">
+                <button>Anterior</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>…</button>
+                <button>21</button>
+                <button>Siguiente</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promedio de compromisos / seguimientos -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Promedio de compromisos</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">Número de compromisos promedio para cierre de cotizaciones</div>
+            </div>
+            <div class="donut-wrap" style="justify-content:center">
+              <div class="donut" style="width:220px;height:220px">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="40 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#212121" stroke-dasharray="40 314" stroke-dashoffset="-40"/>
+                  <circle cx="60" cy="60" r="50" stroke="#5C6BC0" stroke-dasharray="35 314" stroke-dashoffset="-80"/>
+                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="30 314" stroke-dashoffset="-115" opacity=".6"/>
+                  <circle cx="60" cy="60" r="50" stroke="#81C784" stroke-dasharray="40 314" stroke-dashoffset="-145"/>
+                  <circle cx="60" cy="60" r="50" stroke="#4CAF50" stroke-dasharray="35 314" stroke-dashoffset="-185"/>
+                  <circle cx="60" cy="60" r="50" stroke="#8D6E63" stroke-dasharray="30 314" stroke-dashoffset="-220"/>
+                  <circle cx="60" cy="60" r="50" stroke="#78909C" stroke-dasharray="30 314" stroke-dashoffset="-250"/>
+                  <circle cx="60" cy="60" r="50" stroke="#FFB74D" stroke-dasharray="34 314" stroke-dashoffset="-280"/>
+                </svg>
+                <div class="donut-center"><b>0</b><span>Promedio</span></div>
+              </div>
+              <div class="legend">
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 0</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Promedio de seguimientos</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="donut-summary">
+              <div class="ds-total">Número de seguimientos promedio para cierre de cotizaciones</div>
+            </div>
+            <div class="donut-wrap" style="justify-content:center">
+              <div class="donut" style="width:220px;height:220px">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="40 314" stroke-dashoffset="0"/>
+                  <circle cx="60" cy="60" r="50" stroke="#212121" stroke-dasharray="40 314" stroke-dashoffset="-40"/>
+                  <circle cx="60" cy="60" r="50" stroke="#5C6BC0" stroke-dasharray="35 314" stroke-dashoffset="-80"/>
+                  <circle cx="60" cy="60" r="50" stroke="#C62828" stroke-dasharray="30 314" stroke-dashoffset="-115" opacity=".6"/>
+                  <circle cx="60" cy="60" r="50" stroke="#81C784" stroke-dasharray="40 314" stroke-dashoffset="-145"/>
+                  <circle cx="60" cy="60" r="50" stroke="#4CAF50" stroke-dasharray="35 314" stroke-dashoffset="-185"/>
+                  <circle cx="60" cy="60" r="50" stroke="#8D6E63" stroke-dasharray="30 314" stroke-dashoffset="-220"/>
+                  <circle cx="60" cy="60" r="50" stroke="#78909C" stroke-dasharray="30 314" stroke-dashoffset="-250"/>
+                  <circle cx="60" cy="60" r="50" stroke="#FFB74D" stroke-dasharray="34 314" stroke-dashoffset="-280"/>
+                </svg>
+                <div class="donut-center"><b>0</b><span>Promedio</span></div>
+              </div>
+              <div class="legend">
+                <div class="legend-item"><span class="sw" style="background:#C62828"></span><span class="lb">11 Renovación de contrato</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#212121"></span><span class="lb">07 Membresía Yitpro</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#5C6BC0"></span><span class="lb">06 Membresía Clikalo</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#C62828;opacity:.6"></span><span class="lb">02 Staff augmentation</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#81C784"></span><span class="lb">01 Software factory</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#4CAF50"></span><span class="lb">03 Soporte a aplicativos</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#8D6E63"></span><span class="lb">04 Cloud services</span><span class="vl">Cant: 0</span></div>
+                <div class="legend-item"><span class="sw" style="background:#78909C"></span><span class="lb">05 Membresía Shutpoint</span><span class="vl">Cant: 0</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPack -->
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-head">
+            <div><div class="card-title">iPack</div></div>
+          </div>
+          <div style="padding:0 18px 12px">
+            <span style="font-size:12px;color:var(--gray-500)">Copiar Excel PDF</span>
+          </div>
+          <div class="table-scroll">
+            <table class="ipack-table">
+              <thead><tr><th>Indicador</th><th>Valor</th></tr></thead>
+              <tbody>
+                <tr><td>Lead:</td><td>7</td></tr>
+                <tr><td>Ventas - Correo inicial enviado:</td><td>87</td></tr>
+                <tr><td>Ventas - Correo seguimiento enviado:</td><td>235</td></tr>
+                <tr><td>Ventas - Llamada inicial efectiva:</td><td>6</td></tr>
+                <tr><td>Prospecto:</td><td>5</td></tr>
+                <tr><td>Ventas - Presentación inicial realizada AA / AAA:</td><td>2</td></tr>
+                <tr><td>Ventas - Demostración de solución realizada:</td><td>1</td></tr>
+                <tr><td>Oportunidades elaboradas:</td><td>$ 19,279,245.50</td></tr>
+                <tr><td>Ventas - Presentación de propuesta económica realizada:</td><td>1</td></tr>
+                <tr><td>Oportunidades concretada:</td><td>$ 1,035,000.00</td></tr>
+                <tr><td>Cliente:</td><td>0</td></tr>
+                <tr><td>Cotizaciones elaboradas:</td><td>$ 1,412,684.20</td></tr>
+                <tr><td>Cotizaciones concretada:</td><td>$ 1,637,157.20</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-pagination">
+            <span>Mostrando registros del 1 al 13 de un total de 13 registros</span>
+          </div>
+        </div>
+
+        <!-- Histórico -->
+        <div class="chart-grid" style="margin-bottom:16px">
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Histórico</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="historico-controls">
+              <div class="card-tabs" style="margin:0;min-width:180px">
+                <button class="active">Cotizaciones concretadas</button>
+                <button>Facturas</button>
+                <button>Pagos</button>
+              </div>
+              <div class="field" style="min-width:80px">
+                <label>Vista</label>
+                <div class="segmented" style="font-size:11px">
+                  <button class="active">Día</button>
+                  <button>Mes</button>
+                  <button>Año</button>
+                </div>
+              </div>
+              <div class="field" style="min-width:140px">
+                <label>Periodo</label>
+                <div style="display:flex;align-items:center;gap:4px">
+                  <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <input type="text" value="02/11/2026 - 02/11/2026" readonly style="width:100%;padding:5px 8px;border:1px solid var(--gray-200);border-radius:6px;font-size:12px;color:var(--gray-700);background:#fff">
+                </div>
+              </div>
+              <button class="btn-search" title="Buscar" style="width:34px;height:32px"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></button>
+            </div>
+            <div class="historico-chart">
+              <svg viewBox="0 0 400 200" style="width:100%">
+                <line x1="40" y1="30" x2="40" y2="170" stroke="var(--gray-200)" stroke-width="1"/>
+                <line x1="40" y1="170" x2="380" y2="170" stroke="var(--gray-200)" stroke-width="1"/>
+                <text x="20" y="35" font-size="9" fill="var(--gray-400)">$ 1.00</text>
+                <text x="20" y="65" font-size="9" fill="var(--gray-400)">$ 0.80</text>
+                <text x="20" y="100" font-size="9" fill="var(--gray-400)">$ 0.60</text>
+                <text x="20" y="135" font-size="9" fill="var(--gray-400)">$ 0.40</text>
+                <text x="20" y="165" font-size="9" fill="var(--gray-400)">$ 0.20</text>
+                <text x="20" y="175" font-size="9" fill="var(--gray-400)">$ 0.00</text>
+                <text x="200" y="190" font-size="9" fill="var(--gray-500)" text-anchor="middle">02/nov./2026</text>
+                <line x1="40" y1="65" x2="380" y2="65" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
+                <line x1="40" y1="100" x2="380" y2="100" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
+                <line x1="40" y1="135" x2="380" y2="135" stroke="var(--gray-050)" stroke-width="1" stroke-dasharray="4"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><div class="card-title">Histórico de productos</div></div>
+              <div class="card-controls">
+                <button title="Cerrar"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                <button title="Expandir"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </div>
+            </div>
+            <div class="historico-controls">
+              <div class="field" style="min-width:80px">
+                <label>Documento</label>
+                <div class="card-tabs" style="margin:0;font-size:11px">
+                  <button>Cotizaciones</button>
+                  <button class="active">Cotizaciones concretadas</button>
+                  <button>Pedidos</button>
+                </div>
+              </div>
+              <div class="field" style="min-width:80px">
+                <label>Vista</label>
+                <div class="segmented" style="font-size:11px">
+                  <button>Día</button>
+                  <button class="active">Mes</button>
+                  <button>Año</button>
+                </div>
+              </div>
+              <div class="field" style="min-width:140px">
+                <label>Periodo</label>
+                <div style="display:flex;align-items:center;gap:4px">
+                  <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:var(--gray-400);stroke-width:2;fill:none;flex:none"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  <input type="text" value="02/11/2026 - 02/11/2026" readonly style="width:100%;padding:5px 8px;border:1px solid var(--gray-200);border-radius:6px;font-size:12px;color:var(--gray-700);background:#fff">
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 18px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end">
+              <div class="field" style="min-width:140px;flex:1">
+                <label style="font-size:10px;font-weight:600;color:var(--gray-500)">Producto</label>
+                <input type="text" placeholder="Producto" style="width:100%;padding:5px 8px;border:1px solid var(--gray-200);border-radius:6px;font-size:12px;color:var(--gray-700)">
+              </div>
+              <div class="field" style="min-width:80px">
+                <label style="font-size:10px;font-weight:600;color:var(--gray-500)">Mostrar</label>
+                <div class="select-wrap">
+                  <select style="font-size:12px;padding:5px 8px"><option>Cantidad</option><option>Monto</option></select>
+                  <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
+              <button class="btn-search" title="Buscar" style="width:34px;height:32px"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></button>
+            </div>
+            <div class="table-scroll">
+              <table class="table-head-blue">
+                <thead><tr><th>Producto</th><th style="text-align:right">Total</th></tr></thead>
+                <tbody>
+                  <tr><td colspan="2" style="text-align:center;color:var(--gray-400);padding:20px">Sin datos para el periodo seleccionado</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- ============ VISTA: KANBAN ============ -->
