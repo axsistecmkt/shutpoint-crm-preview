@@ -4148,11 +4148,6 @@ function toggleDD(popupId, triggerEl){
     if(p.id!==popupId) p.classList.remove('open');
   });
   popup.classList.toggle('open');
-  if(triggerEl){
-    var rect = triggerEl.getBoundingClientRect();
-    popup.style.top = (rect.bottom + 4) + 'px';
-    popup.style.left = rect.left + 'px';
-  }
 }
 
 /* ── Filter dropdown items by search ── */
