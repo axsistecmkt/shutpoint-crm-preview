@@ -2010,15 +2010,18 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   overflow-y:auto;padding:8px 0;
 }
 .exp-nav-item{
-  display:flex;align-items:center;gap:10px;padding:9px 12px;margin:2px 8px;
-  font-size:13px;color:rgba(255,255,255,.7);cursor:pointer;
+  display:flex;align-items:center;gap:11px;width:calc(100% - 16px);
+  padding:9px 10px;margin:0 8px 2px;
+  border-radius:8px;
+  color:rgba(255,255,255,.65);font-size:13.5px;font-weight:500;
+  text-align:left;cursor:pointer;white-space:nowrap;
   transition:background .16s var(--ease),color .16s var(--ease);
-  white-space:nowrap;text-align:left;border-radius:8px;
 }
-.exp-nav-item:hover{background:rgba(126,206,244,.12);color:#b8e4f8}
-.exp-nav-item.active{background:rgba(126,206,244,.22);color:#7ECEF4;font-weight:600;box-shadow:0 1px 6px rgba(126,206,244,.18)}
-.exp-nav-item .ti{font-size:18px;width:20px;text-align:center;flex:none}
-.exp-nav-item.exp-nav-close{color:rgba(255,130,130,.85);margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;border-radius:8px}
+.exp-nav-item:hover{background:rgba(255,255,255,.1);color:#fff}
+.exp-nav-item.active{background:var(--brand-500);color:#fff;font-weight:600;box-shadow:0 2px 10px rgba(43,133,209,.35)}
+.exp-nav-item .ti{font-size:18px;width:20px;text-align:center;flex:none;line-height:1}
+.exp-nav-item.active .ti{opacity:1}
+.exp-nav-item.exp-nav-close{color:rgba(255,130,130,.85);margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px}
 .exp-nav-item.exp-nav-close:hover{background:rgba(255,80,80,.15);color:#ff9090}
 .exp-content{flex:1;overflow-y:auto;padding:20px 24px}
 .exp-section{display:block;margin-bottom:32px;scroll-margin-top:12px;padding-top:16px;border-top:1px solid var(--gray-200)}
@@ -2144,9 +2147,11 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 }
 
 /* Ticket card style */
+.exp-tickets-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:1024px){.exp-tickets-grid{grid-template-columns:1fr}}
 .exp-ticket{
   background:#fff;border:1px solid var(--gray-200);border-radius:10px;
-  padding:16px;margin-bottom:14px;max-width:720px;
+  padding:16px;
 }
 .exp-ticket-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .exp-ticket-meta{font-size:12px;color:var(--gray-500);line-height:1.6}
@@ -2183,36 +2188,52 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   padding:20px;margin-top:12px;
 }
 
-/* WhatsApp conversations list */
-.wa-conv-list{max-width:720px}
+/* WhatsApp split view */
+.wa-split{display:flex;height:480px;border-radius:10px;overflow:hidden;border:1px solid var(--gray-200)}
+.wa-panel-list{width:320px;flex:none;border-right:1px solid var(--gray-200);display:flex;flex-direction:column;background:#fff}
+.wa-panel-list-head{padding:12px 14px;border-bottom:1px solid var(--gray-100);font-size:14px;font-weight:700;color:var(--gray-800);display:flex;align-items:center;gap:8px;background:var(--gray-025)}
+.wa-panel-list-head .ti{color:#25d366;font-size:20px}
+.wa-panel-list-body{flex:1;overflow-y:auto}
+.wa-panel-chat{flex:1;display:flex;flex-direction:column;background:#f0ebe3}
+.wa-panel-chat.wa-empty{align-items:center;justify-content:center;color:var(--gray-400);font-size:14px}
+.wa-chat-head{padding:10px 16px;background:#fff;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:10px}
+.wa-chat-head-name{font-size:14px;font-weight:700;color:var(--gray-800)}
+.wa-chat-head-status{font-size:11px;color:var(--gray-400)}
+.wa-chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:6px}
+.wa-msg{max-width:75%;padding:8px 12px;border-radius:8px;font-size:13px;line-height:1.5;position:relative}
+.wa-msg.wa-in{background:#fff;align-self:flex-start;border-top-left-radius:0;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wa-msg.wa-out{background:#dcf8c6;align-self:flex-end;border-top-right-radius:0;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wa-msg-time{font-size:10px;color:var(--gray-400);text-align:right;margin-top:4px}
+.wa-input-bar{display:flex;gap:8px;padding:10px 14px;align-items:center;background:#fff;border-top:1px solid var(--gray-200)}
+.wa-input-bar input{flex:1;border:1px solid var(--gray-200);border-radius:24px;padding:8px 16px;font-size:13px;outline:none;background:var(--gray-025)}
+.wa-input-bar input:focus{border-color:#25d366;background:#fff}
+.wa-input-bar button{width:36px;height:36px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;flex:none}
 .wa-conv{
-  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
   border-bottom:1px solid var(--gray-100);cursor:pointer;
-  transition:background .12s var(--ease);border-radius:0;
+  transition:background .12s var(--ease);
 }
-.wa-conv:first-child{border-radius:10px 10px 0 0}
-.wa-conv:last-child{border-bottom:none;border-radius:0 0 10px 10px}
-.wa-conv:hover{background:var(--brand-050)}
-.wa-conv.wa-unread{background:rgba(37,211,102,.04)}
-.wa-conv.wa-unread:hover{background:rgba(37,211,102,.08)}
+.wa-conv:hover{background:var(--gray-025)}
+.wa-conv.wa-active{background:var(--gray-050)}
+.wa-conv.wa-unread{background:rgba(37,211,102,.03)}
 .wa-conv-avatar{
-  width:44px;height:44px;border-radius:50%;flex:none;
+  width:40px;height:40px;border-radius:50%;flex:none;
   background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:18px;font-weight:700;
+  font-size:16px;font-weight:700;
 }
 .wa-conv-body{flex:1;min-width:0}
-.wa-conv-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.wa-conv-name{font-size:14px;font-weight:600;color:var(--gray-800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.wa-conv.wa-unread .wa-conv-name{color:var(--gray-900)}
-.wa-conv-date{font-size:11px;color:var(--gray-400);white-space:nowrap;flex:none}
+.wa-conv-name{font-size:13px;font-weight:600;color:var(--gray-800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wa-conv.wa-unread .wa-conv-name{color:var(--gray-900);font-weight:700}
+.wa-conv-preview{font-size:12px;color:var(--gray-500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.wa-conv.wa-unread .wa-conv-preview{color:var(--gray-600)}
+.wa-conv-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none}
+.wa-conv-date{font-size:10px;color:var(--gray-400);white-space:nowrap}
 .wa-conv.wa-unread .wa-conv-date{color:#25d366;font-weight:600}
-.wa-conv-preview{font-size:13px;color:var(--gray-500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
-.wa-conv.wa-unread .wa-conv-preview{color:var(--gray-700);font-weight:500}
 .wa-conv-badge{
-  width:20px;height:20px;border-radius:50%;background:#25d366;color:#fff;
-  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;
+  width:18px;height:18px;border-radius:50%;background:#25d366;color:#fff;
+  font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;
 }
-.wa-conv-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none}
+@media(max-width:768px){.wa-panel-list{width:100%}.wa-panel-chat{display:none}.wa-split{height:auto}}
 
 /* Responsive expediente */
 @media(max-width:768px){
@@ -2606,7 +2627,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
               </div>
               <div class="panel-foot">
                 <span class="result-count" style="margin-right:auto"><b id="compromisosCount">9</b> registros</span>
-                <div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div>
+                <div class="page-nav"><button disabled>‹</button><button disabled>›</button></div>
               </div>
             </div>
           </div>
@@ -2642,7 +2663,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                     <tbody id="tbodyCotVencer"><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                   </table>
                 </div>
-                <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
+                <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>‹</button><button disabled>›</button></div></div>
               </div>
             </div>
 
@@ -2675,7 +2696,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                     <tbody id="tbodyOppVencer"><tr><td colspan="6" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                   </table>
                 </div>
-                <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
+                <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>‹</button><button disabled>›</button></div></div>
               </div>
             </div>
           </div>
@@ -2705,7 +2726,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                   <tbody id="tbodyTickets"><tr><td colspan="5" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
-              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
+              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>‹</button><button disabled>›</button></div></div>
             </div>
           </div>
 
@@ -2734,7 +2755,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                   <tbody id="tbodySolicitudes"><tr><td colspan="7" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
-              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
+              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>‹</button><button disabled>›</button></div></div>
             </div>
           </div>
 
@@ -2768,7 +2789,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                   <tbody id="tbodyCotAut"><tr><td colspan="8" class="panel-empty">No se encontraron resultados</td></tr></tbody>
                 </table>
               </div>
-              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>Anterior</button><button disabled>Siguiente</button></div></div>
+              <div class="panel-foot"><span class="result-count" style="margin-right:auto">0 registros</span><div class="page-nav"><button disabled>‹</button><button disabled>›</button></div></div>
             </div>
           </div>
 
@@ -3430,7 +3451,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             <div class="table-pagination">
               <span>Mostrando registros del 1 al 10 de un total de 158 registros</span>
               <div class="pages">
-                <button>Anterior</button>
+                <button>‹</button>
                 <button class="active">1</button>
                 <button>2</button>
                 <button>3</button>
@@ -3438,7 +3459,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button>5</button>
                 <button>…</button>
                 <button>16</button>
-                <button>Siguiente</button>
+                <button>›</button>
               </div>
             </div>
           </div>
@@ -3473,7 +3494,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
             <div class="table-pagination">
               <span>Mostrando registros del 1 al 10 de un total de 201 registros</span>
               <div class="pages">
-                <button>Anterior</button>
+                <button>‹</button>
                 <button class="active">1</button>
                 <button>2</button>
                 <button>3</button>
@@ -3481,7 +3502,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
                 <button>5</button>
                 <button>…</button>
                 <button>21</button>
-                <button>Siguiente</button>
+                <button>›</button>
               </div>
             </div>
           </div>
@@ -4007,12 +4028,12 @@ Shutpoint 2018</textarea></div>
         <div class="exp-pagination">
           <span>Mostrando registros del 1 al 10 de un total de 33 registros</span>
           <div class="exp-page-btns">
-            <button class="exp-page-btn">Anterior</button>
+            <button class="exp-page-btn">‹</button>
             <button class="exp-page-btn active">1</button>
             <button class="exp-page-btn">2</button>
             <button class="exp-page-btn">3</button>
             <button class="exp-page-btn">4</button>
-            <button class="exp-page-btn">Siguiente</button>
+            <button class="exp-page-btn">›</button>
           </div>
         </div>
         </div>
@@ -4038,7 +4059,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4075,7 +4096,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 7 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 7 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4101,7 +4122,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 913 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">92</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 913 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">92</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4127,7 +4148,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 8 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 8 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4153,7 +4174,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 41 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">4</button><button class="exp-page-btn">5</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 41 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">4</button><button class="exp-page-btn">5</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4173,7 +4194,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4193,7 +4214,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4218,7 +4239,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4240,7 +4261,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 0 al 0 de un total de 0 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 0 al 0 de un total de 0 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4266,7 +4287,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 17 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 17 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4288,7 +4309,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 352 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">36</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 352 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">36</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4311,7 +4332,7 @@ Shutpoint 2018</textarea></div>
             </tbody>
           </table>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 21 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 21 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4363,7 +4384,7 @@ Shutpoint 2018</textarea></div>
             <span class="exp-correo-date">01 jun. 26</span>
           </div>
         </div>
-        <div class="exp-pagination" style="padding:12px 16px"><span>Mostrando registros del 1 al 7 de un total de 1,327 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">133</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination" style="padding:12px 16px"><span>Mostrando registros del 1 al 7 de un total de 1,327 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">133</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4374,84 +4395,89 @@ Shutpoint 2018</textarea></div>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-primary">Nuevo</button></div>
         </div>
         <div class="exp-card">
+        <div class="exp-tickets-grid">
         <div class="exp-ticket">
           <div class="exp-ticket-header">
             <div class="exp-ticket-meta">
               <div><strong>8338</strong></div>
-              <div>Capturó: <strong>Equipo Shutpoint</strong><br>Correo: soporte@shutpoint.com</div>
-              <div>Reporta: <strong>Eduardo Araujo Perez</strong><br>Correo: eduardo.araujo@maraga.com.mx<br>Teléfono: 81 8374 3474<br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
+              <div>Reporta: <strong>Eduardo Araujo Perez</strong><br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
               <div>SLA: 03/09/2026</div>
             </div>
             <div class="exp-ticket-status">
               <div>Estatus: <span class="exp-badge exp-badge-green">Cerrado</span></div>
               <div>Prioridad: <span class="exp-badge exp-badge-gray">Baja</span></div>
               <div>Tipo: <span class="exp-badge exp-badge-teal">04. Soporte</span></div>
-              <div>Responsable: <span class="exp-badge exp-badge-blue">Oscar Casillas</span></div>
             </div>
           </div>
-          <div class="exp-ticket-desc">&lt;b&gt;Descripción del ticket:&lt;/b&gt; Apoyo compartiendo el log y los datos que se enviaron a SAP de este pedido folio CRM: 304804</div>
-          <div class="exp-ticket-times">
-            <div>Oscar Casillas — Tiempo de asignación: 13 Días 2 Horas 39 Minutos — Tiempo invertido: 5 Minutos</div>
-            <div><strong>Tiempo total activo: 13 Días 2 Horas 40 Minutos — Tiempo total invertido: 5 Minutos</strong></div>
-          </div>
+          <div class="exp-ticket-desc">Apoyo compartiendo el log y los datos que se enviaron a SAP de este pedido folio CRM: 304804</div>
+          <div class="exp-ticket-times"><div>Oscar Casillas — 13d 2h 39min</div><div><strong>Total invertido: 5 min</strong></div></div>
           <div class="exp-ticket-actions">
             <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">Generar compromiso</button>
-            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 Comentario (2)</button>
+            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 2</button>
           </div>
         </div>
         <div class="exp-ticket">
           <div class="exp-ticket-header">
             <div class="exp-ticket-meta">
               <div><strong>8077</strong></div>
-              <div>Capturó: <strong>Equipo Shutpoint</strong><br>Correo: soporte@shutpoint.com</div>
-              <div>Reporta: <strong>Emerson Albor</strong><br>Correo: emerson.albor@maraga.com.mx<br>Teléfono: 81 8374 3474<br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
+              <div>Reporta: <strong>Emerson Albor</strong><br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
               <div>SLA: 12/01/2026</div>
             </div>
             <div class="exp-ticket-status">
               <div>Estatus: <span class="exp-badge exp-badge-green">Cerrado</span></div>
               <div>Prioridad: <span class="exp-badge exp-badge-amber">Media</span></div>
               <div>Tipo: <span class="exp-badge exp-badge-teal">06. Garantía</span></div>
-              <div>Responsable: <span class="exp-badge exp-badge-blue">Minerva Cruz</span></div>
             </div>
           </div>
-          <div class="exp-ticket-desc">&lt;b&gt;Descripción del ticket:&lt;/b&gt; Al consultar la agenda del usuario Varela Carmona, únicamente seleccionando el filtro del usuario y dar clic en el buscador el sistema indica un error.</div>
-          <div class="exp-ticket-times">
-            <div>Minerva Cruz — Tiempo de asignación: 20 Horas 46 Minutos — Tiempo invertido: 10 Minutos</div>
-            <div>Oscar Casillas — Tiempo de asignación: 43 Minutos — Tiempo invertido: 20 Minutos</div>
-            <div><strong>Tiempo total activo: 21 Horas 30 Minutos — Tiempo total invertido: 30 Minutos</strong></div>
-          </div>
+          <div class="exp-ticket-desc">Al consultar la agenda del usuario Varela Carmona, seleccionando el filtro del usuario y dar clic en el buscador el sistema indica un error.</div>
+          <div class="exp-ticket-times"><div>Minerva Cruz — 20h 46min</div><div><strong>Total invertido: 30 min</strong></div></div>
           <div class="exp-ticket-actions">
             <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">Generar compromiso</button>
-            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 Comentario (3)</button>
+            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 3</button>
           </div>
         </div>
         <div class="exp-ticket">
           <div class="exp-ticket-header">
             <div class="exp-ticket-meta">
               <div><strong>7887</strong></div>
-              <div>Capturó: <strong>Equipo Shutpoint</strong><br>Correo: soporte@shutpoint.com</div>
-              <div>Reporta: <strong>Emerson Albor</strong><br>Correo: emerson.albor@maraga.com.mx<br>Teléfono: 81 8374 3474<br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
+              <div>Reporta: <strong>Emerson Albor</strong><br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
               <div>SLA: 25/09/2025</div>
             </div>
             <div class="exp-ticket-status">
               <div>Estatus: <span class="exp-badge exp-badge-green">Cerrado</span></div>
               <div>Prioridad: <span class="exp-badge exp-badge-amber">Media</span></div>
               <div>Tipo: <span class="exp-badge exp-badge-violet">02. Requerimiento</span></div>
-              <div>Responsable: <span class="exp-badge exp-badge-blue">Minerva Cruz</span></div>
             </div>
           </div>
-          <div class="exp-ticket-desc">Solicitud de pedido, 1. Que el campo OC sea requerido y no guarde vacío antes de enviar el pedido a SAP.</div>
-          <div class="exp-ticket-times">
-            <div>Minerva Cruz — Tiempo de asignación: 57 Días 20 Horas 9 Minutos — Tiempo invertido: 60 Minutos</div>
-            <div>Alfredo Marcelino — Tiempo de asignación: 74 Días 13 Minutos</div>
-            <div><strong>Tiempo total activo: 131 Días 20 Horas 24 Minutos — Tiempo total invertido: 1 Hora</strong></div>
-          </div>
+          <div class="exp-ticket-desc">Solicitud de pedido, que el campo OC sea requerido y no guarde vacío antes de enviar el pedido a SAP.</div>
+          <div class="exp-ticket-times"><div>Minerva Cruz — 57d 20h 9min</div><div><strong>Total invertido: 1 hora</strong></div></div>
           <div class="exp-ticket-actions">
             <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">Generar compromiso</button>
-            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 Comentario (3)</button>
+            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 3</button>
           </div>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 3 de un total de 129 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">13</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-ticket">
+          <div class="exp-ticket-header">
+            <div class="exp-ticket-meta">
+              <div><strong>7650</strong></div>
+              <div>Reporta: <strong>Eduardo Araujo Perez</strong><br>Cliente: <a>MARAGA (SEGUETAS LENMEX)</a></div>
+              <div>SLA: 15/07/2025</div>
+            </div>
+            <div class="exp-ticket-status">
+              <div>Estatus: <span class="exp-badge exp-badge-green">Cerrado</span></div>
+              <div>Prioridad: <span class="exp-badge exp-badge-gray">Baja</span></div>
+              <div>Tipo: <span class="exp-badge exp-badge-teal">04. Soporte</span></div>
+            </div>
+          </div>
+          <div class="exp-ticket-desc">Error al generar reporte de ventas por producto, el sistema no carga la información de la vista mensual.</div>
+          <div class="exp-ticket-times"><div>Oscar Casillas — 5d 3h 12min</div><div><strong>Total invertido: 45 min</strong></div></div>
+          <div class="exp-ticket-actions">
+            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">Generar compromiso</button>
+            <button class="exp-btn exp-btn-outline" style="height:28px;font-size:12px">💬 1</button>
+          </div>
+        </div>
+        </div>
+        <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 129 registros</span><div class="exp-page-btns"><button class="exp-page-btn">‹</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">13</button><button class="exp-page-btn">›</button></div></div>
         </div>
       </div>
 
@@ -4461,58 +4487,62 @@ Shutpoint 2018</textarea></div>
           <h2>WhatsApp</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-outline" style="gap:6px"><i class="ti ti-refresh" style="font-size:16px"></i> Sincronizar</button></div>
         </div>
-        <div class="exp-card" style="padding:0;overflow:hidden">
-          <div class="wa-conv-list">
-            <div class="wa-conv wa-unread" onclick="alert('Abrir conversación con Emerson Albor')">
-              <div class="wa-conv-avatar">EA</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">Emerson Albor</span></div>
-                <div class="wa-conv-preview">Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍</div>
+        <div class="wa-split" id="waSplit">
+          <div class="wa-panel-list">
+            <div class="wa-panel-list-head"><i class="ti ti-brand-whatsapp"></i> Chats</div>
+            <div class="wa-panel-list-body">
+              <div class="wa-conv wa-unread wa-active" onclick="openWaChat(0,this)">
+                <div class="wa-conv-avatar">EA</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">Emerson Albor</div><div class="wa-conv-preview">Sí, 3 de ventas y 2 de soporte técnico. Gracias 👍</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">10:36 AM</span><span class="wa-conv-badge">2</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">10:36 AM</span><span class="wa-conv-badge">2</span></div>
-            </div>
-            <div class="wa-conv" onclick="alert('Abrir conversación con Loruama Morales')">
-              <div class="wa-conv-avatar">LM</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">Loruama Morales Mejorado</span></div>
-                <div class="wa-conv-preview">OK, quedo al pendiente de la renovación. Saludos.</div>
+              <div class="wa-conv" onclick="openWaChat(1,this)">
+                <div class="wa-conv-avatar">LM</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">Loruama Morales</div><div class="wa-conv-preview">OK, quedo al pendiente de la renovación.</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">Ayer</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">Ayer</span></div>
-            </div>
-            <div class="wa-conv wa-unread" onclick="alert('Abrir conversación con Eduardo Araujo')">
-              <div class="wa-conv-avatar">EP</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">Eduardo Araujo Pérez</span></div>
-                <div class="wa-conv-preview">¿Ya se generó el complemento de pago de la factura SP358?</div>
+              <div class="wa-conv wa-unread" onclick="openWaChat(2,this)">
+                <div class="wa-conv-avatar">EP</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">Eduardo Araujo Pérez</div><div class="wa-conv-preview">¿Ya se generó el complemento de pago?</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">21 oct.</span><span class="wa-conv-badge">1</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">21 oct.</span><span class="wa-conv-badge">1</span></div>
-            </div>
-            <div class="wa-conv" onclick="alert('Abrir conversación con César Vásquez')">
-              <div class="wa-conv-avatar">CV</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">César Vásquez Barrón</span></div>
-                <div class="wa-conv-preview">Perfecto, les comparto el acceso al servidor de pruebas.</div>
+              <div class="wa-conv" onclick="openWaChat(3,this)">
+                <div class="wa-conv-avatar">CV</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">César Vásquez Barrón</div><div class="wa-conv-preview">Perfecto, les comparto el acceso al servidor.</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">18 oct.</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">18 oct.</span></div>
-            </div>
-            <div class="wa-conv" onclick="alert('Abrir conversación con Cristian Rodríguez')">
-              <div class="wa-conv-avatar">CR</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">Cristian Rodríguez</span></div>
-                <div class="wa-conv-preview">Recibido, reviso la cotización y les confirmo mañana.</div>
+              <div class="wa-conv" onclick="openWaChat(4,this)">
+                <div class="wa-conv-avatar">CR</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">Cristian Rodríguez</div><div class="wa-conv-preview">Recibido, reviso la cotización y confirmo.</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">15 oct.</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">15 oct.</span></div>
-            </div>
-            <div class="wa-conv" onclick="alert('Abrir conversación con Edwin Maradiaga')">
-              <div class="wa-conv-avatar">EM</div>
-              <div class="wa-conv-body">
-                <div class="wa-conv-top"><span class="wa-conv-name">Edwin Maradiaga</span></div>
-                <div class="wa-conv-preview">Gracias por la información, lo reviso con mi equipo.</div>
+              <div class="wa-conv" onclick="openWaChat(5,this)">
+                <div class="wa-conv-avatar">EM</div>
+                <div class="wa-conv-body"><div class="wa-conv-name">Edwin Maradiaga</div><div class="wa-conv-preview">Gracias por la información, lo reviso.</div></div>
+                <div class="wa-conv-right"><span class="wa-conv-date">10 oct.</span></div>
               </div>
-              <div class="wa-conv-right"><span class="wa-conv-date">10 oct.</span></div>
             </div>
           </div>
-          <div class="exp-pagination" style="padding:12px 16px"><span>Mostrando 6 de 24 conversaciones</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">4</button><button class="exp-page-btn">Siguiente</button></div></div>
+          <div class="wa-panel-chat" id="waChatPanel">
+            <div class="wa-chat-head">
+              <div class="wa-conv-avatar" style="width:36px;height:36px;font-size:14px">EA</div>
+              <div><div class="wa-chat-head-name">Emerson Albor</div><div class="wa-chat-head-status">en línea</div></div>
+            </div>
+            <div class="wa-chat-msgs" id="waChatMsgs">
+              <div class="wa-msg wa-in">Buen día, quisiera información sobre la renovación de nuestro plan de Shutpoint.<div class="wa-msg-time">10:23 AM</div></div>
+              <div class="wa-msg wa-out">¡Hola Emerson! Con gusto te apoyo. Tu plan actual vence el 15 de diciembre. ¿Te gustaría agendar una llamada?<div class="wa-msg-time">10:25 AM</div></div>
+              <div class="wa-msg wa-in">Sí, perfecto. ¿Puede ser el jueves a las 11 AM?<div class="wa-msg-time">10:28 AM</div></div>
+              <div class="wa-msg wa-out">Claro, agendado para el jueves 7 de noviembre a las 11:00 AM. Te enviaré la invitación por correo.<div class="wa-msg-time">10:30 AM</div></div>
+              <div class="wa-msg wa-in">Excelente, también necesitaríamos cotización para agregar 5 usuarios más al CRM.<div class="wa-msg-time">10:32 AM</div></div>
+              <div class="wa-msg wa-out">Perfecto, preparo la cotización y la incluyo en nuestra reunión del jueves. ¿Los 5 usuarios serían del área de ventas?<div class="wa-msg-time">10:34 AM</div></div>
+              <div class="wa-msg wa-in">Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍<div class="wa-msg-time">10:36 AM</div></div>
+              <div class="wa-msg wa-out">¡Entendido! Quedo al pendiente. Que tengas excelente día. 😊<div class="wa-msg-time">10:37 AM</div></div>
+            </div>
+            <div class="wa-input-bar">
+              <input type="text" placeholder="Escribe un mensaje...">
+              <button onclick="alert('Enviar mensaje')"><i class="ti ti-send" style="font-size:18px"></i></button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4691,11 +4721,11 @@ Shutpoint 2018</textarea></div>
     </div>
 
     <div class="modal-foot">
-      <button class="btn btn-ghost" id="btnPrev">Anterior</button>
+      <button class="btn btn-ghost" id="btnPrev">‹</button>
       <span class="step-count" id="stepCount">Paso 1 de 3</span>
       <span class="spacer"></span>
       <button class="btn btn-secondary" id="btnCancel">Cancelar</button>
-      <button class="btn btn-primary" id="btnNext">Siguiente</button>
+      <button class="btn btn-primary" id="btnNext">›</button>
     </div>
   </div>
 </div>
@@ -5692,6 +5722,57 @@ function initExpScrollSpy(){
       });
     }
   });
+}
+var waChats=[
+  {name:'Emerson Albor',initials:'EA',status:'en línea',msgs:[
+    {dir:'in',text:'Buen día, quisiera información sobre la renovación de nuestro plan de Shutpoint.',time:'10:23 AM'},
+    {dir:'out',text:'¡Hola Emerson! Con gusto te apoyo. Tu plan actual vence el 15 de diciembre. ¿Te gustaría agendar una llamada?',time:'10:25 AM'},
+    {dir:'in',text:'Sí, perfecto. ¿Puede ser el jueves a las 11 AM?',time:'10:28 AM'},
+    {dir:'out',text:'Claro, agendado para el jueves 7 de noviembre a las 11:00 AM. Te enviaré la invitación por correo.',time:'10:30 AM'},
+    {dir:'in',text:'Excelente, también necesitaríamos cotización para agregar 5 usuarios más al CRM.',time:'10:32 AM'},
+    {dir:'out',text:'Perfecto, preparo la cotización y la incluyo en nuestra reunión del jueves. ¿Los 5 usuarios serían del área de ventas?',time:'10:34 AM'},
+    {dir:'in',text:'Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍',time:'10:36 AM'},
+    {dir:'out',text:'¡Entendido! Quedo al pendiente. Que tengas excelente día. 😊',time:'10:37 AM'}
+  ]},
+  {name:'Loruama Morales',initials:'LM',status:'últ. vez hoy 09:14',msgs:[
+    {dir:'out',text:'Hola Loruama, te comparto la cotización actualizada para la renovación de su membresía 2027.',time:'09:05 AM'},
+    {dir:'in',text:'Recibido, déjame revisarlo con el área de finanzas.',time:'09:10 AM'},
+    {dir:'out',text:'Perfecto, quedo al pendiente. Cualquier duda me comentas.',time:'09:12 AM'},
+    {dir:'in',text:'OK, quedo al pendiente de la renovación. Saludos.',time:'09:14 AM'}
+  ]},
+  {name:'Eduardo Araujo Pérez',initials:'EP',status:'últ. vez 21 oct.',msgs:[
+    {dir:'in',text:'Buenas tardes, ¿ya se generó el complemento de pago de la factura SP358?',time:'02:15 PM'},
+    {dir:'out',text:'Hola Eduardo, lo estoy verificando con el área de facturación.',time:'02:20 PM'},
+    {dir:'in',text:'Ok, gracias. Lo necesito para cerrar el mes contable.',time:'02:22 PM'},
+    {dir:'out',text:'Entendido, te lo envío antes de las 5 PM de hoy sin falta.',time:'02:25 PM'},
+    {dir:'in',text:'¿Ya se generó el complemento de pago de la factura SP358?',time:'04:30 PM'}
+  ]},
+  {name:'César Vásquez Barrón',initials:'CV',status:'últ. vez 18 oct.',msgs:[
+    {dir:'out',text:'César, buen día. Te comparto las credenciales del ambiente de pruebas para la integración SAP.',time:'11:00 AM'},
+    {dir:'in',text:'Gracias Norma, ¿el ambiente ya está configurado con los catálogos?',time:'11:15 AM'},
+    {dir:'out',text:'Sí, ya están cargados. Si necesitas apoyo técnico me avisas.',time:'11:18 AM'},
+    {dir:'in',text:'Perfecto, les comparto el acceso al servidor de pruebas.',time:'11:20 AM'}
+  ]},
+  {name:'Cristian Rodríguez',initials:'CR',status:'últ. vez 15 oct.',msgs:[
+    {dir:'out',text:'Hola Cristian, te envío la cotización actualizada con los 5 usuarios adicionales.',time:'03:00 PM'},
+    {dir:'in',text:'Recibido, reviso la cotización y les confirmo mañana.',time:'03:45 PM'}
+  ]},
+  {name:'Edwin Maradiaga',initials:'EM',status:'últ. vez 10 oct.',msgs:[
+    {dir:'out',text:'Edwin, te comparto información sobre el módulo de reportes avanzados.',time:'10:00 AM'},
+    {dir:'in',text:'Gracias por la información, lo reviso con mi equipo.',time:'10:30 AM'}
+  ]}
+];
+function openWaChat(idx,el){
+  document.querySelectorAll('#waSplit .wa-conv').forEach(function(c){c.classList.remove('wa-active');});
+  if(el) el.classList.add('wa-active');
+  var chat=waChats[idx];
+  var panel=document.getElementById('waChatPanel');
+  var head=panel.querySelector('.wa-chat-head');
+  head.innerHTML='<div class="wa-conv-avatar" style="width:36px;height:36px;font-size:14px">'+chat.initials+'</div><div><div class="wa-chat-head-name">'+chat.name+'</div><div class="wa-chat-head-status">'+chat.status+'</div></div>';
+  var msgsEl=document.getElementById('waChatMsgs');
+  msgsEl.innerHTML=chat.msgs.map(function(m){return '<div class="wa-msg wa-'+m.dir+'">'+m.text+'<div class="wa-msg-time">'+m.time+'</div></div>';}).join('');
+  msgsEl.scrollTop=msgsEl.scrollHeight;
+  panel.classList.remove('wa-empty');
 }
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape'){
