@@ -2010,30 +2010,32 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   overflow-y:auto;padding:8px 0;
 }
 .exp-nav-item{
-  display:flex;align-items:center;gap:10px;padding:9px 16px;
+  display:flex;align-items:center;gap:10px;padding:9px 12px;margin:2px 8px;
   font-size:13px;color:rgba(255,255,255,.7);cursor:pointer;
-  transition:.12s var(--ease);white-space:nowrap;width:100%;text-align:left;
+  transition:background .16s var(--ease),color .16s var(--ease);
+  white-space:nowrap;text-align:left;border-radius:8px;
 }
-.exp-nav-item:hover{background:rgba(255,255,255,.1);color:#fff}
-.exp-nav-item.active{background:rgba(100,200,255,.15);color:#7ECEF4;font-weight:600;border-right:3px solid #7ECEF4}
+.exp-nav-item:hover{background:rgba(126,206,244,.12);color:#b8e4f8}
+.exp-nav-item.active{background:rgba(126,206,244,.22);color:#7ECEF4;font-weight:600;box-shadow:0 1px 6px rgba(126,206,244,.18)}
 .exp-nav-item .ti{font-size:18px;width:20px;text-align:center;flex:none}
-.exp-nav-item.exp-nav-close{color:rgba(255,130,130,.85);margin-top:8px;border-top:1px solid rgba(255,255,255,.1);padding-top:12px}
-.exp-nav-item.exp-nav-close:hover{background:rgba(255,80,80,.2);color:#ff9090}
+.exp-nav-item.exp-nav-close{color:rgba(255,130,130,.85);margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;border-radius:8px}
+.exp-nav-item.exp-nav-close:hover{background:rgba(255,80,80,.15);color:#ff9090}
 .exp-content{flex:1;overflow-y:auto;padding:20px 24px}
 .exp-section{display:block;margin-bottom:32px;scroll-margin-top:12px;padding-top:16px;border-top:1px solid var(--gray-200)}
 .exp-section:first-child{border-top:none;padding-top:0}
 
 /* Expediente tables */
-.exp-table-wrap{overflow-x:auto;margin-top:12px}
+.exp-table-wrap{overflow-x:auto;margin-top:12px;border-radius:10px;border:1px solid var(--gray-200);overflow:hidden}
 .exp-table{width:100%;border-collapse:collapse;font-size:13px}
 .exp-table thead th{
-  background:var(--brand-500);color:#fff;padding:10px 12px;
+  background:var(--navy-900);color:#fff;padding:10px 12px;
   font-weight:600;text-align:left;white-space:nowrap;font-size:12px;
-  border-right:1px solid rgba(255,255,255,.15);
+  border-right:1px solid rgba(255,255,255,.08);
 }
 .exp-table thead th:last-child{border-right:none}
 .exp-table tbody td{padding:9px 12px;border-bottom:1px solid var(--gray-100);vertical-align:top;color:var(--gray-700)}
-.exp-table tbody tr:hover{background:var(--gray-025)}
+.exp-table tbody tr:hover{background:var(--brand-050)}
+.exp-table tbody tr:last-child td{border-bottom:none}
 .exp-table .exp-link{color:var(--brand-600);cursor:pointer}
 .exp-table .exp-link:hover{text-decoration:underline}
 
@@ -2144,7 +2146,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 /* Ticket card style */
 .exp-ticket{
   background:#fff;border:1px solid var(--gray-200);border-radius:10px;
-  padding:16px;margin-bottom:14px;
+  padding:16px;margin-bottom:14px;max-width:720px;
 }
 .exp-ticket-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .exp-ticket-meta{font-size:12px;color:var(--gray-500);line-height:1.6}
@@ -2181,24 +2183,42 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   padding:20px;margin-top:12px;
 }
 
-/* WhatsApp chat */
-.wa-chat{background:#e5ddd5;border-radius:10px;padding:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px;max-height:480px;overflow-y:auto}
-.wa-msg{max-width:75%;padding:8px 12px;border-radius:8px;font-size:13px;line-height:1.5;position:relative}
-.wa-msg.wa-in{background:#fff;align-self:flex-start;border-top-left-radius:0}
-.wa-msg.wa-out{background:#dcf8c6;align-self:flex-end;border-top-right-radius:0}
-.wa-msg-time{font-size:10px;color:var(--gray-400);text-align:right;margin-top:4px}
-.wa-msg-sender{font-size:11px;font-weight:700;color:var(--brand-600);margin-bottom:2px}
-.wa-input-bar{display:flex;gap:8px;margin-top:12px;align-items:center}
-.wa-input-bar input{flex:1;border:1px solid var(--gray-200);border-radius:24px;padding:8px 16px;font-size:13px;outline:none}
-.wa-input-bar input:focus{border-color:var(--brand-400)}
-.wa-input-bar button{width:40px;height:40px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer}
-.wa-input-bar button .ti{font-size:20px}
+/* WhatsApp conversations list */
+.wa-conv-list{max-width:720px}
+.wa-conv{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-bottom:1px solid var(--gray-100);cursor:pointer;
+  transition:background .12s var(--ease);border-radius:0;
+}
+.wa-conv:first-child{border-radius:10px 10px 0 0}
+.wa-conv:last-child{border-bottom:none;border-radius:0 0 10px 10px}
+.wa-conv:hover{background:var(--brand-050)}
+.wa-conv.wa-unread{background:rgba(37,211,102,.04)}
+.wa-conv.wa-unread:hover{background:rgba(37,211,102,.08)}
+.wa-conv-avatar{
+  width:44px;height:44px;border-radius:50%;flex:none;
+  background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;
+}
+.wa-conv-body{flex:1;min-width:0}
+.wa-conv-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.wa-conv-name{font-size:14px;font-weight:600;color:var(--gray-800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wa-conv.wa-unread .wa-conv-name{color:var(--gray-900)}
+.wa-conv-date{font-size:11px;color:var(--gray-400);white-space:nowrap;flex:none}
+.wa-conv.wa-unread .wa-conv-date{color:#25d366;font-weight:600}
+.wa-conv-preview{font-size:13px;color:var(--gray-500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.wa-conv.wa-unread .wa-conv-preview{color:var(--gray-700);font-weight:500}
+.wa-conv-badge{
+  width:20px;height:20px;border-radius:50%;background:#25d366;color:#fff;
+  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;
+}
+.wa-conv-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none}
 
 /* Responsive expediente */
 @media(max-width:768px){
   .exp-sidebar{width:60px;padding:8px 0}
   .exp-nav-item span:not(.ti){display:none}
-  .exp-nav-item{justify-content:center;padding:10px 0}
+  .exp-nav-item{justify-content:center;padding:10px;margin:2px 4px}
   .exp-content{padding:14px 12px}
   .exp-form{grid-template-columns:1fr}
   .exp-form-group.span2,.exp-form-group.span3{grid-column:span 1}
@@ -4437,22 +4457,62 @@ Shutpoint 2018</textarea></div>
 
       <!-- ===== WHATSAPP ===== -->
       <div class="exp-section" id="exp-whatsapp">
-        <div class="exp-sec-header"><h2>WhatsApp</h2></div>
+        <div class="exp-sec-header">
+          <h2>WhatsApp</h2>
+          <div class="exp-sec-actions"><button class="exp-btn exp-btn-outline" style="gap:6px"><i class="ti ti-refresh" style="font-size:16px"></i> Sincronizar</button></div>
+        </div>
         <div class="exp-card" style="padding:0;overflow:hidden">
-          <div class="wa-chat">
-            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Buen día, quisiera información sobre la renovación de nuestro plan de Shutpoint.<div class="wa-msg-time">10:23 AM</div></div>
-            <div class="wa-msg wa-out">¡Hola Emerson! Con gusto te apoyo. Tu plan actual vence el 15 de diciembre. ¿Te gustaría agendar una llamada para revisar las opciones?<div class="wa-msg-time">10:25 AM</div></div>
-            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Sí, perfecto. ¿Puede ser el jueves a las 11 AM?<div class="wa-msg-time">10:28 AM</div></div>
-            <div class="wa-msg wa-out">Claro, agendado para el jueves 7 de noviembre a las 11:00 AM. Te enviaré la invitación por correo.<div class="wa-msg-time">10:30 AM</div></div>
-            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Excelente, también necesitaríamos cotización para agregar 5 usuarios más al CRM.<div class="wa-msg-time">10:32 AM</div></div>
-            <div class="wa-msg wa-out">Perfecto, preparo la cotización y la incluyo en nuestra reunión del jueves. ¿Los 5 usuarios serían del área de ventas?<div class="wa-msg-time">10:34 AM</div></div>
-            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍<div class="wa-msg-time">10:36 AM</div></div>
-            <div class="wa-msg wa-out">¡Entendido! Quedo al pendiente. Que tengas excelente día. 😊<div class="wa-msg-time">10:37 AM</div></div>
+          <div class="wa-conv-list">
+            <div class="wa-conv wa-unread" onclick="alert('Abrir conversación con Emerson Albor')">
+              <div class="wa-conv-avatar">EA</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">Emerson Albor</span></div>
+                <div class="wa-conv-preview">Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">10:36 AM</span><span class="wa-conv-badge">2</span></div>
+            </div>
+            <div class="wa-conv" onclick="alert('Abrir conversación con Loruama Morales')">
+              <div class="wa-conv-avatar">LM</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">Loruama Morales Mejorado</span></div>
+                <div class="wa-conv-preview">OK, quedo al pendiente de la renovación. Saludos.</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">Ayer</span></div>
+            </div>
+            <div class="wa-conv wa-unread" onclick="alert('Abrir conversación con Eduardo Araujo')">
+              <div class="wa-conv-avatar">EP</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">Eduardo Araujo Pérez</span></div>
+                <div class="wa-conv-preview">¿Ya se generó el complemento de pago de la factura SP358?</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">21 oct.</span><span class="wa-conv-badge">1</span></div>
+            </div>
+            <div class="wa-conv" onclick="alert('Abrir conversación con César Vásquez')">
+              <div class="wa-conv-avatar">CV</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">César Vásquez Barrón</span></div>
+                <div class="wa-conv-preview">Perfecto, les comparto el acceso al servidor de pruebas.</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">18 oct.</span></div>
+            </div>
+            <div class="wa-conv" onclick="alert('Abrir conversación con Cristian Rodríguez')">
+              <div class="wa-conv-avatar">CR</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">Cristian Rodríguez</span></div>
+                <div class="wa-conv-preview">Recibido, reviso la cotización y les confirmo mañana.</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">15 oct.</span></div>
+            </div>
+            <div class="wa-conv" onclick="alert('Abrir conversación con Edwin Maradiaga')">
+              <div class="wa-conv-avatar">EM</div>
+              <div class="wa-conv-body">
+                <div class="wa-conv-top"><span class="wa-conv-name">Edwin Maradiaga</span></div>
+                <div class="wa-conv-preview">Gracias por la información, lo reviso con mi equipo.</div>
+              </div>
+              <div class="wa-conv-right"><span class="wa-conv-date">10 oct.</span></div>
+            </div>
           </div>
-          <div class="wa-input-bar">
-            <input type="text" placeholder="Escribe un mensaje...">
-            <button onclick="alert('Enviar mensaje')"><i class="ti ti-send"></i></button>
-          </div>
+          <div class="exp-pagination" style="padding:12px 16px"><span>Mostrando 6 de 24 conversaciones</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">4</button><button class="exp-page-btn">Siguiente</button></div></div>
         </div>
       </div>
 
