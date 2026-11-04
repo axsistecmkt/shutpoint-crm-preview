@@ -1961,19 +1961,28 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
    QUICK-SEARCH DROPDOWN
    ============================================================ */
 .qs-dropdown{
-  position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:1100;
-  background:#fff;border:1px solid var(--gray-200);border-radius:10px;
-  box-shadow:var(--shadow-lg);max-height:320px;overflow-y:auto;display:none;
+  position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:1100;
+  background:#fff;border:1px solid var(--gray-200);border-radius:12px;
+  box-shadow:0 8px 32px rgba(0,0,0,.12);max-height:360px;overflow-y:auto;display:none;
+  padding:6px;
 }
 .qs-dropdown.open{display:block}
-.qs-dropdown-item{
-  padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--gray-100);
-  transition:background .12s var(--ease);
+.qs-item{
+  padding:12px 14px;cursor:pointer;border-radius:8px;
+  transition:background .12s var(--ease);margin-bottom:2px;
+  display:flex;align-items:center;gap:12px;
 }
-.qs-dropdown-item:last-child{border-bottom:none}
-.qs-dropdown-item:hover{background:var(--brand-050)}
-.qs-dropdown-item .qs-company{font-weight:700;font-size:13px;color:var(--gray-900);margin-bottom:2px}
-.qs-dropdown-item .qs-contact{font-size:12px;color:var(--gray-500);line-height:1.4}
+.qs-item:last-child{margin-bottom:0}
+.qs-item:hover{background:var(--brand-050)}
+.qs-item-dot{
+  width:8px;height:8px;border-radius:50%;flex:none;
+}
+.qs-item-dot.dot-activo{background:var(--green-600)}
+.qs-item-dot.dot-prospecto{background:var(--amber-500)}
+.qs-item-dot.dot-lead{background:var(--brand-500)}
+.qs-item-info{flex:1;min-width:0}
+.qs-item-name{font-weight:700;font-size:13px;color:var(--gray-900);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qs-item-meta{font-size:12px;color:var(--gray-500);line-height:1.4}
 .qs-dropdown-empty{padding:14px;text-align:center;color:var(--gray-400);font-size:13px}
 
 /* ============================================================
@@ -1997,19 +2006,19 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 .exp-close .ti{font-size:20px}
 .exp-body{display:flex;flex:1;overflow:hidden}
 .exp-sidebar{
-  width:200px;flex:none;background:#fff;border-right:1px solid var(--gray-200);
+  width:200px;flex:none;background:var(--navy-900);border-right:none;
   overflow-y:auto;padding:8px 0;
 }
 .exp-nav-item{
   display:flex;align-items:center;gap:10px;padding:9px 16px;
-  font-size:13px;color:var(--gray-600);cursor:pointer;
+  font-size:13px;color:rgba(255,255,255,.7);cursor:pointer;
   transition:.12s var(--ease);white-space:nowrap;width:100%;text-align:left;
 }
-.exp-nav-item:hover{background:var(--brand-050);color:var(--brand-600)}
-.exp-nav-item.active{background:var(--brand-050);color:var(--brand-600);font-weight:600;border-right:3px solid var(--brand-500)}
+.exp-nav-item:hover{background:rgba(255,255,255,.1);color:#fff}
+.exp-nav-item.active{background:rgba(255,255,255,.15);color:#fff;font-weight:600;border-right:3px solid var(--brand-400)}
 .exp-nav-item .ti{font-size:18px;width:20px;text-align:center;flex:none}
-.exp-nav-item.exp-nav-close{color:var(--red-700);margin-top:8px;border-top:1px solid var(--gray-100);padding-top:12px}
-.exp-nav-item.exp-nav-close:hover{background:var(--red-050)}
+.exp-nav-item.exp-nav-close{color:rgba(255,130,130,.85);margin-top:8px;border-top:1px solid rgba(255,255,255,.1);padding-top:12px}
+.exp-nav-item.exp-nav-close:hover{background:rgba(255,80,80,.2);color:#ff9090}
 .exp-content{flex:1;overflow-y:auto;padding:20px 24px}
 .exp-section{display:none}
 .exp-section.active{display:block}
@@ -2166,6 +2175,25 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 }
 .exp-edo-header span{font-weight:700;color:var(--navy-900)}
 
+/* Expediente card blocks */
+.exp-card{
+  background:#fff;border:1px solid var(--gray-200);border-radius:10px;
+  padding:20px;margin-top:12px;
+}
+
+/* WhatsApp chat */
+.wa-chat{background:#e5ddd5;border-radius:10px;padding:16px;margin-top:12px;display:flex;flex-direction:column;gap:6px;max-height:480px;overflow-y:auto}
+.wa-msg{max-width:75%;padding:8px 12px;border-radius:8px;font-size:13px;line-height:1.5;position:relative}
+.wa-msg.wa-in{background:#fff;align-self:flex-start;border-top-left-radius:0}
+.wa-msg.wa-out{background:#dcf8c6;align-self:flex-end;border-top-right-radius:0}
+.wa-msg-time{font-size:10px;color:var(--gray-400);text-align:right;margin-top:4px}
+.wa-msg-sender{font-size:11px;font-weight:700;color:var(--brand-600);margin-bottom:2px}
+.wa-input-bar{display:flex;gap:8px;margin-top:12px;align-items:center}
+.wa-input-bar input{flex:1;border:1px solid var(--gray-200);border-radius:24px;padding:8px 16px;font-size:13px;outline:none}
+.wa-input-bar input:focus{border-color:var(--brand-400)}
+.wa-input-bar button{width:40px;height:40px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer}
+.wa-input-bar button .ti{font-size:20px}
+
 /* Responsive expediente */
 @media(max-width:768px){
   .exp-sidebar{width:60px;padding:8px 0}
@@ -2180,6 +2208,8 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   .exp-filters{flex-direction:column}
   .exp-timeline{flex-wrap:wrap}
   .exp-timeline-step{flex:none;width:calc(33.33% - 2px)}
+  .exp-card{padding:14px}
+  .wa-msg{max-width:85%}
 }
 @media(max-width:480px){
   .exp-sidebar{width:50px}
@@ -3864,6 +3894,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
       <!-- ===== PRINCIPAL ===== -->
       <div class="exp-section active" id="exp-principal">
         <div class="exp-responsable">Responsable: <strong>Norma Pérez</strong> <i class="ti ti-edit" style="cursor:pointer;color:var(--brand-500);font-size:16px"></i></div>
+        <div class="exp-card">
         <div class="exp-form">
           <div class="exp-form-group span2"><label>Nombre</label><input type="text" value="MARAGA (SEGUETAS LENMEX)"></div>
           <div class="exp-form-group"><label>Fuente de prospección</label><select><option>Recomendación de prospecto / cliente / usuario</option></select></div>
@@ -3907,6 +3938,7 @@ Shutpoint 2018</textarea></div>
           <button class="exp-btn exp-btn-blue" onclick="alert('Guardar')">Guardar</button>
           <button class="exp-btn exp-btn-outline" onclick="alert('Cancelar')">Cancelar</button>
         </div>
+        </div>
       </div>
 
       <!-- ===== CONTACTOS ===== -->
@@ -3919,6 +3951,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Contacto</th><th>Puesto</th><th>Teléfonos</th><th>Correos</th><th>Departamento</th><th>Fecha nacimiento</th><th>Activo</th><th></th></tr></thead>
@@ -3947,6 +3980,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-page-btn">Siguiente</button>
           </div>
         </div>
+        </div>
       </div>
 
       <!-- ===== DIRECCIONES ===== -->
@@ -3957,6 +3991,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-primary" style="position:relative">Nuevo <span style="display:inline-block;margin-left:4px">▾</span></button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Tipo de dirección</th><th>Nombre</th><th>País</th><th>Estado</th><th>Ciudad</th><th>Colonia</th><th>Código postal</th><th>Dirección</th><th>Activa</th><th>Frontera</th><th></th></tr></thead>
@@ -3969,6 +4004,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== COMPROMISOS ===== -->
@@ -3981,6 +4017,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-filters">
           <div class="exp-filter-group"><label>Compromiso</label><select><option>Todos</option></select></div>
           <div class="exp-filter-group"><label>Cliente</label><input type="text" value="MARAGA (SEGUETAS LENMEX)" readonly style="background:var(--gray-050)"></div>
@@ -4004,6 +4041,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 7 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== SEGUIMIENTOS ===== -->
@@ -4015,6 +4053,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Responsable</th><th>Contacto</th><th>Tipo</th><th>Fecha</th><th>Comentario</th><th>Compromiso</th><th>Proyecto</th><th></th></tr></thead>
@@ -4028,6 +4067,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 913 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">92</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== OPORTUNIDADES ===== -->
@@ -4039,6 +4079,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Folio</th><th>Nombre</th><th>Fase</th><th>Probabilidad</th><th>Creación</th><th>Vencimiento</th><th>Cierre</th><th>Monto</th><th>Moneda</th><th>Estatus</th><th>Responsable</th></tr></thead>
@@ -4052,6 +4093,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 8 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== COTIZACIONES ===== -->
@@ -4063,6 +4105,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Folio</th><th>Nombre</th><th>Fase</th><th>Probabilidad</th><th>Creación</th><th>Vencimiento</th><th>Cierre</th><th>Monto cotizado</th><th>Moneda</th><th>Estatus</th><th>Responsable</th></tr></thead>
@@ -4076,6 +4119,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 41 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">4</button><button class="exp-page-btn">5</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== FACTURAS ===== -->
@@ -4084,6 +4128,7 @@ Shutpoint 2018</textarea></div>
           <h2>Facturas</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-primary">Nuevo</button></div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Folio</th><th>Usuario que captura</th><th>Cliente</th><th>Folio que refactura</th><th>Cotización</th><th>Fecha</th><th>Fecha de vencimiento</th><th>Días vencidos</th><th>Total</th><th>Pagos</th><th>Responsable</th><th>Estatus</th></tr></thead>
@@ -4094,6 +4139,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== PAGOS ===== -->
@@ -4102,6 +4148,7 @@ Shutpoint 2018</textarea></div>
           <h2>Pagos</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-primary">Nuevo</button></div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Folio</th><th>Factura</th><th>Método de pago</th><th>Cliente</th><th>Referencia de pago</th><th>Fecha de pago</th><th>Fecha de captura</th><th>Monto</th><th>Forma de cobro</th><th>Responsable</th><th></th></tr></thead>
@@ -4112,6 +4159,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 2 de un total de 2 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== ESTADO DE CUENTA ===== -->
@@ -4120,6 +4168,7 @@ Shutpoint 2018</textarea></div>
           <h2>Estado de cuenta</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-outline">Exportar</button></div>
         </div>
+        <div class="exp-card">
         <div class="exp-edo-header">
           Límite de crédito: <span>$</span> &nbsp;&nbsp;&nbsp; Saldo a la fecha: <span>$ 0.00</span>
         </div>
@@ -4135,6 +4184,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 4 de un total de 4 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== NOTAS ===== -->
@@ -4146,6 +4196,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Notas</th><th>Fecha</th><th>Responsable</th></tr></thead>
@@ -4155,6 +4206,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 0 al 0 de un total de 0 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== DOCUMENTOS ===== -->
@@ -4166,6 +4218,7 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline">Exportar</button>
           </div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Documento</th><th>Tipo</th><th>Descripción</th><th>Contacto</th><th>Responsable</th><th>Creación</th><th>Ligar a</th><th></th></tr></thead>
@@ -4179,6 +4232,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 17 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== CAMPAÑAS MAILING ===== -->
@@ -4186,6 +4240,7 @@ Shutpoint 2018</textarea></div>
         <div class="exp-sec-header">
           <h2>Campañas mailing</h2>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Nombre</th><th>Fecha de creación</th><th>Responsable</th></tr></thead>
@@ -4199,6 +4254,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 352 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">36</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== ENCUESTAS ===== -->
@@ -4207,6 +4263,7 @@ Shutpoint 2018</textarea></div>
           <h2>Encuestas</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-outline">Exportar</button></div>
         </div>
+        <div class="exp-card">
         <div class="exp-table-wrap">
           <table class="exp-table">
             <thead><tr><th>Nombre</th><th>Fecha envío</th><th>Fecha de respuesta</th><th>Promedio</th></tr></thead>
@@ -4220,6 +4277,7 @@ Shutpoint 2018</textarea></div>
           </table>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 5 de un total de 21 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== CORREOS ===== -->
@@ -4232,7 +4290,8 @@ Shutpoint 2018</textarea></div>
             <button class="exp-btn exp-btn-outline" style="width:34px;padding:0;justify-content:center"><i class="ti ti-settings" style="font-size:16px"></i></button>
           </div>
         </div>
-        <div style="border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;background:#fff">
+        <div class="exp-card" style="padding:0;overflow:hidden">
+        <div style="border:none;border-radius:0;overflow:hidden;background:#fff">
           <div class="exp-correo-row unread">
             <span class="exp-correo-sender">● Emerson Albor Rosas</span>
             <span class="exp-correo-subject"><span class="deleted-tag">[Eliminado]</span> Re: Comprobante de pago Axsis Tecnología (FACTURA SP358)</span>
@@ -4269,7 +4328,8 @@ Shutpoint 2018</textarea></div>
             <span class="exp-correo-date">01 jun. 26</span>
           </div>
         </div>
-        <div class="exp-pagination"><span>Mostrando registros del 1 al 7 de un total de 1,327 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">133</button><button class="exp-page-btn">Siguiente</button></div></div>
+        <div class="exp-pagination" style="padding:12px 16px"><span>Mostrando registros del 1 al 7 de un total de 1,327 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">133</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== TICKETS ===== -->
@@ -4278,6 +4338,7 @@ Shutpoint 2018</textarea></div>
           <h2>Tickets</h2>
           <div class="exp-sec-actions"><button class="exp-btn exp-btn-primary">Nuevo</button></div>
         </div>
+        <div class="exp-card">
         <div class="exp-ticket">
           <div class="exp-ticket-header">
             <div class="exp-ticket-meta">
@@ -4356,13 +4417,27 @@ Shutpoint 2018</textarea></div>
           </div>
         </div>
         <div class="exp-pagination"><span>Mostrando registros del 1 al 3 de un total de 129 registros</span><div class="exp-page-btns"><button class="exp-page-btn">Anterior</button><button class="exp-page-btn active">1</button><button class="exp-page-btn">2</button><button class="exp-page-btn">3</button><button class="exp-page-btn">...</button><button class="exp-page-btn">13</button><button class="exp-page-btn">Siguiente</button></div></div>
+        </div>
       </div>
 
       <!-- ===== WHATSAPP ===== -->
       <div class="exp-section" id="exp-whatsapp">
         <div class="exp-sec-header"><h2>WhatsApp</h2></div>
-        <div style="background:#fff;border:1px solid var(--gray-200);border-radius:10px;padding:40px;text-align:center;color:var(--gray-400);font-size:14px">
-          No se encontraron conversaciones
+        <div class="exp-card" style="padding:0;overflow:hidden">
+          <div class="wa-chat">
+            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Buen día, quisiera información sobre la renovación de nuestro plan de Shutpoint.<div class="wa-msg-time">10:23 AM</div></div>
+            <div class="wa-msg wa-out">¡Hola Emerson! Con gusto te apoyo. Tu plan actual vence el 15 de diciembre. ¿Te gustaría agendar una llamada para revisar las opciones?<div class="wa-msg-time">10:25 AM</div></div>
+            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Sí, perfecto. ¿Puede ser el jueves a las 11 AM?<div class="wa-msg-time">10:28 AM</div></div>
+            <div class="wa-msg wa-out">Claro, agendado para el jueves 7 de noviembre a las 11:00 AM. Te enviaré la invitación por correo.<div class="wa-msg-time">10:30 AM</div></div>
+            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Excelente, también necesitaríamos cotización para agregar 5 usuarios más al CRM.<div class="wa-msg-time">10:32 AM</div></div>
+            <div class="wa-msg wa-out">Perfecto, preparo la cotización y la incluyo en nuestra reunión del jueves. ¿Los 5 usuarios serían del área de ventas?<div class="wa-msg-time">10:34 AM</div></div>
+            <div class="wa-msg wa-in"><div class="wa-msg-sender">Emerson Albor</div>Sí, 3 de ventas y 2 de soporte técnico. Gracias Norma 👍<div class="wa-msg-time">10:36 AM</div></div>
+            <div class="wa-msg wa-out">¡Entendido! Quedo al pendiente. Que tengas excelente día. 😊<div class="wa-msg-time">10:37 AM</div></div>
+          </div>
+          <div class="wa-input-bar">
+            <input type="text" placeholder="Escribe un mensaje...">
+            <button onclick="alert('Enviar mensaje')"><i class="ti ti-send"></i></button>
+          </div>
         </div>
       </div>
 
@@ -5481,7 +5556,10 @@ function qsSearch(val){
   const q = val.toLowerCase();
   const hits = EXP_CLIENTS.filter(c => c.name.toLowerCase().includes(q));
   if(!hits.length){ dd.classList.remove('open'); dd.innerHTML=''; return; }
-  dd.innerHTML = hits.map(c => `<div class="qs-item" onclick="openExpediente('${c.name.replace(/'/g,"\\'")}')"><div class="qs-item-name">${c.name}</div><div class="qs-item-meta">${c.status} · ${c.resp}</div></div>`).join('');
+  dd.innerHTML = hits.map(c => {
+    const dotCls = c.status==='Cliente activo'?'dot-activo':c.status==='Prospecto'?'dot-prospecto':'dot-lead';
+    return `<div class="qs-item" onclick="openExpediente('${c.name.replace(/'/g,"\\'")}')"><span class="qs-item-dot ${dotCls}"></span><div class="qs-item-info"><div class="qs-item-name">${c.name}</div><div class="qs-item-meta">${c.status} · ${c.resp}</div></div></div>`;
+  }).join('');
   dd.classList.add('open');
 }
 document.addEventListener('click', function(e){
