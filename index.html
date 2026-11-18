@@ -1361,8 +1361,17 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
     box-shadow:var(--shadow-lg);
   }
   .sidebar.open{transform:none}
+  .sidebar .nav{background:var(--brand-500);border-radius:16px;margin:0 8px;padding:6px 8px 12px}
   .sidebar .nav-item span.lbl,.sidebar .nav-label,.sidebar .user-mini .meta,.sidebar .nav-item .chip{display:block}
-  .sidebar .nav-item{justify-content:flex-start;padding:9px 10px}
+  .sidebar .nav-item{justify-content:flex-start;padding:9px 10px;color:rgba(255,255,255,.85)}
+  .sidebar .nav-item:hover{background:rgba(255,255,255,.15);color:#fff}
+  .sidebar .nav-item.active{background:rgba(255,255,255,.22);color:#fff;box-shadow:none}
+  .sidebar .nav-item.active .chip{background:rgba(255,255,255,.24);color:#fff}
+  .sidebar .nav-item .chip{background:rgba(255,255,255,.18);color:rgba(255,255,255,.9)}
+  .sidebar .nav-label{color:rgba(255,255,255,.55)}
+  .sidebar .nav-sep{background:rgba(255,255,255,.18)}
+  .sidebar .side-action{color:rgba(255,255,255,.85)}
+  .sidebar .side-action:hover{background:rgba(255,255,255,.15);color:#fff}
   .sidebar .logo-slot{margin:10px 10px 10px;justify-content:center}
   .sidebar .logo-slot .brand-full{display:block}
   .sidebar .logo-slot .brand-icon{display:none}
