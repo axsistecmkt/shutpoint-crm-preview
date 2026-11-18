@@ -126,8 +126,9 @@ svg{flex:none}
 }
 
 .logo-slot{
-  margin:10px 10px 10px;
-  display:none;align-items:center;justify-content:center;
+  margin:0;padding:16px 16px 14px;justify-content:center;
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--gray-200);
   transition:.2s var(--ease);
 }
 .logo-slot img{display:block}
@@ -142,32 +143,32 @@ svg{flex:none}
 .brand-btn .brand-full{width:100%;height:auto;display:block}
 .brand-btn .brand-icon{display:none;height:30px}
 
-.nav{flex:1;overflow-y:auto;padding:6px 12px 12px}
+.nav{flex:1;overflow-y:auto;padding:8px 10px 12px;background:var(--navy-900);border-radius:14px;margin:8px 8px 0}
 .nav-label{
   padding:12px 10px 6px;
   font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--gray-400);
+  color:rgba(255,255,255,.45);
 }
 .nav-item{
   display:flex;align-items:center;gap:11px;width:100%;
   padding:9px 10px;margin-bottom:2px;
   border-radius:8px;
-  color:var(--gray-600);
+  color:rgba(255,255,255,.8);
   font-size:13.5px;font-weight:500;
   text-align:left;
   transition:background .16s var(--ease),color .16s var(--ease);
   position:relative;
 }
 .nav-item svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;opacity:.9}
-.nav-item:hover{background:var(--brand-050);color:var(--brand-700)}
+.nav-item:hover{background:rgba(255,255,255,.12);color:#fff}
 .nav-item.active{background:var(--brand-500);color:#fff;box-shadow:0 2px 10px rgba(43,133,209,.35)}
 .nav-item.active svg{opacity:1}
 .nav-item .chip{
   margin-left:auto;font-size:11px;font-weight:600;
-  background:var(--gray-100);color:var(--gray-600);
+  background:rgba(255,255,255,.15);color:rgba(255,255,255,.8);
   padding:1px 7px;border-radius:99px;
 }
-.nav-item:hover .chip{background:var(--brand-100);color:var(--brand-700)}
+.nav-item:hover .chip{background:rgba(255,255,255,.22);color:#fff}
 .nav-item.active .chip{background:rgba(255,255,255,.24);color:#fff}
 
 .sidebar-foot{padding:12px 16px 16px;border-top:1px solid var(--gray-100)}
@@ -392,7 +393,7 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 @media (max-width:520px){.tb-actions{gap:2px}}
 
 /* Logo de Shutpoint en la barra superior (solo móvil, fuera del drawer) */
-.topbar-logo{display:flex;align-items:center;height:36px}
+.topbar-logo{display:none;align-items:center;height:36px}
 .topbar-logo img{height:32px;width:auto;display:block;object-fit:contain}
 
 /* Pie del sidebar: Contáctanos, perfil y, hasta abajo, powered by axsis */
@@ -530,12 +531,12 @@ textarea.input{height:auto;padding:9px 11px;resize:vertical;min-height:84px;line
 .side-action{
   display:flex;align-items:center;gap:11px;width:100%;
   padding:9px 10px;margin-bottom:10px;border-radius:8px;
-  border:1px solid var(--gray-200);background:var(--gray-025);
-  font-size:13px;font-weight:550;color:var(--gray-700);text-align:left;
+  border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);
+  font-size:13px;font-weight:550;color:rgba(255,255,255,.8);text-align:left;
   transition:.15s var(--ease);
 }
 .side-action svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
-.side-action:hover{background:var(--brand-050);border-color:var(--brand-100);color:var(--brand-700)}
+.side-action:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
 .side-action .sa-caret{margin-left:auto;transition:transform .18s var(--ease)}
 .side-action[aria-expanded="true"] .sa-caret{transform:rotate(180deg)}
 .user-mini{width:100%;box-sizing:border-box;cursor:pointer;border-radius:10px;padding:8px 9px;margin:0;border:1px solid transparent;transition:.15s var(--ease)}
@@ -1290,7 +1291,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
 .brand-btn .axsis-word.brand-full{display:inline-flex;font-size:26px;height:auto}
 .brand-btn .axsis-word--mini{font-size:22px}
 .sp-axsis{font-size:12px;font-weight:700;color:var(--navy-900);letter-spacing:.01em;margin-right:7px;white-space:nowrap}
-.nav-sep{height:1px;background:var(--gray-100);margin:10px 10px 8px}
+.nav-sep{height:1px;background:rgba(255,255,255,.15);margin:10px 10px 8px}
 
 /* ---- Chat Mi-IA ---- */
 .bb-ai{
@@ -1324,7 +1325,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   .sidebar.collapsed .nav-item span.lbl,.sidebar.collapsed .nav-label,.sidebar.collapsed .user-mini .meta,.sidebar.collapsed .nav-item .chip,.sidebar.collapsed .side-action .lbl,.sidebar.collapsed .sp-axsis,.sidebar.collapsed .um-caret{display:none}
   .sidebar.collapsed .nav-item{justify-content:center;padding:10px}
   .sidebar.collapsed .side-action{justify-content:center}
-  .sidebar.collapsed .logo-slot{margin:16px 10px 14px;justify-content:center}
+  .sidebar.collapsed .logo-slot{display:flex;margin:0;padding:12px 10px;justify-content:center;border-bottom:1px solid var(--gray-200)}
   .sidebar.collapsed .logo-slot .brand-full{display:none}
   .sidebar.collapsed .logo-slot .brand-icon{display:block}
   .sidebar.collapsed .brand-btn{padding:10px;border-radius:12px}
@@ -1343,7 +1344,7 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
   .sidebar{width:70px}
   .nav-item span.lbl,.nav-label,.user-mini .meta,.nav-item .chip{display:none}
   .nav-item{justify-content:center;padding:10px}
-  .logo-slot{margin:16px 10px 14px;justify-content:center}
+  .logo-slot{display:flex;margin:0;padding:12px 10px;justify-content:center;border-bottom:1px solid var(--gray-200)}
   .logo-slot .brand-full{display:none}
   .logo-slot .brand-icon{display:block}
   .brand-btn{padding:9px;border-radius:11px}
@@ -1358,18 +1359,10 @@ td.cell-wrap{white-space:normal;min-width:190px;max-width:250px;color:var(--gray
     box-shadow:var(--shadow-lg);
   }
   .sidebar.open{transform:none}
-  .sidebar .nav{background:var(--brand-500);border-radius:16px;margin:0 8px;padding:6px 8px 12px}
+  .sidebar .nav{background:var(--navy-900);border-radius:14px;margin:8px 8px 0;padding:8px 10px 12px}
   .sidebar .nav-item span.lbl,.sidebar .nav-label,.sidebar .user-mini .meta,.sidebar .nav-item .chip{display:block}
-  .sidebar .nav-item{justify-content:flex-start;padding:9px 10px;color:rgba(255,255,255,.85)}
-  .sidebar .nav-item:hover{background:rgba(255,255,255,.15);color:#fff}
-  .sidebar .nav-item.active{background:rgba(255,255,255,.22);color:#fff;box-shadow:none}
-  .sidebar .nav-item.active .chip{background:rgba(255,255,255,.24);color:#fff}
-  .sidebar .nav-item .chip{background:rgba(255,255,255,.18);color:rgba(255,255,255,.9)}
-  .sidebar .nav-label{color:rgba(255,255,255,.55)}
-  .sidebar .nav-sep{background:rgba(255,255,255,.18)}
-  .sidebar .side-action{color:rgba(255,255,255,.85)}
-  .sidebar .side-action:hover{background:rgba(255,255,255,.15);color:#fff}
-  .sidebar .logo-slot{margin:10px 10px 10px;justify-content:center}
+  .sidebar .nav-item{justify-content:flex-start;padding:9px 10px}
+  .sidebar .logo-slot{display:flex;margin:0;padding:16px 16px 14px;justify-content:center;border-bottom:1px solid var(--gray-200)}
   .sidebar .logo-slot .brand-full{display:block}
   .sidebar .logo-slot .brand-icon{display:none}
   .sidebar .brand-btn{padding:10px 14px;border-radius:12px}
